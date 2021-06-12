@@ -1,0 +1,403 @@
+{% extends 'base.html' %}
+{% load static %}
+
+        <!--====== App Content ======-->
+        {% block content %}
+        <div class="app-content">
+
+            <!--====== Section 1 ======-->
+            <div class="u-s-p-y-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="breadcrumb">
+                            <div class="breadcrumb__wrap">
+                                <ul class="breadcrumb__list">
+                                    <li class="has-separator">
+
+                                        <a href="{% url 'home:home' %}">Home</a></li>
+                                    <li class="is-marked">
+
+                                        <a href="{% url 'profile:address_book' %}">My Account</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--====== End - Section 1 ======-->
+
+
+            <!--====== Section 2 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="dash">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-12">
+
+                                    <!--====== Dashboard Features ======-->
+                                    <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
+                                        <div class="dash__pad-1">
+
+                                            <span class="dash__text u-s-m-b-16">Hello, {{user_detail.first_name}} {{user_detail.last_name}}</span>
+                                            <ul class="dash__f-list">
+                                                {% if user_detail.UserType == 'customer' %} 
+                                                <li>
+
+                                                    <a href="{% url 'profile:manage_myaccount' %}">Manage My Account</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:myprofile' %}">My Profile</a></li>
+                                                <li>
+
+                                                    <a class="dash-active" href="{% url 'profile:address_book' %}">Address Book</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:track_order' %}">Track Order</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:my_orders' %}">My Orders</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:my_payment_option' %}">My Payment Options</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:trackand_Cancel' %}">My Returns & Cancellations</a></li>
+            
+                                                {% else %}
+                                                <li>
+
+                                                    <a href="{% url 'profile:manage_myaccount' %}">Manage My Account</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:myprofile' %}">My Profile</a></li>
+                                                <li>
+
+                                                    <a class="dash-active" href="{% url 'profile:address_book' %}">Address Book</a></li>
+                                                <li>
+                                                    <a href="{% url 'profile:track_order' %}">Manage Order</a></li>
+                                                    
+                                                <li>
+                                                    <a href="{% url 'profile:all_product' %}">Your Products Detail</a></li>
+
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="dash__box dash__box--bg-white dash__box--shadow dash__box--w">
+                                        <div class="dash__pad-1">
+                                            <ul class="dash__w-list">
+                                                {% if user_detail.UserType == 'customer' %}
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">4</span>
+
+                                                        <span class="dash__w-name">Orders Placed</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-2"><i class="fas fa-times"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Cancel Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-3"><i class="far fa-heart"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Wishlist</span></div>
+                                                </li>
+
+                                            {% else %}
+
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">4</span>
+
+                                                        <span class="dash__w-name">Pending Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-2"><i class="fas fa-times"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Cancel Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-3"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Complete Orders</span></div>
+                                                </li>
+
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--====== End - Dashboard Features ======-->
+                                </div>
+                                <div class="col-lg-9 col-md-12">
+                                    <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white">
+                                        <div class="dash__pad-2">
+                                            <h1 class="dash__h1 u-s-m-b-14">{% if user_detail.UserType == 'customer' %}Edit Address{% else %}Edit Seller Address{% endif %}</h1>
+
+                                            <span class="dash__text u-s-m-b-30">{% if user_detail.UserType == 'customer' %}We need an address where we could deliver products.{% else %}We need an address where we could Pickup products.{% endif %}</span>
+                                            <form class="dash-address-manipulation " method="post">
+                                                {% csrf_token %}
+                                                {% for user_address in user_addresses %}
+                                                <div class="gl-inline">
+                                                    <div class="u-s-m-b-30">                                                    
+                                                        <label class="gl-label" for="address-fname">FIRST NAME *</label>
+
+                                                        <input class="input-text input-text--primary-style" type="text" name="FirstName" value="{{user_address.FirstName}}" id="address-fname"  placeholder="John Doe"></div>
+                                                    <div class="u-s-m-b-30">
+
+                                                        <label class="gl-label" for="address-lname">LAST NAME *</label>
+
+                                                        <input class="input-text input-text--primary-style" type="text" id="address-lname" name="LastName" value="{{user_address.LastName}}"  placeholder="Doe"></div>
+                                                </div>
+                                                <div class="gl-inline">
+                                                    <div class="u-s-m-b-30">
+
+                                                        <label class="gl-label" for="address-phone">PHONE *</label>
+
+                                                        <input class="input-text input-text--primary-style" type="text" id="address-phone" name="Contact"  value = "{{user_address.Contact}}" placeholder="(+0) 900901904"></div>
+                                                    <div class="u-s-m-b-30">
+
+                                                        <label class="gl-label" for="address-street">STREET ADDRESS *</label>
+
+                                                        <input class="input-text input-text--primary-style" type="text" value="{{user_address.StreetAddress}}" id="address-street" name = "Street_Address" placeholder="4247 Ashford Drive Virginia"></div>
+                                                </div>
+                                                <div class="gl-inline">
+                                                    <div class="u-s-m-b-30">
+                                                        <!--====== Select Box ======-->
+                                                        <label class="gl-label" for="address-country">COUNTRY *</label><select class="select-box select-box--primary-style" name = "Country"  id="new_add_country">
+                                                            <option disabled >Choose Country</option>
+                                                            {% for all_country in countrys %}
+                                                                {% if user_address.country.CountryName == all_country.CountryName %}
+                                                                <option selected value="{{all_country.id}}" >{{all_country.CountryName}}</option>
+                                                                {% else %}
+                                                                <option value="{{all_country.id}}" >{{all_country.CountryName}}</option>
+                                                                {% endif %}
+                                                            {% endfor countrys %}
+                                                            
+                                                        </select>
+                                                        <!--====== End - Select Box ======-->
+                                                    </div>
+                                                    <div class="u-s-m-b-30">
+
+                                                        <!--====== Select Box ======-->
+                                                        <label class="gl-label" for="address-state">STATE/PROVINCE *</label><select name = "State" class="select-box select-box--primary-style" id="new_add_state">
+                                                            <option disabled>Choose State/Province</option>
+                                                            {% for all_state in states %}
+                                                                {% if user_address.state.StateName == all_state.StateName %}
+                                                                    <option selected value="{{all_state.id}}">{{all_state.StateName}}</option>
+                                                                {% else %}
+                                                                    <option value="{{all_state.id}}">{{all_state.StateName}}</option>
+                                                                {% endif %}
+                                                            {% endfor states %}
+                                                        </select>
+                                                        <!--====== End - Select Box ======-->
+                                                    </div>
+                                                </div>
+                                                <div class="gl-inline">
+                                                    <div class="u-s-m-b-30">
+                                                        <!--====== Select Box ======-->
+                                                        <label class="gl-label" for="address-country">TOWN/CITY *</label><select  name="City" class="select-box select-box--primary-style"  id="new_add_city">
+                                                            <option disabled >Choose City</option>
+                                                            {% for add_city in citys %}
+                                                                {% if user_address.city.CityName == add_city.CityName %}
+                                                                    <option selected value="{{add_city.id}}">{{add_city.CityName}}</option>
+                                                                {% else %}
+                                                                    <option value="{{add_city.id}}">{{add_city.CityName}}</option>
+                                                                {% endif %}   
+                                                            {% endfor citys %}
+                                                        </select>
+                                                        <!--====== End - Select Box ======-->
+                                                    </div>
+
+                                                    <div class="u-s-m-b-30">
+                                                        <!--====== Select Box ======-->
+                                                        <label class="gl-label" for="address-country">AREA *</label><select  name = "Area" class="select-box select-box--primary-style"  id="new_add_area">
+                                                            <option disabled >Choose Area</option>
+                                                        {% for all_area in areas %}
+                                                            {% if user_address.area.AreaName == all_area.AreaName  %}
+                                                                <option selected value="{{all_area.id}}">{{all_area.AreaName}}</option>
+                                                            {% else %}
+                                                                <option value="{{all_area.id}}">{{all_area.AreaName}}</option>
+                                                            {% endif %}
+                                                            {% endfor areas %}                                                            
+                                                        </select>
+                                                        <!--====== End - Select Box ======-->
+                                                    </div>
+
+                                                </div>
+                                                <div class="gl-inline">
+
+                                                    <div class="u-s-m-b-30">
+
+                                                        <label class="gl-label" for="address-street">ZIP/POSTAL CODE *</label><select  name="pin_Code" class="select-box select-box--primary-style"  id="new_add_pincode">
+                                                            <option selected disabled >Choose ZIP/POSTAL</option>
+                                                            {% for add_pincode in pincodes %}
+                                                                {% if user_address.pincode.PincodeArea == add_pincode.PincodeArea %}
+                                                                <option selected value="{{add_pincode.id}}">{{add_pincode.PincodeArea}}</option>
+                                                                {% else %}
+                                                                <option value="{{add_pincode.id}}">{{add_pincode.PincodeArea}}</option>
+                                                                {% endif %}
+                                                            {% endfor pincodes %}
+                                                            
+                                                        </select>
+                                                    </div>
+                                                
+                                                    <div class="u-s-m-b-30">
+                                                        <!--====== Select Box ======-->
+                                                        <label class="gl-label" for="address-state">ADDRESS TYPE *</label><select  name="Address_Type" class="select-box select-box--primary-style">
+                                                            <option disabled>Choose ADDRESS</option>
+
+                                                        {% for add_address_type in address_types %}
+                                                        {% if user_address.address_type.Types == add_address_type.Types %}
+                                                            <option selected value="{{add_address_type.id}}">{{add_address_type.Types}}</option>
+                                                        {% else %}
+                                                            <option value="{{add_address_type.id}}">{{add_address_type.Types}}</option>
+                                                        {% endif %}
+                                                        {% endfor address_types %}
+                                                        </select>
+                                                        <!--====== End - Select Box ======-->
+                                                    </div>
+                                                </div>
+                                                {% endfor user_address %}
+
+                                                <button class="btn btn--e-brand-b-2" type="submit">SAVE</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 2 ======-->
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <script>
+            $(document).ready(function(){
+                $('#new_add_country').change(function(){
+                    //alert('click')
+                    $.ajax({
+                        type : "GET",
+                        url : "{% url 'profile:get_state' %}",
+                        data : {'new_add_country': $('#new_add_country').val()},
+                        
+                    }).done(function(list){
+                        const state_list = JSON.parse(list);
+                        //console.log(state_list)
+                        $('#new_add_state').empty();
+                        $('#new_add_state').append(`<option selected disabled>Choose State</option>`)
+
+                        state_list.forEach(function(sub){
+                            
+                            $('#new_add_state').append(`<option value = "${sub.pk}">${sub.fields.StateName}</option>`)
+
+                        });
+                    })
+                });
+                
+                
+                $('#new_add_state').change(function(){
+                    //alert('click')
+                    $.ajax({
+                        type : "GET",
+                        url : "{% url 'profile:get_city' %}",
+                        data : {'new_add_state': $('#new_add_state').val()},
+                        
+                    }).done(function(list){
+                        const city_list = JSON.parse(list);
+                        //console.log(city_list)
+                        $('#new_add_city').empty();
+                        $('#new_add_city').append(`<option selected disabled>Choose City</option>`)
+
+                        city_list.forEach(function(sub){
+                            
+                            $('#new_add_city').append(`<option value = "${sub.pk}">${sub.fields.CityName}</option>`)
+
+                        });
+                    })
+                });
+
+
+                $('#new_add_city').change(function(){
+                    //alert('click')
+                    $.ajax({
+                        type : "GET",
+                        url : "{% url 'profile:get_area' %}",
+                        data : {'new_add_city': $('#new_add_city').val()},
+                        
+                    }).done(function(list){
+                        const area_list = JSON.parse(list);
+                        //console.log(area_list)
+                        $('#new_add_area').empty();
+                        $('#new_add_area').append(`<option selected disabled>Choose Area</option>`)
+
+                        area_list.forEach(function(sub){
+                            
+                            $('#new_add_area').append(`<option value = "${sub.pk}">${sub.fields.AreaName}</option>`)
+
+                        });
+                    })
+                });
+
+
+                $('#new_add_area').change(function(){
+                    //alert('click')
+                    $.ajax({
+                        type : "GET",
+                        url : "{% url 'profile:get_pincode' %}",
+                        data : {'new_add_area': $('#new_add_area').val()},
+                        
+                    })
+                    .done(function(list){
+                        const pincode_list = JSON.parse(list);
+                        //console.log(pincode_list)
+                        $('#new_add_pincode').empty();
+                        $('#new_add_pincode').append(`<option selected disabled>Choose Pincode</option>`)
+
+                        pincode_list.forEach(function(sub){
+                            
+                            $('#new_add_pincode').append(`<option value = "${sub.pk}">${sub.fields.PincodeArea}</option>`)
+
+                        });
+                    })
+                });
+
+
+            }); 
+    </script>
+    
+        {% block javascript %}
+        {% endblock javascript %}
+        {% endblock content %}
+        <!--====== End - App Content ======-->

@@ -1,0 +1,277 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+        <!--====== App Content ======-->
+        {% block content %}
+        <div class="app-content">
+
+            <!--====== Section 1 ======-->
+            <div class="u-s-p-y-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="breadcrumb">
+                            <div class="breadcrumb__wrap">
+                                <ul class="breadcrumb__list">
+                                    <li class="has-separator">
+
+                                        <a href="{% url 'home:home' %}">Home</a></li>
+                                    <li class="is-marked">
+
+                                        <a href="{% url 'profile:manage_myaccount' %}">My Account</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--====== End - Section 1 ======-->
+
+
+            <!--====== Section 2 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="dash">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-12">
+
+                                    <!--====== Dashboard Features ======-->
+                                    <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
+                                        <div class="dash__pad-1">
+
+                                            <span class="dash__text u-s-m-b-16">Hello, {{user_detail.first_name}} {{user_detail.last_name}}</span>
+                                            <ul class="dash__f-list">
+                                                {% if user_detail.UserType == 'customer' %} 
+                                                <li>
+
+                                                    <a class="dash-active" href="{% url 'profile:manage_myaccount' %}">Manage My Account</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:myprofile' %}">My Profile</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:address_book' %}">Address Book</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:track_order' %}">Track Order</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:my_orders' %}">My Orders</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:my_payment_option' %}">My Payment Options</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:trackand_Cancel' %}">My Returns & Cancellations</a></li>
+            
+                                                {% else %}
+                                                <li>
+
+                                                    <a href="{% url 'profile:manage_myaccount' %}">Manage My Account</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:myprofile' %}">My Profile</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:address_book' %}">Address Book</a></li>
+                                                <li>
+                                                    <a href="{% url 'profile:track_order' %}">Manage Order</a></li>
+                                                <li>
+                                                    <a class="dash-active" href="{% url 'profile:all_product' %}">Your Products Detail</a></li>
+
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="dash__box dash__box--bg-white dash__box--shadow dash__box--w">
+                                        <div class="dash__pad-1">
+                                            <ul class="dash__w-list">
+                                            {% if user_detail.UserType == 'customer' %}
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">4</span>
+
+                                                        <span class="dash__w-name">Orders Placed</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-2"><i class="fas fa-times"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Cancel Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-3"><i class="far fa-heart"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Wishlist</span></div>
+                                                </li>
+
+                                            {% else %}
+
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">4</span>
+
+                                                        <span class="dash__w-name">Pending Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-2"><i class="fas fa-times"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Cancel Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-3"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Complete Orders</span></div>
+                                                </li>
+
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--====== End - Dashboard Features ======-->
+                                </div>
+                                <div class="col-lg-9 col-md-12">
+                                    <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white u-s-m-b-30">
+                                        <div class="dash__pad-2">
+                                            <h1 class="dash__h1 u-s-m-b-14">Manage Product of Account</h1>
+
+                                            <span class="dash__text u-s-m-b-30">Here are the variety of your options as par the requirment you can use it.</span>
+                                            <div class="row">
+                                                <div class="col-lg-4 u-s-m-b-30">
+                                                    <div class="dash__box dash__box--bg-grey dash__box--shadow-2 u-h-100">
+                                                        <div class="dash__pad-3">
+                                                            <h2 class="dash__h2 u-s-m-b-8">ADD NEW PRODUCT</h2>
+                                                            <div class="dash__link dash__link--secondary u-s-m-b-8">
+
+                                                                <a href="{% url 'profile:product_upload' %}">Add</a></div>
+
+                                                            <span class="dash__text">Product Uploder :- <br>{{user_detail.first_name}} {{user_detail.last_name}}</span><br>
+
+                                                            <span class="dash__text">Uploder Email :- {{user_detail.email}}</span>
+                                                            <div class="dash__link dash__link--secondary u-s-m-t-8">
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 u-s-m-b-30">
+                                                    <div class="dash__box dash__box--bg-grey dash__box--shadow-2 u-h-100">
+                                                        <div class="dash__pad-3">
+                                                            <h2 class="dash__h2 u-s-m-b-8">EDIT/DELETE PRODUCT</h2>
+                                                            <div class="dash__link dash__link--secondary u-s-m-b-8">
+
+                                                                <a href="{% url 'profile:product_edit' %}">Edit/Delete</a></div>
+
+                                                            <span class="dash__text">Notes :- <br>Please edit the ploduct as per fields describe in it.</span><br>
+
+                                                            <span class="dash__text">click on edit button to edit</span>
+                                                            <div class="dash__link dash__link--secondary u-s-m-t-8">
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 u-s-m-b-30">
+                                                    <div class="dash__box dash__box--bg-grey dash__box--shadow-2 u-h-100">
+                                                        <div class="dash__pad-3">
+                                                            <h2 class="dash__h2 u-s-m-b-8">VIEW PRODUCT</h2>
+                                                            <div class="dash__link dash__link--secondary u-s-m-b-8">
+
+                                                                <a href="{% url 'profile:product_view' %}">View</a></div>
+
+                                                            <span class="dash__text">Notes :- <br>Please add the ploduct as per fields describe in it. </span><br>
+
+                                                            <span class="dash__text">click on edit button to upload</span>
+                                                            <div class="dash__link dash__link--secondary u-s-m-t-8">
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {% comment %} <div class="row">
+                                                <div class="col-lg-4 u-s-m-b-30">
+                                                    <div class="dash__box dash__box--bg-grey dash__box--shadow-2 u-h-100">
+                                                        <div class="dash__pad-3">
+                                                            <h2 class="dash__h2 u-s-m-b-8">PERSONAL PROFILE</h2>
+                                                            <div class="dash__link dash__link--secondary u-s-m-b-8">
+
+                                                                <a href="{% url 'profile:edit_profile' %}">Edit</a></div>
+
+                                                            <span class="dash__text">{{user_detail.first_name}} {{user_detail.last_name}}</span>
+
+                                                            <span class="dash__text">{{user_detail.email}}</span>
+                                                            <div class="dash__link dash__link--secondary u-s-m-t-8">
+
+                                                                <a data-modal="modal" data-modal-id="#dash-newsletter">Subscribe Newsletter</a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 u-s-m-b-30">
+                                                    <div class="dash__box dash__box--bg-grey dash__box--shadow-2 u-h-100">
+                                                        <div class="dash__pad-3">
+                                                            <h2 class="dash__h2 u-s-m-b-8">ADDRESS BOOK</h2>
+
+                                                            <span class="dash__text-2 u-s-m-b-8">{% if user_detail.UserType == 'customer' %} Default Shipping Address{% else %}Default Parcal Pickup Address{% endif %}</span>
+                                                            <div class="dash__link dash__link--secondary u-s-m-b-8">
+
+                                                                <a href="{% url 'profile:address_book' %}">Edit</a></div>
+                                                            <span class="dash__text">{{user_default_address.dafault_address.StreetAddress}} {{user_default_address.dafault_address.area}} {{user_default_address.dafault_address.city}} {{user_default_address.dafault_address.state}}-{{user_default_address.dafault_address.pincode}} {{user_default_address.dafault_address.country}}</span>
+                                                            <span class="dash__text">(+91) {{user_default_address.dafault_address.Contact}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 u-s-m-b-30">
+                                                    <div class="dash__box dash__box--bg-grey dash__box--shadow-2 u-h-100">
+                                                        <div class="dash__pad-3">
+                                                            <h2 class="dash__h2 u-s-m-b-8">BILLING ADDRESS</h2>
+
+                                                            <span class="dash__text-2 u-s-m-b-8">{% if user_detail.UserType == 'customer' %} Default Billing Address {% else %}Default Parcal Billing Address{% endif %}</span>
+                                                            <span class="dash__text">{{user_default_address.dafault_address.StreetAddress}} {{user_default_address.dafault_address.area}} {{user_default_address.dafault_address.city}} {{user_default_address.dafault_address.state}}-{{user_default_address.dafault_address.pincode}} {{user_default_address.dafault_address.country}}</span>                                                            
+                                                            <span class="dash__text">(+91) {{user_default_address.dafault_address.Contact}}</span>
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> {% endcomment %}
+
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 2 ======-->
+        </div>
+        {% endblock content %}
+        <!--====== End - App Content ======-->

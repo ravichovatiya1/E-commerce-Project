@@ -1,0 +1,1702 @@
+{% extends 'base.html' %}
+{% load static %}
+
+        <!--====== App Content ======-->
+        {% block content %}  
+        {% csrf_token %}
+        <h1>{{Test}}</h1>
+
+        <div class="app-content">
+
+            <!--====== Section 1 ======-->
+            <div class="u-s-p-y-90">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-12">
+                            <div class="shop-w-master">
+                                <h1 class="shop-w-master__heading u-s-m-b-30"><i class="fas fa-filter u-s-m-r-8"></i>
+
+                                    <span>FILTERS</span></h1>
+                                <div class="shop-w-master__sidebar sidebar--bg-snow">
+                                    <div class="u-s-m-b-30">
+                                        <div class="shop-w">
+                                            <div class="shop-w__intro-wrap">
+                                                <h1 class="shop-w__h">CATEGORY</h1>
+
+                                                <span class="fas fa-minus shop-w__toggle" data-target="#s-category" data-toggle="collapse"></span>
+                                            </div>
+                                            <div class="shop-w__wrap collapse show" id="s-category">
+                                                <ul class="shop-w__category-list gl-scroll">
+                                                    <li class="has-list">
+
+                                                        <a href="#">Electronics</a>
+
+                                                        <span class="category-list__text u-s-m-l-6">(23)</span>
+
+                                                        <span class="js-shop-category-span is-expanded fas fa-plus u-s-m-l-6"></span>
+                                                        <ul style="display:block">
+                                                            <li class="has-list">
+
+                                                                <a href="#">3D Printer & Supplies</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">3d Printer</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">3d Printing Pen</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">3d Printing Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">3d Printer Module Board</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Home Audio & Video</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">TV Boxes</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">TV Receiver & Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">3d Printing Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">3d Printer Module Board</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Media Players</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Earphones</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Mp3 Players</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Speakers & Radios</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Microphones</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Video Game Accessories</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Nintendo Video Games Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Sony Video Games Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Xbox Video Games Accessories</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Security & Protection</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Security Cameras</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Alarm System</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Security Gadgets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">CCTV Security Accessories</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Home Audio & Video</a>
+
+                                                                <span class="js-shop-category-span is-expanded fas fa-plus u-s-m-l-6"></span>
+                                                                <ul style="display:block">
+                                                                    <li>
+
+                                                                        <a href="#">TV Boxes</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">TV Receiver & Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">3d Printing Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">3d Printer Module Board</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Photography & Camera</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Digital Cameras</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Sport Camera & Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Camera Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Lenses & Accessories</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Arduino Compatible</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Raspberry Pi & Orange Pi</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Module Board</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Smart Robot</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Board Kits</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">DSLR Camera</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Nikon Camera</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Canon Camera</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Sony Camera</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">DSLR Lenses</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Necessary Accessories</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Flash Cards</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Memory Cards</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Flash Pins</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Compact Discs</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-list">
+
+                                                        <a href="#">Women's Clothing</a>
+
+                                                        <span class="category-list__text u-s-m-l-6">(5)</span>
+
+                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                        <ul>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Hot Categories</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Dresses</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Blouses & Shirts</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">T-shirts</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Rompers</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Intimates</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Bras</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Brief Sets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Bustiers & Corsets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Panties</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Wedding & Events</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Wedding Dresses</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Evening Dresses</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Prom Dresses</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Flower Dresses</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Bottoms</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Skirts</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Shorts</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Leggings</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Jeans</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Outwear</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Blazers</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Basic Jackets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Trench</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Leather & Suede</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Jackets</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Denim Jackets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Trucker Jackets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Windbreaker Jackets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Leather Jackets</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Accessories</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Tech Accessories</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Headwear</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Baseball Caps</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Belts</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Other Accessories</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Bags</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Wallets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Watches</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Sunglasses</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-list">
+
+                                                        <a href="#">Men's Clothing</a>
+
+                                                        <span class="category-list__text u-s-m-l-6">(5)</span>
+
+                                                        <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                        <ul>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Hot Sale</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">T-Shirts</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Tank Tops</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Polo</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Shirts</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Outwear</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Hoodies</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Trench</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Parkas</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Sweaters</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Bottoms</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Casual Pants</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Cargo Pants</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Jeans</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Shorts</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Underwear</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Boxers</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Briefs</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Robes</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Socks</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Jackets</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Denim Jackets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Trucker Jackets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Windbreaker Jackets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Leather Jackets</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Sunglasses</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Pilot</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Wayfarer</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Square</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Round</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Accessories</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Eyewear Frames</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Scarves</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Hats</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Belts</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="has-list">
+
+                                                                <a href="#">Other Accessories</a>
+
+                                                                <span class="js-shop-category-span fas fa-plus u-s-m-l-6"></span>
+                                                                <ul>
+                                                                    <li>
+
+                                                                        <a href="#">Bags</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Wallets</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Watches</a></li>
+                                                                    <li>
+
+                                                                        <a href="#">Tech Accessories</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+
+                                                        <a href="#">Food & Supplies</a>
+
+                                                        <span class="category-list__text u-s-m-l-6">(0)</span></li>
+                                                    <li>
+
+                                                        <a href="#">Furniture & Decor</a>
+
+                                                        <span class="category-list__text u-s-m-l-6">(0)</span></li>
+                                                    <li>
+
+                                                        <a href="#">Sports & Game</a>
+
+                                                        <span class="category-list__text u-s-m-l-6">(0)</span></li>
+                                                    <li>
+
+                                                        <a href="#">Beauty & Health</a>
+
+                                                        <span class="category-list__text u-s-m-l-6">(0)</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-s-m-b-30">
+                                        <div class="shop-w">
+                                            <div class="shop-w__intro-wrap">
+                                                <h1 class="shop-w__h">RATING</h1>
+
+                                                <span class="fas fa-minus shop-w__toggle" data-target="#s-rating" data-toggle="collapse"></span>
+                                            </div>
+                                            <div class="shop-w__wrap collapse show" id="s-rating">
+                                                <ul class="shop-w__list gl-scroll">
+                                                    <li>
+                                                        <div class="rating__check">
+
+                                                            <input type="checkbox">
+                                                            <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                                        </div>
+
+                                                        <span class="shop-w__total-text">(2)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="rating__check">
+
+                                                            <input type="checkbox">
+                                                            <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+
+                                                                <span>& Up</span></div>
+                                                        </div>
+
+                                                        <span class="shop-w__total-text">(8)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="rating__check">
+
+                                                            <input type="checkbox">
+                                                            <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+
+                                                                <span>& Up</span></div>
+                                                        </div>
+
+                                                        <span class="shop-w__total-text">(10)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="rating__check">
+
+                                                            <input type="checkbox">
+                                                            <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+
+                                                                <span>& Up</span></div>
+                                                        </div>
+
+                                                        <span class="shop-w__total-text">(12)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="rating__check">
+
+                                                            <input type="checkbox">
+                                                            <div class="rating__check-star-wrap"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+
+                                                                <span>& Up</span></div>
+                                                        </div>
+
+                                                        <span class="shop-w__total-text">(1)</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-s-m-b-30">
+                                        <div class="shop-w">
+                                            <div class="shop-w__intro-wrap">
+                                                <h1 class="shop-w__h">SHIPPING</h1>
+
+                                                <span class="fas fa-minus shop-w__toggle" data-target="#s-shipping" data-toggle="collapse"></span>
+                                            </div>
+                                            <div class="shop-w__wrap collapse show" id="s-shipping">
+                                                <ul class="shop-w__list gl-scroll">
+                                                    <li>
+
+                                                        <!--====== Check Box ======-->
+                                                        <div class="check-box">
+
+                                                            <input type="checkbox" id="free-shipping">
+                                                            <div class="check-box__state check-box__state--primary">
+
+                                                                <label class="check-box__label" for="free-shipping">Free Shipping</label></div>
+                                                        </div>
+                                                        <!--====== End - Check Box ======-->
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-s-m-b-30">
+                                        <div class="shop-w">
+                                            <div class="shop-w__intro-wrap">
+                                                <h1 class="shop-w__h">PRICE</h1>
+
+                                                <span class="fas fa-minus shop-w__toggle" data-target="#s-price" data-toggle="collapse"></span>
+                                            </div>
+                                            <div class="shop-w__wrap collapse show" id="s-price">
+                                                <form class="shop-w__form-p">
+                                                    <div class="shop-w__form-p-wrap">
+                                                        <div>
+
+                                                            <label for="price-min"></label>
+
+                                                            <input class="input-text input-text--primary-style" type="text" id="price-min" placeholder="Min"></div>
+                                                        <div>
+
+                                                            <label for="price-max"></label>
+
+                                                            <input class="input-text input-text--primary-style" type="text" id="price-max" placeholder="Max"></div>
+                                                        <div>
+
+                                                            <button class="btn btn--icon fas fa-angle-right btn--e-transparent-platinum-b-2" type="submit"></button></div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-s-m-b-30">
+                                        <div class="shop-w">
+                                            <div class="shop-w__intro-wrap">
+                                                <h1 class="shop-w__h">MANUFACTURER</h1>
+
+                                                <span class="fas fa-minus shop-w__toggle" data-target="#s-manufacturer" data-toggle="collapse"></span>
+                                            </div>
+                                            <div class="shop-w__wrap collapse show" id="s-manufacturer">
+                                                <ul class="shop-w__list-2">
+                                                    <li>
+                                                        <div class="list__content">
+
+                                                            <input type="checkbox" checked>
+
+                                                            <span>Calvin Klein</span></div>
+
+                                                        <span class="shop-w__total-text">(23)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="list__content">
+
+                                                            <input type="checkbox">
+
+                                                            <span>Diesel</span></div>
+
+                                                        <span class="shop-w__total-text">(2)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="list__content">
+
+                                                            <input type="checkbox">
+
+                                                            <span>Polo</span></div>
+
+                                                        <span class="shop-w__total-text">(2)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="list__content">
+
+                                                            <input type="checkbox">
+
+                                                            <span>Tommy Hilfiger</span></div>
+
+                                                        <span class="shop-w__total-text">(9)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="list__content">
+
+                                                            <input type="checkbox">
+
+                                                            <span>Ndoge</span></div>
+
+                                                        <span class="shop-w__total-text">(3)</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-s-m-b-30">
+                                        <div class="shop-w">
+                                            <div class="shop-w__intro-wrap">
+                                                <h1 class="shop-w__h">COLOR</h1>
+
+                                                <span class="fas fa-minus shop-w__toggle" data-target="#s-color" data-toggle="collapse"></span>
+                                            </div>
+                                            <div class="shop-w__wrap collapse show" id="s-color">
+                                                <ul class="shop-w__list gl-scroll">
+                                                    <li>
+                                                        <div class="color__check">
+
+                                                            <input type="checkbox" id="jet">
+
+                                                            <label class="color__check-label" for="jet" style="background-color: #333333"></label></div>
+
+                                                        <span class="shop-w__total-text">(2)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="color__check">
+
+                                                            <input type="checkbox" id="folly">
+
+                                                            <label class="color__check-label" for="folly" style="background-color: #FF0055"></label></div>
+
+                                                        <span class="shop-w__total-text">(4)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="color__check">
+
+                                                            <input type="checkbox" id="yellow">
+
+                                                            <label class="color__check-label" for="yellow" style="background-color: #FFFF00"></label></div>
+
+                                                        <span class="shop-w__total-text">(6)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="color__check">
+
+                                                            <input type="checkbox" id="granite-gray">
+
+                                                            <label class="color__check-label" for="granite-gray" style="background-color: #605F5E"></label></div>
+
+                                                        <span class="shop-w__total-text">(8)</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="color__check">
+
+                                                            <input type="checkbox" id="space-cadet">
+
+                                                            <label class="color__check-label" for="space-cadet" style="background-color: #1D3461"></label></div>
+
+                                                        <span class="shop-w__total-text">(10)</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-s-m-b-30">
+                                        <div class="shop-w">
+                                            <div class="shop-w__intro-wrap">
+                                                <h1 class="shop-w__h">SIZE</h1>
+
+                                                <span class="fas fa-minus collapsed shop-w__toggle" data-target="#s-size" data-toggle="collapse"></span>
+                                            </div>
+                                            <div class="shop-w__wrap collapse" id="s-size">
+                                                <ul class="shop-w__list gl-scroll">
+                                                    <li>
+
+                                                        <!--====== Check Box ======-->
+                                                        <div class="check-box">
+
+                                                            <input type="checkbox" id="xs">
+                                                            <div class="check-box__state check-box__state--primary">
+
+                                                                <label class="check-box__label" for="xs">XS</label></div>
+                                                        </div>
+                                                        <!--====== End - Check Box ======-->
+
+                                                        <span class="shop-w__total-text">(2)</span>
+                                                    </li>
+                                                    <li>
+
+                                                        <!--====== Check Box ======-->
+                                                        <div class="check-box">
+
+                                                            <input type="checkbox" id="small">
+                                                            <div class="check-box__state check-box__state--primary">
+
+                                                                <label class="check-box__label" for="small">Small</label></div>
+                                                        </div>
+                                                        <!--====== End - Check Box ======-->
+
+                                                        <span class="shop-w__total-text">(4)</span>
+                                                    </li>
+                                                    <li>
+
+                                                        <!--====== Check Box ======-->
+                                                        <div class="check-box">
+
+                                                            <input type="checkbox" id="medium">
+                                                            <div class="check-box__state check-box__state--primary">
+
+                                                                <label class="check-box__label" for="medium">Medium</label></div>
+                                                        </div>
+                                                        <!--====== End - Check Box ======-->
+
+                                                        <span class="shop-w__total-text">(6)</span>
+                                                    </li>
+                                                    <li>
+
+                                                        <!--====== Check Box ======-->
+                                                        <div class="check-box">
+
+                                                            <input type="checkbox" id="large">
+                                                            <div class="check-box__state check-box__state--primary">
+
+                                                                <label class="check-box__label" for="large">Large</label></div>
+                                                        </div>
+                                                        <!--====== End - Check Box ======-->
+
+                                                        <span class="shop-w__total-text">(8)</span>
+                                                    </li>
+                                                    <li>
+
+                                                        <!--====== Check Box ======-->
+                                                        <div class="check-box">
+
+                                                            <input type="checkbox" id="xl">
+                                                            <div class="check-box__state check-box__state--primary">
+
+                                                                <label class="check-box__label" for="xl">XL</label></div>
+                                                        </div>
+                                                        <!--====== End - Check Box ======-->
+
+                                                        <span class="shop-w__total-text">(10)</span>
+                                                    </li>
+                                                    <li>
+
+                                                        <!--====== Check Box ======-->
+                                                        <div class="check-box">
+
+                                                            <input type="checkbox" id="xxl">
+                                                            <div class="check-box__state check-box__state--primary">
+
+                                                                <label class="check-box__label" for="xxl">XXL</label></div>
+                                                        </div>
+                                                        <!--====== End - Check Box ======-->
+
+                                                        <span class="shop-w__total-text">(12)</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-12">
+                            <div class="shop-p">
+                                <div class="shop-p__toolbar u-s-m-b-30">
+                                    <div class="shop-p__meta-wrap u-s-m-b-60">
+
+                                        <span class="shop-p__meta-text-1">FOUND 18 RESULTS</span>
+                                        <div class="shop-p__meta-text-2">
+
+                                            <span>Related Searches:</span>
+
+                                            <a class="gl-tag btn--e-brand-shadow" href="#">men's clothing&nbsp;<i href="#" class="btn fas fa-times"></i></a>
+
+                                            <a class="gl-tag btn--e-brand-shadow" href="#">mobiles & tablets&nbsp;<i href="#" class="btn fas fa-times"></i></a>
+
+                                            <a class="gl-tag btn--e-brand-shadow" href="#">books & audible&nbsp;<i href="#" class="btn fas fa-times"></i></a></div>
+                                    </div>
+                                    <div class="shop-p__tool-style">
+                                        <div class="tool-style__group u-s-m-b-8">
+
+                                            <span class="js-shop-grid-target is-active">Grid</span>
+
+                                            <span class="js-shop-list-target">List</span></div>
+                                        <form>
+                                            <div class="tool-style__form-wrap">
+                                                <div class="u-s-m-b-8"><select class="select-box select-box--transparent-b-2"  name="get_page_choice" id = "ajax_page_number" >
+                                                        <option value = "8">Show: 8</option>
+                                                        <option value = "12" selected>Show: 12</option>
+                                                        <option value = "16">Show: 16</option>
+                                                        <option value = "28" >Show: 28</option>
+                                                    </select></div>
+                                                <div class="u-s-m-b-8"><select class="select-box select-box--transparent-b-2">
+                                                        <option selected>Sort By: Newest Items</option>
+                                                        <option>Sort By: Latest Items</option>
+                                                        <option>Sort By: Best Selling</option>
+                                                        <option>Sort By: Best Rating</option>
+                                                        <option>Sort By: Lowest Price</option>
+                                                        <option>Sort By: Highest Price</option>
+                                                    </select></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="shop-p__collection">
+                                    <div class="row is-grid-active">
+                                        {% for Product in Product %}
+
+                                        {% comment %} hiddern fields starts {% endcomment %}
+                                        <div>
+                                            <img class="aspect__img jquery_images_2_get_{{Product.id}}" style="display:none;" src="{{Product.Product_Img_2.url}}" alt="">
+                                            <img class="aspect__img jquery_images_3_get_{{Product.id}}" style="display:none;" src="{{Product.Product_Img_3.url}}" alt="">
+                                            <img class="aspect__img jquery_images_4_get_{{Product.id}}" style="display:none;" src="{{Product.Product_Img_4.url}}" alt="">
+                                            <img class="aspect__img jquery_images_5_get_{{Product.id}}" style="display:none;" src="{{Product.Product_Img_5.url}}" alt="">
+
+                                            <p id='Product_Title_get_{{Product.id}}' style="display:none">{{Product.Product_Title|title}}</p>
+                                            <p id='Product_price_get_{{Product.id}}' style="display:none">$ {{Product.Product_Price|floatformat:2}}</p>
+                                            <p id='Product_percentage_get_{{Product.id}}' style="display:none">({{Product.Product_Percentage_Off|floatformat:0 }}% OFF)</p>
+                                            <p id='Product_cutoff_get_{{Product.id}}' style="display:none">${{Product.Product_Cutoff_Price|floatformat:2}}</p>
+                                            <p id='Product_stocks_get_{{Product.id}}' style="display:none">{{Product.Product_Stock}} in stock</p>
+                                            <p id='Product_disc_get_{{Product.id}}' style="display:none">{{Product.Product_Disc}}</p>
+                                        
+                                            <a style="display:none;"  id="Product_wish_heart_get_{{Product.id}}" class="wish_heart" data-pk="{{Product.pk}}" href="{% url 'wishlist:addWish' Product.pk  %}"></a>
+
+                                            {% comment %} this is for the cart hiddern fields passed below {% endcomment %}
+                                                <a  style="display:none;"  id="Product_wish_cart_get_{{Product.id}}"  class="btn btn--e-brand-b-2  wish_cart" data-pk="{{Product.pk}}" href="{% url 'cart:addCart' Product.pk  %}"></a>
+
+                                            <div style="display:none;" id="Product_rated_us_get_{{Product.id}}" >
+                                                {% for key, value in review_average.items %}
+                                                    {% if key == Product.Product_Title %}
+                                                        <p id="Product_total_review_get_{{Product.id}}" style="display:none;" >{{value}} Reviews</p>
+                                                        {% if value == '1.5' %}
+                                                        <div class="pd-detail__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                        </div>
+
+                                                        {% elif value == '2' %}
+                                                        <div class="pd-detail__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                        </div>
+
+                                                        {% elif value == '2.5' %}
+                                                        <div class="pd-detail__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                        </div>
+
+                                                        {% elif value == '3' %}
+                                                        <div class="pd-detail__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                        </div>
+
+                                                        {% elif value == '3.5' %}
+                                                        <div class="pd-detail__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                                                            <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                        </div>
+
+                                                        {% elif value == '4' %}
+                                                        <div class="pd-detail__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                        </div>
+
+                                                        {% elif value == '4.5' %}
+                                                        <div class="pd-detail__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                            <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                        </div>
+
+                                                        {% elif value == '5'  %}
+                                                        <div class="pd-detail__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                            <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                        </div>
+
+                                                        {% else %}
+                                                        <div class="pd-detail__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                        </div>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor review_average %}
+                                            </div>
+
+                                            <div style="display:none;" id="Product_policys_get_{{Product.id}}" >
+                                                {% for Product_policy in ProductPolicy %}
+                                                    {% if Product.id == Product_policy.product.id %}
+                                                        <li><i style="color:green;" class="fas fa-check-circle u-s-m-r-8"></i>
+                                                        <span>{{Product_policy.product.id}} {{Product_policy}}</span></li>
+                                                    {% endif %}
+                                                {% endfor ProductPolicy %}
+                                            </div>
+
+                                            <ul style= "display:none">
+                                                <li class="has-separator">
+                                                    <a href="shop-side-version-2.html" id="jquery_product_link_1_get_{{Product.id}}"  >{{Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
+
+                                                <li class="has-separator">
+                                                    <a href="shop-side-version-2.html" id="jquery_product_link_2_get_{{Product.id}}" >{{Product.mainproduct.productcategory.subcategory|title}}</a></li>
+
+                                                <li class="is-marked">
+                                                    <a href="shop-side-version-2.html" id="jquery_product_link_3_get_{{Product.id}}" >{{Product.mainproduct.productcategory|title}}</a></li>
+                                            </ul>
+                                        </div>
+                                        {% comment %} hiddern field ends {% endcomment %}
+
+
+
+
+                                        <div class="col-lg-4 col-md-6 col-sm-6">
+                                            <div class="product-m">
+                                                <div class="product-m__thumb">
+
+                                                    <a class="aspect aspect--bg-grey aspect--square u-d-block" href="{% url 'home:product_detail' Product.pk  %}">
+
+                                                        <img class="aspect__img jquery_images_1_get_{{Product.id}}" src="{{Product.Product_Img_1.url}}" alt=""></a>
+                                                    <div class="product-m__quick-look">
+
+                                                        <a id='{{Product.id}}' class="fas fa-search jquery_product_display" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick Look"></a></div>
+
+                                                    {% if request.user.UserType == 'customer' %}
+                                                    <div class="product-m__add-cart">
+                                                        <a data-pk="{{Product.pk}}" href="{% url 'cart:addCart' Product.pk  %}"  id='{{Product.id}}' class="btn--e-brand jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
+                                                        <span class="ajax_quantity" style="display:none;">1</span>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="product-m__content">
+                                                    <div class="product-m__category">
+
+                                                        <a href="{% url 'home:shop_grid_left' Product.maincategory.pk %}">{{Product.maincategory|title}}</a></div>
+                                                    <div class="product-m__name">
+
+                                                        <a href="{% url 'home:product_detail' Product.pk %}">{{Product.Product_Title|slice:"0:25"}} ...</a></div>
+                                                            {% for key, value in review_average.items %}
+                                                                {% if key == Product.Product_Title %}
+                                                                    <p id="Product_total_review_get_{{Product.id}}" style="display:none;" >{{value}} Reviews</p>
+                                                                    {% if value == '1.5' %}
+                                                                    <div class="product-m__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-m__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                        {% comment %} {% for key, value in unique_product_rating_count %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} {% endcomment %}
+                                                                    </div>
+
+                                                                    {% elif value == '2' %}
+                                                                    <div class="product-m__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-m__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '2.5' %}
+                                                                    <div class="product-m__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-m__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '3' %}
+                                                                    <div class="product-m__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-m__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '3.5' %}
+                                                                    <div class="product-m__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                                                                        <span class="product-m__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '4' %}
+                                                                    <div class="product-m__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-m__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '4.5' %}
+                                                                    <div class="product-m__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                                        <span class="product-m__review">({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '5'  %}
+                                                                    <div class="product-m__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                                        <span class="product-m__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% else %}
+                                                                    <div class="product-m__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-m__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% endfor review_average %}
+                                                    <div class="product-m__price">${{Product.Product_Price|floatformat:2}}</div>
+                                                    <div class="product-m__hover">
+                                                        <div class="product-m__preview-description">
+
+                                                            <span>{{Product.Product_Disc|slice:"0:240"}}</span></div>
+                                                        <div class="product-m__wishlist">
+
+                                                            <a class="far fa-heart wish_heart" data-pk="{{Product.pk}}" href="{% url 'wishlist:addWish' Product.pk  %}" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--====== Quick Look Modal ======-->
+                                        <div class="modal fade" id="quick-look">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content modal--shadow">
+
+                                                    <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-5">
+
+                                                                <!--====== Product Breadcrumb ======-->
+                                                                <div class="pd-breadcrumb u-s-m-b-30">
+                                                                    <ul class="pd-breadcrumb__list">
+                                                                        <li class="has-separator">
+
+                                                                            <a href="{% url 'home:home' %}">Home</a></li>
+                                                                        <li class="has-separator">
+
+                                                                            <a href="shop-side-version-2.html" id ="jquery_product_link_1_display"></a></li>
+                                                                        <li class="has-separator">
+
+                                                                            <a href="shop-side-version-2.html" id ="jquery_product_link_2_display" ></a></li>
+                                                                        <li class="is-marked">
+
+                                                                            <a href="shop-side-version-2.html" id ="jquery_product_link_3_display"></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <!--====== End - Product Breadcrumb ======-->
+
+
+                                                                <!--====== Product Detail ======-->
+                                                                <div class="pd u-s-m-b-30">
+                                                                    <div class="pd-wrap">
+                                                                        <div id="js-product-detail-modal">
+                                                                            <div>
+
+                                                                                <img class="u-img-fluid jquery_images_1_display" src="" alt=""></div>
+                                                                            <div>
+
+                                                                                <img class="u-img-fluid jquery_images_2_display" src="" alt=""></div>
+                                                                            <div>
+
+                                                                                <img class="u-img-fluid jquery_images_3_display" src="" alt=""></div>
+                                                                            <div>
+
+                                                                                <img class="u-img-fluid jquery_images_4_display" src="" alt=""></div>
+                                                                            <div>
+
+                                                                                <img class="u-img-fluid jquery_images_5_display" src="" alt=""></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="u-s-m-t-15">
+                                                                        <div id="js-product-detail-modal-thumbnail">
+                                                                            <div>
+
+                                                                                <img class="u-img-fluid jquery_images_1_display" src="" alt=""></div>
+                                                                            <div>
+
+                                                                                <img class="u-img-fluid jquery_images_2_display" src="" alt=""></div>
+                                                                            <div>
+
+                                                                                <img class="u-img-fluid jquery_images_3_display" src="" alt=""></div>
+                                                                            <div>
+
+                                                                                <img class="u-img-fluid jquery_images_4_display" src="" alt=""></div>
+                                                                            <div>
+
+                                                                                <img class="u-img-fluid jquery_images_5_display" src="" alt=""></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--====== End - Product Detail ======-->
+                                                            </div>
+                                                            <div class="col-lg-7">
+
+                                                                <!--====== Product Right Side Details ======-->
+                                                                <div class="pd-detail">
+                                                                    <div>
+
+                                                                        <span class="pd-detail__name" id="Product_Title_display"></span></div>
+                                                                    <div>
+                                                                        <div class="pd-detail__inline">
+                                                                            <span class="pd-detail__price" id="Product_price_display"></span>
+
+                                                                            <span class="pd-detail__discount" id="Product_percentage_display" ></span><del class="pd-detail__del" id="Product_cutoff_display"></del></div>
+                                                                    </div>
+                                                                    <div class="u-s-m-b-15" id="Product_rated_us_display" >
+                                                                        {% comment %} <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+
+                                                                            <span class="pd-detail__review u-s-m-l-4">
+
+                                                                                <a href="product-detail.html" id="Product_total_review_display"></a></span> {% endcomment %}
+                                                                    </div>
+
+                                                                    <div class="u-s-m-b-15">
+                                                                        <div class="pd-detail__inline">
+
+                                                                            <span class="pd-detail__stock" id="Product_stocks_display"></span>
+
+                                                                            <span class="pd-detail__left">Only 2 left</span></div>
+                                                                    </div>
+                                                                    <div class="u-s-m-b-15">
+
+                                                                        <span class="pd-detail__preview-desc" id="Product_disc_display" ></span></div>
+                                                                    <div class="u-s-m-b-15">
+                                                                        <div class="pd-detail__inline">
+
+                                                                            <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>
+
+                                                                                <a id="Product_wish_heart_display">Add to Wishlist</a>
+
+                                                                                <span class="pd-detail__click-count">(222)</span></span></div>
+                                                                    </div>
+
+                                                                    {% if request.user.UserType == 'customer' %}
+                                                                    <div class="u-s-m-b-15">
+                                                                        <div class="pd-detail__inline">
+
+                                                                            <span class="pd-detail__click-wrap"><i class="far fa-envelope u-s-m-r-6"></i>
+
+                                                                                <a href="signin.html">Email me When the price drops</a>
+
+                                                                                <span class="pd-detail__click-count">(20)</span></span></div>
+                                                                    </div>
+                                                                    {% endif %}
+                                                                    <div class="u-s-m-b-15">
+                                                                        <ul class="pd-social-list">
+                                                                            <li>
+
+                                                                                <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                                                            <li>
+
+                                                                                <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
+                                                                            <li>
+
+                                                                                <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a></li>
+                                                                            <li>
+
+                                                                                <a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a></li>
+                                                                            <li>
+
+                                                                                <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    {% if request.user.UserType == 'customer' %}
+                                                                        <div class="u-s-m-b-15">
+                                                                            <form class="pd-detail__form">
+                                                                                <div class="pd-detail-inline-2">
+                                                                                    <div class="u-s-m-b-15">
+
+                                                                                        <!--====== Input Counter ======-->
+                                                                                        <div class="input-counter">
+
+                                                                                            <span class="input-counter__minus fas fa-minus"></span>
+
+                                                                                            <input class="input-counter__text input-counter--text-primary-style" type="text" name="product_enter_qty" value="1" data-min="1" data-max="1000">
+
+                                                                                            <span class="input-counter__plus fas fa-plus"></span></div>
+                                                                                        <!--====== End - Input Counter ======-->
+                                                                                    </div>
+
+                                                                                    
+                                                                                    <div class="u-s-m-b-15">
+
+                                                                                        <a class="btn btn--e-brand-b-2" id="Product_wish_cart_display" >Add to Cart</a></div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    {% endif %}
+
+                                                                    <div class="u-s-m-b-15">
+
+                                                                        <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>
+                                                                        <ul class="pd-detail__policy-list">
+                                                                            <div id="Product_policys_display"></div>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <!--====== End - Product Right Side Details ======-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--====== End - Quick Look Modal ======-->
+                                        
+                                    {% endfor %}
+
+                                        {% comment %} <div class="col-lg-4 col-md-6 col-sm-6">
+                                            <div class="product-m">
+                                                <div class="product-m__thumb">
+
+                                                    <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+
+                                                        <img class="aspect__img" src="{% static 'images/product/women/product5.jpg' %}" alt=""></a>
+                                                    <div class="product-m__quick-look">
+
+                                                        <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick Look"></a></div>
+                                                    <div class="product-m__add-cart">
+
+                                                        <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
+                                                </div>
+                                                <div class="product-m__content">
+                                                    <div class="product-m__category">
+
+                                                        <a href="shop-side-version-2.html">Women Clothing</a></div>
+                                                    <div class="product-m__name">
+
+                                                        <a href="product-detail.html">New Dress A Nice Elegant</a></div>
+                                                    <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+
+                                                        <span class="product-m__review">(23)</span></div>
+                                                    <div class="product-m__price">$125.00</div>
+                                                    <div class="product-m__hover">
+                                                        <div class="product-m__preview-description">
+
+                                                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></div>
+                                                        <div class="product-m__wishlist">
+
+                                                            <a class="far fa-heart" href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"></a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> {% endcomment %}
+                                    </div>
+                                </div>
+                                <div class="u-s-p-y-60">
+
+                                    <!--====== Pagination ======-->
+                                    {% comment %} <ul class="shop-p__pagination">
+                                        <li class="is-active">
+
+                                            <a href="shop-grid-left.html">1</a></li>
+                                        <li>
+
+                                            <a href="shop-grid-left.html">2</a></li>
+                                        <li>
+
+                                            <a href="shop-grid-left.html">3</a></li>
+                                        <li>
+
+                                            <a href="shop-grid-left.html">4</a></li>
+                                        <li>
+
+                                            <a class="fas fa-angle-right" href="shop-grid-left.html"></a></li>
+                                    </ul> {% endcomment %}
+                                    <!--====== End - Pagination ======-->
+
+                                    <!--====== Pagination ======-->
+                                    <ul class="shop-p__pagination">
+                                        {% if Product.has_previous %}
+                                            <li>
+                                                <a class="fas fa-angle-left" href="?page={{ Product.previous_page_number }}"></a></li>
+                                        {% else %}
+                                            <li class="disabled">
+                                                <a class="fas fa-angle-left"></a></li>
+                                        {% endif %}
+  
+                                        {% for i in Product.paginator.page_range %}
+                                            {% if Product.number == i %}
+                                                <li class="is-active">
+                                                    <a>{{ i }} <span class="sr-only">(current)</span></a></li>
+                                            {% else %}
+                                                <li>
+                                                    <a href="?page={{ i }}">{{ i }}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                        
+                                        {% if Product.has_next %}
+                                            <li>
+                                                <a href="?page={{ Product.next_page_number }}" class="fas fa-angle-right" ></a></li>
+                                        {% else %}
+                                            <li class="disabled">
+                                                <a class="fas fa-angle-right" ></a></li>
+                                        {% endif %}  
+                                    </ul>
+                                    <!--====== End - Pagination ======-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--====== End - Section 1 ======-->
+        </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+
+    $(document).ready(function(){
+        $('.jquery_product_display').on('click',function(){
+            const product_id = $(this).attr('id')
+
+            ///////////////// Images
+            const Img_1 = $(`.jquery_images_1_get_${product_id}`).attr('src')
+            //console.log($(`.img_${product_id}`).attr('src'))
+            $('.jquery_images_1_display').attr('src',Img_1)
+
+            const Img_2 = $(`.jquery_images_2_get_${product_id}`).attr('src')
+            $('.jquery_images_2_display').attr('src',Img_2)
+
+            const Img_3 = $(`.jquery_images_3_get_${product_id}`).attr('src')
+            $('.jquery_images_3_display').attr('src',Img_3)
+
+            const Img_4 = $(`.jquery_images_4_get_${product_id}`).attr('src')
+            $('.jquery_images_4_display').attr('src',Img_4)
+
+            const Img_5 = $(`.jquery_images_5_get_${product_id}`).attr('src')
+            $('.jquery_images_5_display').attr('src',Img_5)
+
+
+
+            ////////// title, price, percentage, cutoffprice, stocks, disc, total_review
+            const title = $(`#Product_Title_get_${product_id}`).text()
+            $('#Product_Title_display').text(title)
+            //console.log(title)
+
+            const price = $(`#Product_price_get_${product_id}`).text()
+            $('#Product_price_display').text(price)
+            //console.log(price)
+
+            const percentage = $(`#Product_percentage_get_${product_id}`).text()
+            $('#Product_percentage_display').text(percentage)
+            //console.log(percentage)
+
+            const cutoff = $(`#Product_cutoff_get_${product_id}`).text()
+            $('#Product_cutoff_display').text(cutoff)
+            //console.log(cutoff)
+
+            const stocks = $(`#Product_stocks_get_${product_id}`).text()
+            $('#Product_stocks_display').text(stocks)
+            //console.log(stocks)
+
+            const disc = $(`#Product_disc_get_${product_id}`).text()
+            $('#Product_disc_display').text(disc)
+            //console.log(disc)
+
+            const t_review = $(`#Product_total_review_get_${product_id}`).text()
+            $('#Product_total_review_display').text(t_review)
+            console.log(t_review)
+
+            const rated_us = $(`#Product_rated_us_get_${product_id}`).html();
+                $('#Product_rated_us_display').html(rated_us)
+                //console.log(rated_us)
+                
+            const Product_policys = $(`#Product_policys_get_${product_id}`).html();
+            console.log(Product_policys)
+            $('#Product_policys_display').html(Product_policys)
+
+
+
+            /////////////////this is for the wish list display
+            const Product_wish_heart = $(`#Product_wish_heart_get_${product_id}`).attr('href');
+            //console.log(Product_wish_heart)
+            $(`#Product_wish_heart_display`).attr('href',Product_wish_heart)
+
+            ////////////////// this is for the cart list display
+            const Product_wish_cart = $(`#Product_wish_cart_get_${product_id}`).attr('href');
+            //console.log(Product_wish_heart)
+            $(`#Product_wish_cart_display`).attr('href',Product_wish_cart)
+            
+
+
+
+            //////////  links 
+            const link_1 = $(`#jquery_product_link_1_get_${product_id}`).text()
+            $('#jquery_product_link_1_display').text(link_1)
+            //console.log(link_1)
+
+            const link_2 = $(`#jquery_product_link_2_get_${product_id}`).text()
+            $('#jquery_product_link_2_display').text(link_2)
+            //console.log(link_2)
+
+            const link_3 = $(`#jquery_product_link_3_get_${product_id}`).text()
+            $('#jquery_product_link_3_display').text(link_3)
+            //console.log(link_3)
+
+        });
+
+        ////////////////// this is for wishlist
+
+        $('.wish_heart').on('click',function(e){
+                e.preventDefault()
+                const _url = $(this).attr('href')
+                //console.log(_url)
+                const _pk = $(this).attr('data-pk')
+                //console.log(_pk)
+                const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
+                //console.log(_pk)
+                $.ajax({
+                    url: _url, 
+                    type: "POST",
+                    data: {
+                        'csrfmiddlewaretoken': _csrf,
+                        'product_pk': _pk,
+                    },
+                    success: function (result) {
+                    alert(result.res)
+                    
+                    },
+                    error: function (err) {
+                    // check the err for error details
+                    }
+                }); // ajax call closing
+
+        });
+
+        $('#Product_wish_heart_display').on('click',function(e){
+            e.preventDefault()
+            const _url =$(this).attr('href')
+            const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
+            $.ajax({
+                url: _url, 
+                type: "POST",
+                data: {
+                    'csrfmiddlewaretoken': _csrf,
+                    //'product_pk': _pk,
+                },
+                success: function (result) {
+                alert(result.res)
+                
+                },
+                error: function (err) {
+                // check the err for error details
+                }
+            }); // ajax call closing
+        });
+
+        // this is for the cart ajax send product to cart
+            $('.wish_cart').on('click',function(e){
+                e.preventDefault()
+                alert('clicked')
+                const _url = $(this).attr('href')
+                //console.log(_url)
+                const _pk = $(this).attr('data-pk')
+                //console.log(_pk)
+                const _qty = $('.ajax_quantity').html()
+                //console.log(typeof(parseInt(_qty)))
+                const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
+                //console.log(_pk)
+                $.ajax({
+                    url: _url, 
+                    type: "POST",
+                    data: {
+                        'csrfmiddlewaretoken': _csrf,
+                        'product_pk': _pk,
+                        'product_qty' : parseInt(_qty),
+                    },
+                    success: function (result) {
+                    alert(result.res)
+                    
+                    },
+                    error: function (err) {
+                    // check the err for error details
+                    }
+                }); // ajax call closing
+            });
+
+            $('#Product_wish_cart_display').on('click',function(e){
+                console.log('clicked on qty')
+                e.preventDefault()
+                const _url = $(this).attr('href')
+                //alert($('[name="product_enter_qty"]').val())
+                const _qty = $('[name="product_enter_qty"]').val()
+                console.log('quantiy',_qty)
+                const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
+                $.ajax({
+                    url: _url, 
+                    type: "POST",
+                    data: {
+                        'csrfmiddlewaretoken': _csrf,
+                        'product_qty': _qty,
+                    },
+                    success: function (result) {
+                    alert(result.res + '\n' +'Quantity :- '+ result.qty)
+                    
+                    },
+                    error: function (err) {
+                    // check the err for error details
+                    }
+                }); // ajax call closing
+            });
+
+    });
+
+    /////////////// this is a ajax of page change
+    $(document).ready(function(){
+        $('#ajax_page_number').on('change',function(){
+            //alert('clicked')
+            const get_pg_val = $("select[name='get_page_choice']").val()
+            {% comment %} alert(parseInt(get_pg_val)); {% endcomment %}
+            $.ajax({
+                url: "{% url 'home:all_shop_grid_left' %}", 
+                type: "GET",
+                data: {'pg_per_pro_passed': get_pg_val},
+                //success: function (result) {
+                //alert(result.res)
+                
+                //},
+                //error: function (err) {
+                // check the err for error details
+                //}
+            });
+        
+            
+        });
+
+    });
+
+</script>
+        {% endblock content %}
+        <!--====== End - App Content ======-->
+

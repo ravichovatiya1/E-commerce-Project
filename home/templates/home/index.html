@@ -1,0 +1,2383 @@
+{% extends 'base.html' %}
+{% load static %}
+
+        <!--====== App Content ======-->
+        {% block content %}
+        {% csrf_token %}
+        <div class="app-content">
+
+            <!--====== Primary Slider ======-->
+            <div class="s-skeleton s-skeleton--h-600 s-skeleton--bg-grey">
+                <div class="owl-carousel primary-style-1" id="hero-slider">
+                    <div class="hero-slide hero-slide--1">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="slider-content slider-content--animation">
+
+                                        <span class="content-span-1 u-c-white">Find Top Brands</span>
+
+                                                    <span class="content-span-2 u-c-white">10% Off On Intimates</span>
+
+                                                    <span class="content-span-3 u-c-white">Find Intimates on best prices</span>
+
+                                                    <span class="content-span-4 u-c-white">Starting At
+
+                                                        <span class="u-c-brand">$100.00</span></span>
+
+                                        <a class="shop-now-link btn--e-brand" href="{% url 'home:all_shop_grid_left' %}">SHOP NOW</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-slide hero-slide--2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="slider-content slider-content--animation">
+
+                                        <span class="content-span-1 u-c-white">Find Top Brands</span>
+
+                                                    <span class="content-span-2 u-c-white">10% Off On Electronics</span>
+
+                                                    <span class="content-span-3 u-c-white">Find electronics on best prices</span>
+
+                                                    <span class="content-span-4 u-c-white">Starting At
+
+                                                        <span class="u-c-brand">$1000.00</span></span>
+
+                                        <a class="shop-now-link btn--e-brand" href="{% url 'home:all_shop_grid_left' %}">SHOP NOW</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-slide hero-slide--3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="slider-content slider-content--animation">
+
+                                        <span class="content-span-1 u-c-white">Find Top Brands</span>
+
+                                                    <span class="content-span-2 u-c-white">10% Off On Outwear</span>
+
+                                                    <span class="content-span-3 u-c-white">Find outwear on best prices</span>
+
+                                                    <span class="content-span-4 u-c-white">Starting At
+
+                                                        <span class="u-c-brand">$100.00</span></span>
+
+                                        <a class="shop-now-link btn--e-brand" href="{% url 'home:all_shop_grid_left' %}">SHOP NOW</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--====== End - Primary Slider ======-->
+
+
+            <!--====== Section 1 ======-->
+            <div class="u-s-p-y-60">
+
+                <!--====== Section Intro ======-->
+                <div class="section__intro u-s-m-b-46">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section__text-wrap">
+                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">SHOP BY DEALS</h1>
+
+                                    <span class="section__span u-c-silver">BROWSE FAVOURITE DEALS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Intro ======-->
+
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 u-s-m-b-30">
+
+                                <a class="collection" href="{% url 'home:all_shop_grid_left' %}">
+                                    <div class="aspect aspect--bg-grey aspect--square">
+
+                                        <img class="aspect__img collection__img" src="{% static 'images/collection/coll-1.jpg' %}" alt=""></div>
+                                </a></div>
+                            <div class="col-lg-7 col-md-7 u-s-m-b-30">
+
+                                <a class="collection" href="{% url 'home:all_shop_grid_left' %}">
+                                    <div class="aspect aspect--bg-grey aspect--1286-890">
+
+                                        <img class="aspect__img collection__img" src="{% static 'images/collection/coll-2.jpg' %}" alt=""></div>
+                                </a></div>
+                            <div class="col-lg-7 col-md-7 u-s-m-b-30">
+
+                                <a class="collection" href="{% url 'home:all_shop_grid_left' %}">
+                                    <div class="aspect aspect--bg-grey aspect--1286-890">
+
+                                        <img class="aspect__img collection__img" src="{% static 'images/collection/coll-3.jpg' %}" alt=""></div>
+                                </a></div>
+                            <div class="col-lg-5 col-md-5 u-s-m-b-30">
+
+                                <a class="collection" href="{% url 'home:all_shop_grid_left' %}">
+                                    <div class="aspect aspect--bg-grey aspect--square">
+
+                                        <img class="aspect__img collection__img" src="{% static 'images/collection/coll-4.jpg' %}" alt=""></div>
+                                </a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--====== Section Content ======-->
+            </div>
+            <!--====== End - Section 1 ======-->
+
+
+            <!--====== Section 2 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Intro ======-->
+                <div class="section__intro u-s-m-b-16">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section__text-wrap">
+                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">TOP TRENDING</h1>
+
+                                    <span class="section__span u-c-silver">CHOOSE CATEGORY</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Intro ======-->
+
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="filter-category-container">
+                                    <div class="filter__category-wrapper">
+
+                                        <button class="btn filter__btn filter__btn--style-1 js-checked" type="button" data-filter="*">ALL</button></div>
+
+                                    {% for ProductMainCategory in ProductMainCategory %}
+                                        <div class="filter__category-wrapper">
+                                        <button class="btn filter__btn filter__btn--style-1" type="button" data-filter=".{% spaceless %}{{ProductMainCategory.Main_Category|cut:" "|cut:"'S"|cut:"&"}}{% endspaceless %}">{{ProductMainCategory.Main_Category|cut:" "}}</button></div>
+                                    {% endfor %}
+
+                                        {% comment %} <div class="filter__category-wrapper">
+                                        <button class="btn filter__btn filter__btn--style-1" type="button" data-filter=".smartphone">SMARTPHONES</button></div>
+                                        {% endcomment %}
+                                </div>
+                                <div class="filter__grid-wrapper u-s-m-t-30">
+                                    <div class="row">
+                                        {% for Product in Product %}
+                                            {% comment %} hiddern fields starts {% endcomment %}
+                                            <div style="display:none;">
+                                                <img class="aspect__img jquery_images_2_get_{{Product.id}}" style="display:none;" src="{{Product.Product_Img_2.url}}" alt="">
+                                                <img class="aspect__img jquery_images_3_get_{{Product.id}}" style="display:none;" src="{{Product.Product_Img_3.url}}" alt="">
+                                                <img class="aspect__img jquery_images_4_get_{{Product.id}}" style="display:none;" src="{{Product.Product_Img_4.url}}" alt="">
+                                                <img class="aspect__img jquery_images_5_get_{{Product.id}}" style="display:none;" src="{{Product.Product_Img_5.url}}" alt="">
+
+                                                <p id='Product_Title_get_{{Product.id}}' style="display:none">{{Product.Product_Title|title}}</p>
+                                                <p id='Product_price_get_{{Product.id}}' style="display:none">$ {{Product.Product_Price|floatformat:2}}</p>
+                                                <p id='Product_percentage_get_{{Product.id}}' style="display:none">({{Product.Product_Percentage_Off|floatformat:0 }}% OFF)</p>
+                                                <p id='Product_cutoff_get_{{Product.id}}' style="display:none">${{Product.Product_Cutoff_Price|floatformat:2}}</p>
+                                                <p id='Product_stocks_get_{{Product.id}}' style="display:none">{{Product.Product_Stock}} in stock</p>
+                                                <p id='Product_disc_get_{{Product.id}}' style="display:none">{{Product.Product_Disc}}</p>
+
+
+                                                {% comment %} this is for the wishlist hiddern fields passed below  {% endcomment %}
+                                                
+                                                    <a style="display:none;"  id="Product_wish_heart_get_{{Product.id}}" class="wish_heart" data-pk="{{Product.pk}}" href="{% url 'wishlist:addWish' Product.pk  %}"></a>
+                                                {% comment %} this is for the cart hiddern fields passed below {% endcomment %}
+                                                    <a  style="display:none;"  id="Product_wish_cart_get_{{Product.id}}"  class="btn btn--e-brand-b-2  wish_cart" data-pk="{{Product.pk}}" href="{% url 'cart:addCart' Product.pk  %}"></a>
+                                                    
+                                            
+
+
+                                                <div style="display:none;" id="Product_rated_us_get_{{Product.id}}" >
+                                                    {% for key, value in review_average.items %}
+                                                        {% if key == Product.Product_Title %}
+                                                            <p id="Product_total_review_get_{{Product.id}}" style="display:none;" >{{value}} Reviews</p>
+                                                            {% if value == '1.5' %}
+                                                            <div class="pd-detail__rating gl-rating-style">
+                                                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                <span class="pd-detail__review u-s-m-l-4" ><a href="{% url 'home:product_detail' Product.pk %}">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                            </div>
+
+                                                            {% elif value == '2' %}
+                                                            <div class="pd-detail__rating gl-rating-style">
+                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                <span class="pd-detail__review u-s-m-l-4" ><a href="{% url 'home:product_detail' Product.pk %}">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                            </div>
+
+                                                            {% elif value == '2.5' %}
+                                                            <div class="pd-detail__rating gl-rating-style">
+                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                <span class="pd-detail__review u-s-m-l-4" ><a href="{% url 'home:product_detail' Product.pk %}">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                            </div>
+
+                                                            {% elif value == '3' %}
+                                                            <div class="pd-detail__rating gl-rating-style">
+                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                <span class="pd-detail__review u-s-m-l-4" ><a href="{% url 'home:product_detail' Product.pk %}">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                            </div>
+
+                                                            {% elif value == '3.5' %}
+                                                            <div class="pd-detail__rating gl-rating-style">
+                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                                                                <span class="pd-detail__review u-s-m-l-4" ><a href="{% url 'home:product_detail' Product.pk %}">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                            </div>
+
+                                                            {% elif value == '4' %}
+                                                            <div class="pd-detail__rating gl-rating-style">
+                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                                <span class="pd-detail__review u-s-m-l-4" ><a href="{% url 'home:product_detail' Product.pk %}">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                            </div>
+
+                                                            {% elif value == '4.5' %}
+                                                            <div class="pd-detail__rating gl-rating-style">
+                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                                <span class="pd-detail__review u-s-m-l-4" ><a href="{% url 'home:product_detail' Product.pk %}">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                            </div>
+
+                                                            {% elif value == '5'  %}
+                                                            <div class="pd-detail__rating gl-rating-style">
+                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                                <span class="pd-detail__review u-s-m-l-4" ><a href="{% url 'home:product_detail' Product.pk %}">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                            </div>
+
+                                                            {% else %}
+                                                            <div class="pd-detail__rating gl-rating-style">
+                                                                <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                <span class="pd-detail__review u-s-m-l-4" ><a href="{% url 'home:product_detail' Product.pk %}">{% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                            </div>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor review_average %}
+                                                </div>
+
+                                                <div style="display:none;" id="Product_policys_get_{{Product.id}}" >
+                                                    {% for Product_policy in ProductPolicy %}
+                                                        {% if Product.id == Product_policy.product.id %}
+                                                            <li><i style="color:green;" class="fas fa-check-circle u-s-m-r-8"></i>
+                                                            <span>{{Product_policy.product.id}} {{Product_policy}}</span></li>
+                                                        {% endif %}
+                                                    {% endfor ProductPolicy %}
+                                                </div>
+
+                                                <ul style= "display:none">
+                                                    <li class="has-separator">
+                                                        <a href="shop-side-version-2.html" id="jquery_product_link_1_get_{{Product.id}}"  >{{Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
+
+                                                    <li class="has-separator">
+                                                        <a href="shop-side-version-2.html" id="jquery_product_link_2_get_{{Product.id}}" >{{Product.mainproduct.productcategory.subcategory|title}}</a></li>
+
+                                                    <li class="is-marked">
+                                                        <a href="shop-side-version-2.html" id="jquery_product_link_3_get_{{Product.id}}" >{{Product.mainproduct.productcategory|title}}</a></li>
+                                                </ul>
+                                            </div>
+                                            {% comment %} hiddern field ends {% endcomment %}
+
+                                            
+                                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item {% spaceless %}{{Product.maincategory|cut:" "|cut:"'S"|cut:"&"}}{% endspaceless %}">
+                                                <div class="product-o product-o--hover-on product-o--radius">
+                                                    <div class="product-o__wrap">
+
+                                                        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="{% url 'home:product_detail' Product.pk %}">
+
+                                                            <img class="aspect__img jquery_images_1_get_{{Product.id}}" src="{{Product.Product_Img_1.url}}" alt=""></a>
+                                                        <div class="product-o__action-wrap">
+                                                            <ul class="product-o__action-list">
+                                                                <li>
+                                                                    <a id='{{Product.id}}' class="jquery_product_display" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
+
+                                                                {% if request.user.UserType == 'customer' %}
+                                                                <li>
+                                                                    <a data-pk="{{Product.pk}}" href="{% url 'cart:addCart' Product.pk  %}"  id='{{Product.id}}' class="jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                                {% endif %}
+
+                                                                <li>
+                                                                    <a class="wish_heart" data-pk="{{Product.pk}}" href="{% url 'wishlist:addWish' Product.pk  %}" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a>
+                                                                </li>
+
+                                                                {% if request.user.UserType == 'customer' %}
+                                                                <li>
+                                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                                {% endif %}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <span class="product-o__category">
+
+                                                        <a href="{% url 'home:shop_grid_left' Product.maincategory.pk %}">{{Product.maincategory|title}}</a></span>
+
+                                                    <span class="product-o__name">
+
+                                                        <a href="{% url 'home:product_detail' Product.pk %}">{{Product.Product_Title|slice:"0:22"}} ...</a></span>
+
+                                                            {% for key, value in review_average.items %}
+                                                                {% if key == Product.Product_Title %}
+                                                                    <p id="Product_total_review_get_{{Product.id}}" style="display:none;" >{{value}} Reviews</p>
+                                                                    {% if value == '1.5' %}
+                                                                    <div class="product-o__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                        {% comment %} {% for key, value in unique_product_rating_count %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} {% endcomment %}
+                                                                    </div>
+
+                                                                    {% elif value == '2' %}
+                                                                    <div class="product-o__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-o__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '2.5' %}
+                                                                    <div class="product-o__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-o__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '3' %}
+                                                                    <div class="product-o__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '3.5' %}
+                                                                    <div class="product-o__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                                                                        <span class="product-o__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '4' %}
+                                                                    <div class="product-o__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '4.5' %}
+                                                                    <div class="product-o__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                                        <span class="product-o__review">({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% elif value == '5'  %}
+                                                                    <div class="product-o__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                                        <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+
+                                                                    {% else %}
+                                                                    <div class="product-o__rating gl-rating-style">
+                                                                        <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                                    </div>
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% endfor review_average %}
+
+                                                    <span class="product-o__price">${{Product.Product_Price|floatformat:2}}
+
+                                                        <span class="product-o__discount">${{Product.Product_Cutoff_Price|floatformat:2}}</span></span>
+                                                </div>
+                                            </div>
+
+
+                                            <!--====== Quick Look Modal ======-->
+                                                <div class="modal fade" id="quick-look">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content modal--shadow">
+
+                                                            <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-lg-5">
+
+                                                                        <!--====== Product Breadcrumb ======-->
+                                                                        <div class="pd-breadcrumb u-s-m-b-30">
+                                                                            <ul class="pd-breadcrumb__list">
+                                                                                <li class="has-separator">
+
+                                                                                    <a href="{% url 'home:home' %}">Home</a></li>
+                                                                                <li class="has-separator">
+
+                                                                                    <a href="shop-side-version-2.html" id ="jquery_product_link_1_display"></a></li>
+                                                                                <li class="has-separator">
+
+                                                                                    <a href="shop-side-version-2.html" id ="jquery_product_link_2_display" ></a></li>
+                                                                                <li class="is-marked">
+
+                                                                                    <a href="shop-side-version-2.html" id ="jquery_product_link_3_display"></a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <!--====== End - Product Breadcrumb ======-->
+
+
+                                                                        <!--====== Product Detail ======-->
+                                                                        <div class="pd u-s-m-b-30">
+                                                                            <div class="pd-wrap">
+                                                                                <div id="js-product-detail-modal">
+                                                                                    <div>
+
+                                                                                        <img class="u-img-fluid jquery_images_1_display" src="" alt=""></div>
+                                                                                    <div>
+
+                                                                                        <img class="u-img-fluid jquery_images_2_display" src="" alt=""></div>
+                                                                                    <div>
+
+                                                                                        <img class="u-img-fluid jquery_images_3_display" src="" alt=""></div>
+                                                                                    <div>
+
+                                                                                        <img class="u-img-fluid jquery_images_4_display" src="" alt=""></div>
+                                                                                    <div>
+
+                                                                                        <img class="u-img-fluid jquery_images_5_display" src="" alt=""></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="u-s-m-t-15">
+                                                                                <div id="js-product-detail-modal-thumbnail">
+                                                                                    <div>
+
+                                                                                        <img class="u-img-fluid jquery_images_1_display" src="" alt=""></div>
+                                                                                    <div>
+
+                                                                                        <img class="u-img-fluid jquery_images_2_display" src="" alt=""></div>
+                                                                                    <div>
+
+                                                                                        <img class="u-img-fluid jquery_images_3_display" src="" alt=""></div>
+                                                                                    <div>
+
+                                                                                        <img class="u-img-fluid jquery_images_4_display" src="" alt=""></div>
+                                                                                    <div>
+
+                                                                                        <img class="u-img-fluid jquery_images_5_display" src="" alt=""></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--====== End - Product Detail ======-->
+                                                                    </div>
+                                                                    <div class="col-lg-7">
+
+                                                                        <!--====== Product Right Side Details ======-->
+                                                                        <div class="pd-detail">
+                                                                            <div>
+
+                                                                                <span class="pd-detail__name" id="Product_Title_display"></span></div>
+
+                                                                            <div>
+                                                                                <div class="pd-detail__inline">
+                                                                                    <span class="pd-detail__price" id="Product_price_display"></span>
+
+                                                                                    <span class="pd-detail__discount" id="Product_percentage_display" ></span><del class="pd-detail__del" id="Product_cutoff_display"></del></div>
+                                                                            </div>
+                                                                            <div class="u-s-m-b-15" id="Product_rated_us_display" ></div>
+
+                                                                            <div class="u-s-m-b-15">
+                                                                                <div class="pd-detail__inline">
+
+                                                                                    <span class="pd-detail__stock" id="Product_stocks_display"></span>
+
+                                                                                    <span class="pd-detail__left">Only 2 left</span></div>
+                                                                            </div>
+                                                                            <div class="u-s-m-b-15">
+
+                                                                                <span class="pd-detail__preview-desc" id="Product_disc_display" ></span></div>
+                                                                            
+                                                                            <div class="u-s-m-b-15">
+                                                                                <div class="pd-detail__inline">
+
+                                                                                    <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>
+                                                                                        <a id="Product_wish_heart_display">Add to Wishlist</a>
+
+                                                                                        <span class="pd-detail__click-count">(222)</span></span></div>
+                                                                            </div>
+                                                                            
+                                                                            
+                                                                            {% if request.user.UserType == 'customer' %}
+                                                                            <div class="u-s-m-b-15">
+                                                                                <div class="pd-detail__inline">
+
+                                                                                    <span class="pd-detail__click-wrap"><i class="far fa-envelope u-s-m-r-6"></i>
+
+                                                                                        <a href="signin.html">Email me When the price drops</a>
+
+                                                                                        <span class="pd-detail__click-count">(20)</span></span></div>
+                                                                            </div>
+                                                                            {% endif %}
+
+                                                                            <div class="u-s-m-b-15">
+                                                                                <ul class="pd-social-list">
+                                                                                    <li>
+
+                                                                                        <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                                                                    <li>
+
+                                                                                        <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
+                                                                                    <li>
+
+                                                                                        <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a></li>
+                                                                                    <li>
+
+                                                                                        <a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a></li>
+                                                                                    <li>
+
+                                                                                        <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            
+                                                                            {% if request.user.UserType == 'customer' %}
+                                                                            <div class="u-s-m-b-15">
+                                                                                <form class="pd-detail__form">
+                                                                                    <div class="pd-detail-inline-2">
+                                                                                        <div class="u-s-m-b-15">
+
+                                                                                            <!--====== Input Counter ======-->
+                                                                                            <div class="input-counter">
+
+                                                                                                <span class="input-counter__minus fas fa-minus"></span>
+
+                                                                                                <input class="input-counter__text input-counter--text-primary-style" type="text" name="product_enter_qty" value="1" data-min="1" data-max="1000">
+
+                                                                                                <span class="input-counter__plus fas fa-plus"></span></div>
+                                                                                            <!--====== End - Input Counter ======-->
+                                                                                        </div>
+                                                                                        <div class="u-s-m-b-15">
+                                                                                            <a class="btn btn--e-brand-b-2" id="Product_wish_cart_display" >Add to Cart</a></div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            {% endif %}
+
+                                                                            <div class="u-s-m-b-15">
+
+                                                                                <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>
+                                                                                <ul class="pd-detail__policy-list">
+                                                                                    <div id="Product_policys_display"></div>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--====== End - Product Right Side Details ======-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <!--====== End - Quick Look Modal ======-->
+
+
+                                                    <!--====== Add to Cart Modal ======-->
+                                                    <div class="modal fade" id="add-to-cart">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content modal-radius modal-shadow">
+
+                                                                <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6 col-md-12">
+                                                                            <div class="success u-s-m-b-30">
+                                                                                <div class="success__text-wrap"><i class="fas fa-check"></i>
+
+                                                                                    <span>Item is added successfully!</span></div>
+                                                                                <div class="success__img-wrap">
+
+                                                                                    <img class="u-img-fluid jquery_images_cart_1_display" style="height:130px;padding-bottom:10px;" src="" alt=""></div>
+                                                                                <div class="success__info-wrap">
+
+                                                                                    <span class="success__name" id="Product_cart_Title_display"></span>
+
+                                                                                    <span class="success__quantity">Quantity: 1</span>
+                                                                                    <span class="ajax_quantity" style="display:none;">1</span>
+
+                                                                                    <span class="success__price" id="Product_cart_price_display"></span></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-12">
+                                                                            <div class="s-option">
+
+                                                                                <span class="s-option__text">1 item (s) in your cart</span>
+                                                                                <div class="s-option__link-box">
+
+                                                                                    <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE SHOPPING</a>
+
+                                                                                    <a class="s-option__link btn--e-white-brand-shadow" href="{% url 'cart:cart' %}">VIEW CART</a>
+
+                                                                                    <a class="s-option__link btn--e-brand-shadow" href="checkout.html">PROCEED TO CHECKOUT</a></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--====== End - Add to Cart Modal ======-->
+                                        {% endfor %}
+                                        
+
+                                          {% comment %} <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item headphone">
+                                            <div class="product-o product-o--hover-on product-o--radius">
+                                                <div class="product-o__wrap">
+
+                                                    <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+
+                                                        <img class="aspect__img" src="{% static 'images/product/electronic/product3.jpg' %}" alt=""></a>
+                                                    <div class="product-o__action-wrap">
+                                                        <ul class="product-o__action-list">
+                                                            <li>
+
+                                                                <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
+                                                            <li>
+
+                                                                <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                            <li>
+
+                                                                <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                                            <li>
+
+                                                                <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <span class="product-o__category">
+
+                                                    <a href="shop-side-version-2.html">Electronics</a></span>
+
+                                                <span class="product-o__name">
+
+                                                    <a href="product-detail.html">Yellow Wireless Headphone</a></span>
+                                                <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+
+                                                    <span class="product-o__review">(23)</span></div>
+
+                                                <span class="product-o__price">$125.00
+
+                                                    <span class="product-o__discount">$160.00</span></span>
+                                            </div>
+                                        </div>
+                                         {% endcomment %}
+                                    </div>
+                                </div>
+
+                            </div>
+                            {% comment %} <div class="col-lg-12">
+                                <div class="load-more">
+
+                                    <button class="btn btn--e-brand" type="button">Load More</button></div>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+
+
+
+            <!--====== End - Section 2 ======-->
+
+
+            <!--====== Section 3 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Intro ======-->
+                <div class="section__intro u-s-m-b-46">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section__text-wrap">
+                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">DEAL OF THE DAY</h1>
+
+                                    <span class="section__span u-c-silver">BUY DEAL OF THE DAY, HURRY UP! THESE NEW PRODUCTS WILL EXPIRE SOON.</span>
+
+                                    <span class="section__span u-c-silver">ADD THESE ON YOUR CART.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Intro ======-->
+
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 u-s-m-b-30">
+                                <div class="product-o product-o--radius product-o--hover-off u-h-100">
+                                    <div class="product-o__wrap">
+
+                                        <a class="aspect aspect--bg-grey aspect--square u-d-block" >
+
+                                            <img class="aspect__img" src="{% static 'images/product/electronic/product11.jpg' %}" alt=""></a>
+                                        <div class="product-o__special-count-wrap">
+                                            <div class="countdown countdown--style-special" data-countdown="2021/07/01"></div>
+                                        </div>
+                                        {% comment %} <div class="product-o__action-wrap">
+                                            <ul class="product-o__action-list">
+                                                <li>
+
+                                                    <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
+                                                <li>
+
+                                                    <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                <li>
+
+                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                                <li>
+
+                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                            </ul>
+                                        </div> {% endcomment %}
+                                    </div>
+
+                                    <span class="product-o__category">
+
+                                        <a href="{% url 'home:all_shop_grid_left' %}">Electronics</a></span>
+
+                                    <span class="product-o__name">
+
+                                        <a>DJI Phantom Drone 4k</a></span>
+                                    <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+                                        <span class="product-o__review">(2)</span></div>
+
+                                    <span class="product-o__price">$125.00
+
+                                        <span class="product-o__discount">$160.00</span></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 u-s-m-b-30">
+                                <div class="product-o product-o--radius product-o--hover-off u-h-100">
+                                    <div class="product-o__wrap">
+
+                                        <a class="aspect aspect--bg-grey aspect--square u-d-block">
+
+                                            <img class="aspect__img" src="{% static 'images/product/electronic/product12.jpg' %}" alt=""></a>
+                                        <div class="product-o__special-count-wrap">
+                                            <div class="countdown countdown--style-special" data-countdown="2021/07/01"></div>
+                                        </div>
+                                        {% comment %} <div class="product-o__action-wrap">
+                                            <ul class="product-o__action-list">
+                                                <li>
+
+                                                    <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
+                                                <li>
+
+                                                    <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                <li>
+
+                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                                <li>
+
+                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                            </ul>
+                                        </div> {% endcomment %}
+                                    </div>
+
+                                    <span class="product-o__category">
+
+                                        <a href="{% url 'home:all_shop_grid_left' %}">Electronics</a></span>
+
+                                    <span class="product-o__name">
+
+                                        <a>DJI Phantom Drone 2k</a></span>
+                                    <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+                                        <span class="product-o__review">(2)</span></div>
+
+                                    <span class="product-o__price">$125.00
+
+                                        <span class="product-o__discount">$160.00</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 3 ======-->
+
+
+            <!--====== Section 4 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Intro ======-->
+                <div class="section__intro u-s-m-b-46">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section__text-wrap">
+                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">NEW ARRIVALS</h1>
+
+                                    <span class="section__span u-c-silver">GET UP FOR NEW ARRIVALS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Intro ======-->
+
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="slider-fouc">
+                            <div class="owl-carousel product-slider" data-item="4">
+
+                                {%  for na_Product in na_Product %}
+
+                                    {% comment %} hiddern fields starts {% endcomment %}
+                                    {% comment %} <div style="display:none;">
+                                        <img class="aspect__img jquery_images_2_get_{{na_Product.id}}" style="display:none;" src="{{na_Product.Product_Img_2.url}}" alt="">
+                                        <img class="aspect__img jquery_images_3_get_{{na_Product.id}}" style="display:none;" src="{{na_Product.Product_Img_3.url}}" alt="">
+                                        <img class="aspect__img jquery_images_4_get_{{na_Product.id}}" style="display:none;" src="{{na_Product.Product_Img_4.url}}" alt="">
+                                        <img class="aspect__img jquery_images_5_get_{{na_Product.id}}" style="display:none;" src="{{na_Product.Product_Img_5.url}}" alt="">
+
+                                        <p id="Product_Title_get_{{na_Product.id}}" style="display:none">{{na_Product.Product_Title|title}}</p>
+                                        <p id="Product_price_get_{{na_Product.id}}" style="display:none">$ {{na_Product.Product_Price|floatformat:2}}</p>
+                                        <p id="Product_percentage_get_{{na_Product.id}}" style="display:none">({{na_Product.Product_Percentage_Off|floatformat:0 }}% OFF)</p>
+                                        <p id="Product_cutoff_get_{{na_Product.id}}" style="display:none">${{na_Product.Product_Cutoff_Price|floatformat:2}}</p>
+                                        <p id="Product_stocks_get_{{na_Product.id}}" style="display:none">{{na_Product.Product_Stock}} in stock</p>
+                                        <p id="Product_disc_get_{{na_Product.id}}" style="display:none">{{na_Product.Product_Disc}}</p>
+                                        
+                                        <a style="display:none;"  id="Product_wish_heart_get_{{na_Product.id}}" class="wish_heart" data-pk="{{Product.pk}}" href="{% url 'wishlist:addWish' Product.pk  %}"></a>
+                                        <a  style="display:none;"  id="Product_wish_cart_get_{{na_Product.id}}"  class="btn btn--e-brand-b-2  wish_cart" data-pk="{{Product.pk}}" href="{% url 'cart:addCart' Product.pk  %}"></a>
+
+
+                                        <div style="display:none;" id="Product_rated_us_get_{{na_Product.id}}" >
+                                            {% for key, value in review_average.items %}
+                                                {% if key == na_Product.Product_Title %}
+                                                    <p id="Product_total_review_get_{{na_Product.id}}" style="display:none;" >{{value}} Reviews</p>
+                                                    {% if value == '1.5' %}
+                                                    <div class="pd-detail__rating gl-rating-style">
+                                                        <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                        <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                    </div>
+
+                                                    {% elif value == '2' %}
+                                                    <div class="pd-detail__rating gl-rating-style">
+                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                        <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                    </div>
+
+                                                    {% elif value == '2.5' %}
+                                                    <div class="pd-detail__rating gl-rating-style">
+                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                        <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                    </div>
+
+                                                    {% elif value == '3' %}
+                                                    <div class="pd-detail__rating gl-rating-style">
+                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                        <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                    </div>
+
+                                                    {% elif value == '3.5' %}
+                                                    <div class="pd-detail__rating gl-rating-style">
+                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                                                        <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                    </div>
+
+                                                    {% elif value == '4' %}
+                                                    <div class="pd-detail__rating gl-rating-style">
+                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                        <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                    </div>
+
+                                                    {% elif value == '4.5' %}
+                                                    <div class="pd-detail__rating gl-rating-style">
+                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                        <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                    </div>
+
+                                                    {% elif value == '5'  %}
+                                                    <div class="pd-detail__rating gl-rating-style">
+                                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                        <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                    </div>
+
+                                                    {% else %}
+                                                    <div class="pd-detail__rating gl-rating-style">
+                                                        <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                        <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                    </div>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endfor review_average %}
+                                        </div>
+
+                                        <div style="display:none;" id="Product_policys_get_{{Product.id}}" >
+                                            {% for Product_policy in ProductPolicy %}
+                                                {% if na_Product.id == Product_policy.product.id %}
+                                                    <li><i style="color:green;" class="fas fa-check-circle u-s-m-r-8"></i>
+                                                    <span>{{Product_policy.product.id}} {{Product_policy}}</span></li>
+                                                {% endif %}
+                                            {% endfor ProductPolicy %}
+                                        </div>
+
+                                        <ul style= "display:none">
+                                            <li class="has-separator">
+                                                <a href="shop-side-version-2.html" id="jquery_product_link_1_get_{{na_Product.id}}"  >{{na_Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
+
+                                            <li class="has-separator">
+                                                <a href="shop-side-version-2.html" id="jquery_product_link_2_get_{{na_Product.id}}" >{{na_Product.mainproduct.productcategory.subcategory|title}}</a></li>
+
+                                            <li class="is-marked">
+                                                <a href="shop-side-version-2.html" id="jquery_product_link_3_get_{{na_Product.id}}" >{{na_Product.mainproduct.productcategory|title}}</a></li>
+                                        </ul>
+                                    </div> {% endcomment %}
+                                    {% comment %} hiddern field ends {% endcomment %}
+
+
+                                    <div class="u-s-m-b-30">
+                                        <div class="product-o product-o--hover-on">
+                                            <div class="product-o__wrap">
+
+                                                <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+
+                                                    <img class="aspect__img jquery_images_1_get_{{na_Product.id}} " src="{{na_Product.Product_Img_1.url}}" alt=""></a>
+                                                <div class="product-o__action-wrap">
+                                                    <ul class="product-o__action-list">
+
+                                                        <li>
+                                                            <a id="{{na_Product.id}}" class="jquery_product_display" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
+
+                                                        {% if request.user.UserType == 'customer' %}
+                                                        <li>
+                                                            <a data-pk="{{na_Product.pk}}" href="{% url 'cart:addCart' na_Product.pk  %}"  id='{{na_Product.id}}' class="jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                    
+                                                        {% endif %}
+
+                                                        <li>
+                                                            <a class="wish_heart" data-pk="{{na_Product.pk}}" href="{% url 'wishlist:addWish' na_Product.pk  %}" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+
+                                                            {% comment %} <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li> {% endcomment %}
+
+                                                        {% if request.user.UserType == 'customer' %}
+                                                        <li>
+                                                            <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                        {% endif %}
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <span class="product-o__category">
+
+                                                <a href="{% url 'home:shop_grid_left' na_Product.maincategory.pk %}">{{na_Product.maincategory|title}}</a></span>
+
+                                            <span class="product-o__name">
+
+                                                <a href="{% url 'home:product_detail' na_Product.pk %}">{{na_Product.Product_Title|slice:"0:25"}} ...</a></span>
+                                            
+                                                {% for key, value in review_average.items %}
+                                                    {% if key == na_Product.Product_Title %}
+                                                        <p id="Product_total_review_get_{{na_Product.id}}" style="display:none;" >{{value}} Reviews</p>
+                                                        {% if value == '1.5' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                            {% comment %} {% for key, value in unique_product_rating_count %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} {% endcomment %}
+                                                        </div>
+
+                                                        {% elif value == '2' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '2.5' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '3' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '3.5' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '4' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '4.5' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                            <span class="product-o__review">({% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '5'  %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                            <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% else %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor review_average %}
+
+                                            <span class="product-o__price">${{na_Product.Product_Price|floatformat:2}}
+
+                                                <span class="product-o__discount">${{na_Product.Product_Cutoff_Price|floatformat:2}}</span></span>
+                                        </div>
+                                    </div>
+
+
+                                {% endfor na_Product %}
+                                {% comment %} <div class="u-s-m-b-30">
+                                    <div class="product-o product-o--hover-on">
+                                        <div class="product-o__wrap">
+
+                                            <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+
+                                                <img class="aspect__img" src="{% static 'images/product/electronic/product14.jpg' %}" alt=""></a>
+                                            <div class="product-o__action-wrap">
+                                                <ul class="product-o__action-list">
+                                                    <li>
+
+                                                        <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
+                                                    <li>
+
+                                                        <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                    <li>
+
+                                                        <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                                    <li>
+
+                                                        <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <span class="product-o__category">
+
+                                            <a href="shop-side-version-2.html">Electronics</a></span>
+
+                                        <span class="product-o__name">
+
+                                            <a href="product-detail.html">Nikon DSLR 2K Camera</a></span>
+                                        <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+
+                                            <span class="product-o__review">(0)</span></div>
+
+                                        <span class="product-o__price">$125.00
+
+                                            <span class="product-o__discount">$160.00</span></span>
+                                    </div>
+                                </div> {% endcomment %}
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 4 ======-->
+
+
+            <!--====== Section 5 ======-->
+            <div class="banner-bg">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="banner-bg__countdown">
+                                    <div class="countdown countdown--style-banner" data-countdown="2021/07/01"></div>
+                                </div>
+                                <div class="banner-bg__wrap">
+                                    <div class="banner-bg__text-1">
+
+                                        <span class="u-c-white">Global</span>
+
+                                        <span class="u-c-secondary">Offers</span></div>
+                                    <div class="banner-bg__text-2">
+
+                                        <span class="u-c-secondary">Official Launch</span>
+
+                                        <span class="u-c-white">Don't Miss!</span></div>
+
+                                    <span class="banner-bg__text-block banner-bg__text-3 u-c-secondary">Enjoy Free Shipping when you buy 2 items and above!</span>
+
+                                    <a class="banner-bg__shop-now btn--e-secondary" href="{% url 'home:all_shop_grid_left' %}">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 5 ======-->
+
+
+            <!--====== Section 6 ======-->
+            <div class="u-s-p-y-60">
+
+                <!--====== Section Intro ======-->
+                <div class="section__intro u-s-m-b-46">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section__text-wrap">
+                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">FEATURED PRODUCTS</h1>
+
+                                    <span class="section__span u-c-silver">FIND NEW FEATURED PRODUCTS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Intro ======-->
+
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row">
+                            {% for fp_Product in fp_Product %}
+
+                                {% comment %} hiddern fields starts {% endcomment %}
+                                <div style="display:none;">
+                                    <img class="aspect__img jquery_images_2_get_{{fp_Product.id}}" style="display:none;" src="{{fp_Product.Product_Img_2.url}}" alt="">
+                                    <img class="aspect__img jquery_images_3_get_{{fp_Product.id}}" style="display:none;" src="{{fp_Product.Product_Img_3.url}}" alt="">
+                                    <img class="aspect__img jquery_images_4_get_{{fp_Product.id}}" style="display:none;" src="{{fp_Product.Product_Img_4.url}}" alt="">
+                                    <img class="aspect__img jquery_images_5_get_{{fp_Product.id}}" style="display:none;" src="{{fp_Product.Product_Img_5.url}}" alt="">
+
+                                    <p id="Product_Title_get_{{fp_Product.id}}" style="display:none">{{fp_Product.Product_Title|title}}</p>
+                                    <p id="Product_price_get_{{fp_Product.id}}" style="display:none">$ {{fp_Product.Product_Price|floatformat:2}}</p>
+                                    <p id="Product_percentage_get_{{fp_Product.id}}" style="display:none">({{fp_Product.Product_Percentage_Off|floatformat:0 }}% OFF)</p>
+                                    <p id="Product_cutoff_get_{{fp_Product.id}}" style="display:none">${{fp_Product.Product_Cutoff_Price|floatformat:2}}</p>
+                                    <p id="Product_stocks_get_{{fp_Product.id}}" style="display:none">{{fp_Product.Product_Stock}} in stock</p>
+                                    <p id="Product_disc_get_{{fp_Product.id}}" style="display:none">{{fp_Product.Product_Disc}}</p>
+                                    
+                                    <a style="display:none;"  id="Product_wish_heart_get_{{fp_Product.id}}" class="wish_heart" data-pk="{{fp_Product.pk}}" href="{% url 'wishlist:addWish' fp_Product.pk  %}"></a>
+                                    <a  style="display:none;"  id="Product_wish_cart_get_{{fp_Product.id}}"  class="btn btn--e-brand-b-2  wish_cart" data-pk="{{fp_Product.pk}}" href="{% url 'cart:addCart' fp_Product.pk  %}"></a>
+                                    
+
+                                    <div style="display:none;" id="Product_rated_us_get_{{fp_Product.id}}" >
+                                        {% for key, value in review_average.items %}
+                                            {% if key == fp_Product.Product_Title %}
+                                                <p id="Product_total_review_get_{{fp_Product.id}}" style="display:none;" >{{value}} Reviews</p>
+                                                {% if value == '1.5' %}
+                                                <div class="pd-detail__rating gl-rating-style">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                    <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                </div>
+
+                                                {% elif value == '2' %}
+                                                <div class="pd-detail__rating gl-rating-style">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                    <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                </div>
+
+                                                {% elif value == '2.5' %}
+                                                <div class="pd-detail__rating gl-rating-style">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                    <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                </div>
+
+                                                {% elif value == '3' %}
+                                                <div class="pd-detail__rating gl-rating-style">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                    <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                </div>
+
+                                                {% elif value == '3.5' %}
+                                                <div class="pd-detail__rating gl-rating-style">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                                                    <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                </div>
+
+                                                {% elif value == '4' %}
+                                                <div class="pd-detail__rating gl-rating-style">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                    <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                </div>
+
+                                                {% elif value == '4.5' %}
+                                                <div class="pd-detail__rating gl-rating-style">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                    <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                </div>
+
+                                                {% elif value == '5'  %}
+                                                <div class="pd-detail__rating gl-rating-style">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                    <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                </div>
+
+                                                {% else %}
+                                                <div class="pd-detail__rating gl-rating-style">
+                                                    <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                    <span class="pd-detail__review u-s-m-l-4" ><a href="product-detail.html">{% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+                                                </div>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor review_average %}
+                                    </div>
+
+                                    <div style="display:none;" id="Product_policys_get_{{fp_Product.id}}" >
+                                        {% for Product_policy in ProductPolicy %}
+                                            {% if fp_Product.id == Product_policy.product.id %}
+                                                <li><i style="color:green;" class="fas fa-check-circle u-s-m-r-8"></i>
+                                                <span>{{Product_policy.product.id}} {{Product_policy}}</span></li>
+                                            {% endif %}
+                                        {% endfor ProductPolicy %}
+                                    </div>
+
+                                    <ul style= "display:none">
+                                        <li class="has-separator">
+                                            <a href="shop-side-version-2.html" id="jquery_product_link_1_get_{{fp_Product.id}}"  >{{fp_Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
+
+                                        <li class="has-separator">
+                                            <a href="shop-side-version-2.html" id="jquery_product_link_2_get_{{fp_Product.id}}" >{{fp_Product.mainproduct.productcategory.subcategory|title}}</a></li>
+
+                                        <li class="is-marked">
+                                            <a href="shop-side-version-2.html" id="jquery_product_link_3_get_{{fp_Product.id}}" >{{fp_Product.mainproduct.productcategory|title}}</a></li>
+                                    </ul>
+                                </div>
+                                {% comment %} hiddern field ends {% endcomment %}
+
+                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
+                                    <div class="product-o product-o--hover-on u-h-100">
+                                        <div class="product-o__wrap">
+
+                                            <a class="aspect aspect--bg-grey aspect--square u-d-block" href="{% url 'home:product_detail' fp_Product.pk %}">
+
+                                                <img class="aspect__img jquery_images_1_get_{{fp_Product.id}}" src="{{fp_Product.Product_Img_1.url}}" alt=""></a>
+                                            <div class="product-o__action-wrap">
+                                                <ul class="product-o__action-list">
+                                                    <li>
+                                                        <a id='{{fp_Product.id}}' class="jquery_product_display" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
+
+                                                    {% if request.user.UserType == 'customer' %}
+                                                    <li>
+                                                        <a data-pk="{{fp_Product.pk}}" href="{% url 'cart:addCart' fp_Product.pk  %}"  id='{{fp_Product.id}}' class="jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                    {% endif %}
+                                                    <li>
+                                                        <a class="wish_heart" data-pk="{{fp_Product.pk}}" href="{% url 'wishlist:addWish' fp_Product.pk  %}" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+
+                                                    {% if request.user.UserType == 'customer' %}
+                                                    <li>
+                                                        <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+
+                                                    {% endif %}
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <span class="product-o__category">
+
+                                            <a href="{% url 'home:shop_grid_left' fp_Product.maincategory.pk %}">{{fp_Product.maincategory|title}}</a></span>
+
+                                        <span class="product-o__name">
+
+                                            <a href="{% url 'home:product_detail' fp_Product.pk %}">{{fp_Product.Product_Title|slice:"0:25"}} ...</a></span>
+                                            {% for key, value in review_average.items %}
+                                                    {% if key == fp_Product.Product_Title %}
+                                                        <p id="Product_total_review_get_{{fp_Product.id}}" style="display:none;" >{{value}} Reviews</p>
+                                                        {% if value == '1.5' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                            {% comment %} {% for key, value in unique_product_rating_count %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} {% endcomment %}
+                                                        </div>
+
+                                                        {% elif value == '2' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '2.5' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '3' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '3.5' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review"  >({% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '4' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '4.5' %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                            <span class="product-o__review">({% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% elif value == '5'  %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                            <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+
+                                                        {% else %}
+                                                        <div class="product-o__rating gl-rating-style">
+                                                            <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                            <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
+                                                        </div>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor review_average %}
+
+                                        <span class="product-o__price">${{fp_Product.Product_Price|floatformat:2}}
+
+                                            <span class="product-o__discount">${{fp_Product.Product_Cutoff_Price|floatformat:2}}</span></span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            {% comment %} <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
+                                <div class="product-o product-o--hover-on u-h-100">
+                                    <div class="product-o__wrap">
+
+                                        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+
+                                            <img class="aspect__img" src="{% static 'images/product/electronic/product20.jpg' %}" alt=""></a>
+                                        <div class="product-o__action-wrap">
+                                            <ul class="product-o__action-list">
+                                                <li>
+
+                                                    <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
+                                                <li>
+
+                                                    <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                <li>
+
+                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
+                                                <li>
+
+                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <span class="product-o__category">
+
+                                        <a href="shop-side-version-2.html">Electronics</a></span>
+
+                                    <span class="product-o__name">
+
+                                        <a href="product-detail.html">Tablet 18inch Screen</a></span>
+                                    <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+
+                                        <span class="product-o__review">(23)</span></div>
+
+                                    <span class="product-o__price">$125.00
+
+                                        <span class="product-o__discount">$160.00</span></span>
+                                </div>
+                            </div>
+                            {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 6 ======-->
+
+
+            <!--====== Section 7 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
+
+                                <a class="promotion" href="{% url 'home:all_shop_grid_left' %}">
+                                    <div class="aspect aspect--bg-grey aspect--square">
+
+                                        <img class="aspect__img promotion__img" src="{% static 'images/promo/promo-img-1.jpg' %}" alt=""></div>
+                                    <div class="promotion__content">
+                                        <div class="promotion__text-wrap">
+                                            <div class="promotion__text-1">
+
+                                                <span class="u-c-secondary">ACCESSORIES FOR YOUR EVERYDAY</span></div>
+                                            <div class="promotion__text-2">
+
+                                                <span class="u-c-secondary">GET IN</span>
+
+                                                <span class="u-c-brand">TOUCH</span></div>
+                                        </div>
+                                    </div>
+                                </a></div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
+
+                                <a class="promotion" href="{% url 'home:all_shop_grid_left' %}">
+                                    <div class="aspect aspect--bg-grey aspect--square">
+
+                                        <img class="aspect__img promotion__img" src="{% static 'images/promo/promo-img-2.jpg' %}" alt=""></div>
+                                    <div class="promotion__content">
+                                        <div class="promotion__text-wrap">
+                                            <div class="promotion__text-1">
+
+                                                <span class="u-c-secondary">SMARTPHONE</span>
+
+                                                <span class="u-c-brand">2019</span></div>
+                                            <div class="promotion__text-2">
+
+                                                <span class="u-c-secondary">NEW ARRIVALS</span></div>
+                                        </div>
+                                    </div>
+                                </a></div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
+
+                                <a class="promotion" href="{% url 'home:all_shop_grid_left' %}">
+                                    <div class="aspect aspect--bg-grey aspect--square">
+
+                                        <img class="aspect__img promotion__img" src="{% static 'images/promo/promo-img-3.jpg' %}" alt=""></div>
+                                    <div class="promotion__content">
+                                        <div class="promotion__text-wrap">
+                                            <div class="promotion__text-1">
+
+                                                <span class="u-c-secondary">DSLR FOR NEW GENERATION</span></div>
+                                            <div class="promotion__text-2">
+
+                                                <span class="u-c-brand">GET UP TO 10% OFF</span></div>
+                                        </div>
+                                    </div>
+                                </a></div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 7 ======-->
+
+
+            <!--====== Section 8 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
+                                <div class="column-product">
+
+                                    <span class="column-product__title u-c-secondary u-s-m-b-25">SPECIAL PRODUCTS</span>
+                                    <ul class="column-product__list">
+                                        {% for sp_Product in sp_Product %}
+                                            <li class="column-product__item">
+                                                <div class="product-l">
+                                                    <div class="product-l__img-wrap">
+
+                                                        <a class="aspect aspect--bg-grey aspect--square u-d-block product-l__link" href="{% url 'home:product_detail' sp_Product.pk %}">
+
+                                                            <img class="aspect__img" src="{{sp_Product.Product_Img_1.url}}" alt=""></a></div>
+                                                    <div class="product-l__info-wrap">
+
+                                                        <span class="product-l__category">
+
+                                                            <a href="{% url 'home:shop_grid_left' sp_Product.maincategory.pk %}">{{sp_Product.maincategory|title}}</a></span>
+
+                                                        <span class="product-l__name">
+
+                                                            <a href="{% url 'home:product_detail' sp_Product.pk %}">{{sp_Product.Product_Title|slice:"0:25"}} ...</a></span>
+
+                                                        <span class="product-l__price">${{sp_Product.Product_Price|floatformat:2}}</span></div>
+                                                </div>
+                                            </li>
+                                            {% comment %}<li class="column-product__item">
+                                                <div class="product-l">
+                                                    <div class="product-l__img-wrap">
+
+                                                        <a class="aspect aspect--bg-grey aspect--square u-d-block product-l__link" href="product-detail.html">
+
+                                                            <img class="aspect__img" src="{% static 'images/product/electronic/product25.jpg' %}" alt=""></a></div>
+                                                    <div class="product-l__info-wrap">
+
+                                                        <span class="product-l__category">
+
+                                                            <a href="shop-side-version-2.html">Electronics</a></span>
+
+                                                        <span class="product-l__name">
+
+                                                            <a href="product-detail.html">Razor Gear 15 Ram 8GB</a></span>
+
+                                                        <span class="product-l__price">$125.00</span></div>
+                                                </div>
+                                            </li> {% endcomment %}
+                                        {% endfor sp_Product %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
+                                <div class="column-product">
+
+                                    <span class="column-product__title u-c-secondary u-s-m-b-25">WEEKLY PRODUCTS</span>
+                                    <ul class="column-product__list">
+                                        {% for wp_Product in wp_Product %}
+
+                                            <li class="column-product__item">
+                                                <div class="product-l">
+                                                    <div class="product-l__img-wrap">
+
+                                                        <a class="aspect aspect--bg-grey aspect--square u-d-block product-l__link" href="{% url 'home:product_detail' wp_Product.pk %}">
+
+                                                            <img class="aspect__img" src="{{wp_Product.Product_Img_1.url}}" alt=""></a></div>
+                                                    <div class="product-l__info-wrap">
+
+                                                        <span class="product-l__category">
+
+                                                            <a href="{% url 'home:shop_grid_left' wp_Product.maincategory.pk %}">{{wp_Product.maincategory|title}}</a></span>
+
+                                                        <span class="product-l__name">
+
+                                                            <a href="{% url 'home:product_detail' wp_Product.pk %}">{{wp_Product.Product_Title|slice:"0:25"}} ...</a></span>
+
+                                                        <span class="product-l__price">${{wp_Product.Product_Price|floatformat:2}}
+
+                                                            <span class="product-l__discount">${{wp_Product.Product_Cutoff_Price|floatformat:2}}</span></span></div>
+                                                </div>
+                                            </li>
+                                            {% comment %}<li class="column-product__item">
+                                                <div class="product-l">
+                                                    <div class="product-l__img-wrap">
+
+                                                        <a class="aspect aspect--bg-grey aspect--square u-d-block product-l__link" href="product-detail.html">
+
+                                                            <img class="aspect__img" src="{% static 'images/product/electronic/product28.jpg' %}" alt=""></a></div>
+                                                    <div class="product-l__info-wrap">
+
+                                                        <span class="product-l__category">
+
+                                                            <a href="shop-side-version-2.html">Electronics</a></span>
+
+                                                        <span class="product-l__name">
+
+                                                            <a href="product-detail.html">Razor Gear 15 Ultra Ram 16GB</a></span>
+
+                                                        <span class="product-l__price">$125.00
+
+                                                            <span class="product-l__discount">$160</span></span></div>
+                                                </div>
+                                            </li> {% endcomment %}
+                                        {% endfor wp_Product %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
+                                <div class="column-product">
+
+                                    <span class="column-product__title u-c-secondary u-s-m-b-25">FLASH PRODUCTS</span>
+                                    <ul class="column-product__list">
+                                        {% for flp_Product in flp_Product %}
+                                            <li class="column-product__item">
+                                                <div class="product-l">
+                                                    <div class="product-l__img-wrap">
+
+                                                        <a class="aspect aspect--bg-grey aspect--square u-d-block product-l__link" href="{% url 'home:product_detail' flp_Product.pk %}">
+
+                                                            <img class="aspect__img" src="{{flp_Product.Product_Img_1.url}}" alt=""></a></div>
+                                                            <div class="product-l__info-wrap">
+                                                                {% for key, value in review_average.items %}
+                                                                    {% if key == flp_Product.Product_Title %}
+                                                                        {% if value == '1.5' %}
+                                                                        <div class="product-l__rating gl-rating-style">
+                                                                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        </div>
+
+                                                                        {% elif value == '2' %}
+                                                                        <div class="product-l__rating gl-rating-style">
+                                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        </div>
+
+                                                                        {% elif value == '2.5' %}
+                                                                        <div class="product-l__rating gl-rating-style">
+                                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        </div>
+
+                                                                        {% elif value == '3' %}
+                                                                        <div class="product-l__rating gl-rating-style">
+                                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        </div>
+
+                                                                        {% elif value == '3.5' %}
+                                                                        <div class="product-l__rating gl-rating-style">
+                                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                                                                        </div>
+
+                                                                        {% elif value == '4' %}
+                                                                        <div class="product-l__rating gl-rating-style">
+                                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                                                        </div>
+
+                                                                        {% elif value == '4.5' %}
+                                                                        <div class="product-l__rating gl-rating-style">
+                                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                                                        </div>
+
+                                                                        {% elif value == '5'  %}
+                                                                        <div class="product-l__rating gl-rating-style">
+                                                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                                                        </div>
+
+                                                                        {% else %}
+                                                                        <div class="product-l__rating gl-rating-style">
+                                                                            <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                                                        </div>
+                                                                        {% endif %}
+                                                                    {% endif %}
+                                                                {% endfor review_average %}
+                                                                    {% comment %} <div class="product-l__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div> {% endcomment %}
+
+                                                                <span class="product-l__category">
+
+                                                                    <a href="{% url 'home:shop_grid_left' flp_Product.maincategory.pk %}">{{flp_Product.maincategory|title}}</a></span>
+
+                                                                <span class="product-l__name">
+
+                                                                    <a href="{% url 'home:product_detail' flp_Product.pk %}">{{flp_Product.Product_Title|slice:"0:25"}} ...</a></span>
+
+                                                                <span class="product-l__price">{{flp_Product.Product_Price|floatformat:2}}</span>
+                                                            </div>
+                                                </div>
+                                            </li>
+                                        {% endfor flp_Product %}
+                                         
+                                        {% comment %}<li class="column-product__item">
+                                            <div class="product-l">
+                                                <div class="product-l__img-wrap">
+
+                                                    <a class="aspect aspect--bg-grey aspect--square u-d-block product-l__link" href="product-detail.html">
+
+                                                        <img class="aspect__img" src="{% static 'images/product/electronic/product31.jpg' %}" alt=""></a></div>
+                                                <div class="product-l__info-wrap">
+                                                    <div class="product-l__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+
+                                                    <span class="product-l__category">
+
+                                                        <a href="shop-side-version-2.html">Electronics</a></span>
+
+                                                    <span class="product-l__name">
+
+                                                        <a href="product-detail.html">Razor Gear 10 Ultra Ram 16GB</a></span>
+
+                                                    <span class="product-l__price">$125.00</span>
+                                                </div>
+                                            </div>
+                                        </li> {% endcomment %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 8 ======-->
+
+
+            <!--====== Section 9 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                                <div class="service u-h-100">
+                                    <div class="service__icon"><i class="fas fa-truck"></i></div>
+                                    <div class="service__info-wrap">
+
+                                        <span class="service__info-text-1">Free Shipping</span>
+
+                                        <span class="service__info-text-2">Free shipping on all US order or order above $200</span></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                                <div class="service u-h-100">
+                                    <div class="service__icon"><i class="fas fa-redo"></i></div>
+                                    <div class="service__info-wrap">
+
+                                        <span class="service__info-text-1">Shop with Confidence</span>
+
+                                        <span class="service__info-text-2">Our Protection covers your purchase from click to delivery</span></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                                <div class="service u-h-100">
+                                    <div class="service__icon"><i class="fas fa-headphones-alt"></i></div>
+                                    <div class="service__info-wrap">
+
+                                        <span class="service__info-text-1">24/7 Help Center</span>
+
+                                        <span class="service__info-text-2">Round-the-clock assistance for a smooth shopping experience</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 9 ======-->
+
+{% comment %}<!--====== Section 10 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Intro ======-->
+                <div class="section__intro u-s-m-b-46">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section__text-wrap">
+                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">LATEST FROM BLOG</h1>
+
+                                    <span class="section__span u-c-silver">START YOU DAY WITH FRESH AND LATEST NEWS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Intro ======-->
+
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                                <div class="bp-mini bp-mini--img u-h-100">
+                                    <div class="bp-mini__thumbnail">
+
+                                        <!--====== Image Code ======-->
+
+                                        <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
+
+                                            <img class="aspect__img" src="{% static 'images/blog/post-2.jpg' %}" alt=""></a>
+                                        <!--====== End - Image Code ======-->
+                                    </div>
+                                    <div class="bp-mini__content">
+                                        <div class="bp-mini__stat">
+
+                                            <span class="bp-mini__stat-wrap">
+
+                                                <span class="bp-mini__publish-date">
+
+                                                    <a>
+
+                                                        <span>25 February 2018</span></a></span></span>
+
+                                            <span class="bp-mini__stat-wrap">
+
+                                                <span class="bp-mini__preposition">By</span>
+
+                                                <span class="bp-mini__author">
+
+                                                    <a href="#">Dayle</a></span></span>
+
+                                            <span class="bp-mini__stat">
+
+                                                <span class="bp-mini__comment">
+
+                                                    <a href="blog-detail.html"><i class="far fa-comments u-s-m-r-4"></i>
+
+                                                        <span>8</span></a></span></span></div>
+                                        <div class="bp-mini__category">
+
+                                            <a>Learning</a>
+
+                                            <a>News</a>
+
+                                            <a>Health</a></div>
+
+                                        <span class="bp-mini__h1">
+
+                                            <a href="blog-detail.html">Life is an extraordinary Adventure</a></span>
+                                        <p class="bp-mini__p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <div class="blog-t-w">
+
+                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Travel</a>
+
+                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Culture</a>
+
+                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Place</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                                <div class="bp-mini bp-mini--img u-h-100">
+                                    <div class="bp-mini__thumbnail">
+
+                                        <!--====== Image Code ======-->
+
+                                        <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
+
+                                            <img class="aspect__img" src="{% static 'images/blog/post-12.jpg' %}" alt=""></a>
+                                        <!--====== End - Image Code ======-->
+                                    </div>
+                                    <div class="bp-mini__content">
+                                        <div class="bp-mini__stat">
+
+                                            <span class="bp-mini__stat-wrap">
+
+                                                <span class="bp-mini__publish-date">
+
+                                                    <a>
+
+                                                        <span>25 February 2018</span></a></span></span>
+
+                                            <span class="bp-mini__stat-wrap">
+
+                                                <span class="bp-mini__preposition">By</span>
+
+                                                <span class="bp-mini__author">
+
+                                                    <a href="#">Dayle</a></span></span>
+
+                                            <span class="bp-mini__stat">
+
+                                                <span class="bp-mini__comment">
+
+                                                    <a href="blog-detail.html"><i class="far fa-comments u-s-m-r-4"></i>
+
+                                                        <span>8</span></a></span></span></div>
+                                        <div class="bp-mini__category">
+
+                                            <a>Learning</a>
+
+                                            <a>News</a>
+
+                                            <a>Health</a></div>
+
+                                        <span class="bp-mini__h1">
+
+                                            <a href="blog-detail.html">Wait till its open</a></span>
+                                        <p class="bp-mini__p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <div class="blog-t-w">
+
+                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Travel</a>
+
+                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Culture</a>
+
+                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Place</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                                <div class="bp-mini bp-mini--img u-h-100">
+                                    <div class="bp-mini__thumbnail">
+
+                                        <!--====== Image Code ======-->
+
+                                        <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
+
+                                            <img class="aspect__img" src="{% static 'images/blog/post-5.jpg' %}" alt=""></a>
+                                        <!--====== End - Image Code ======-->
+                                    </div>
+                                    <div class="bp-mini__content">
+                                        <div class="bp-mini__stat">
+
+                                            <span class="bp-mini__stat-wrap">
+
+                                                <span class="bp-mini__publish-date">
+
+                                                    <a>
+
+                                                        <span>25 February 2018</span></a></span></span>
+
+                                            <span class="bp-mini__stat-wrap">
+
+                                                <span class="bp-mini__preposition">By</span>
+
+                                                <span class="bp-mini__author">
+
+                                                    <a href="#">Dayle</a></span></span>
+
+                                            <span class="bp-mini__stat">
+
+                                                <span class="bp-mini__comment">
+
+                                                    <a href="blog-detail.html"><i class="far fa-comments u-s-m-r-4"></i>
+
+                                                        <span>8</span></a></span></span></div>
+                                        <div class="bp-mini__category">
+
+                                            <a>Learning</a>
+
+                                            <a>News</a>
+
+                                            <a>Health</a></div>
+
+                                        <span class="bp-mini__h1">
+
+                                            <a href="blog-detail.html">Tell me difference between smoke and vape</a></span>
+                                        <p class="bp-mini__p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <div class="blog-t-w">
+
+                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Travel</a>
+
+                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Culture</a>
+
+                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Place</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 10 ======--> {% endcomment %}
+
+
+            {% comment %} <!--====== Section 11 ======-->
+            <div class="u-s-p-b-90 u-s-m-b-30">
+
+                <!--====== Section Intro ======-->
+                <div class="section__intro u-s-m-b-46">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section__text-wrap">
+                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">CLIENTS FEEDBACK</h1>
+
+                                    <span class="section__span u-c-silver">WHAT OUR CLIENTS SAY</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Intro ======-->
+
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+
+                        <!--====== Testimonial Slider ======-->
+                        <div class="slider-fouc">
+                            <div class="owl-carousel" id="testimonial-slider">
+                                <div class="testimonial">
+                                    <div class="testimonial__img-wrap">
+
+                                        <img class="testimonial__img" src="{% static 'images/about/test-1.jpg' %}" alt=""></div>
+                                    <div class="testimonial__content-wrap">
+
+                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
+                                        <blockquote class="testimonial__block-quote">
+                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
+                                        </blockquote>
+
+                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial">
+                                    <div class="testimonial__img-wrap">
+
+                                        <img class="testimonial__img" src="{% static 'images/about/test-2.jpg' %}" alt=""></div>
+                                    <div class="testimonial__content-wrap">
+
+                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
+                                        <blockquote class="testimonial__block-quote">
+                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
+                                        </blockquote>
+
+                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial">
+                                    <div class="testimonial__img-wrap">
+
+                                        <img class="testimonial__img" src="{% static 'images/about/test-3.jpg' %}" alt=""></div>
+                                    <div class="testimonial__content-wrap">
+
+                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
+                                        <blockquote class="testimonial__block-quote">
+                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
+                                        </blockquote>
+
+                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial">
+                                    <div class="testimonial__img-wrap">
+
+                                        <img class="testimonial__img" src="{% static 'images/about/test-4.jpg' %}" alt=""></div>
+                                    <div class="testimonial__content-wrap">
+
+                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
+                                        <blockquote class="testimonial__block-quote">
+                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
+                                        </blockquote>
+
+                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--====== End - Testimonial Slider ======-->
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 11 ======--> {% endcomment %}
+
+
+            {% comment %} <!--====== Section 12 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+
+                        <!--====== Brand Slider ======-->
+                        <div class="slider-fouc">
+                            <div class="owl-carousel" id="brand-slider" data-item="5">
+                                <div class="brand-slide">
+
+                                    <a href="shop-side-version-2.html">
+
+                                        <img src="{% static 'images/brand/b1.png' %}" alt=""></a></div>
+                                <div class="brand-slide">
+
+                                    <a href="shop-side-version-2.html">
+
+                                        <img src="{% static 'images/brand/b2.png' %}" alt=""></a></div>
+                                <div class="brand-slide">
+
+                                    <a href="shop-side-version-2.html">
+
+                                        <img src="{% static 'images/brand/b3.png' %}" alt=""></a></div>
+                                <div class="brand-slide">
+
+                                    <a href="shop-side-version-2.html">
+
+                                        <img src="{% static 'images/brand/b4.png' %}" alt=""></a></div>
+                                <div class="brand-slide">
+
+                                    <a href="shop-side-version-2.html">
+
+                                        <img src="{% static 'images/brand/b5.png' %}" alt=""></a></div>
+                                <div class="brand-slide">
+
+                                    <a href="shop-side-version-2.html">
+
+                                        <img src="{% static 'images/brand/b6.png' %}" alt=""></a></div>
+                            </div>
+                        </div>
+                        <!--====== End - Brand Slider ======-->
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 12 ======--> {% endcomment %}
+        </div>
+                <!--====== Newsletter Subscribe Modal ======-->
+                {% comment %} <div class="modal fade new-l" id="newsletter-modal">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content modal--shadow">
+        
+                            <button class="btn new-l__dismiss fas fa-times" type="button" data-dismiss="modal"></button>
+                            <div class="modal-body">
+                                <div class="row u-s-m-x-0">
+                                    <div class="col-lg-6 new-l__col-1 u-s-p-x-0">
+        
+                                        <a class="new-l__img-wrap u-d-block" href="shop-side-version-2.html">
+        
+                                            <img class="u-img-fluid u-d-block" src="{% static 'images/newsletter/newsletter.jpg' %}" alt=""></a></div>
+                                    <div class="col-lg-6 new-l__col-2">
+                                        <div class="new-l__section u-s-m-t-30">
+                                            <div class="u-s-m-b-8 new-l--center">
+                                                <h3 class="new-l__h3">Newsletter</h3>
+                                            </div>
+                                            <div class="u-s-m-b-30 new-l--center">
+                                                <p class="new-l__p1">Sign up for emails to get the scoop on new arrivals, special sales and more.</p>
+                                            </div>
+                                            <form class="new-l__form">
+                                                <div class="u-s-m-b-15">
+        
+                                                    <input class="news-l__input" type="text" placeholder="E-mail Address"></div>
+                                                <div class="u-s-m-b-15">
+        
+                                                    <button class="btn btn--e-brand-b-2" type="submit">Sign up!</button></div>
+                                            </form>
+                                            <div class="u-s-m-b-15 new-l--center">
+                                                <p class="new-l__p2">By Signing up, you agree to receive Reshop offers,<br />promotions and other commercial messages. You may unsubscribe at any time.</p>
+                                            </div>
+                                            <div class="u-s-m-b-15 new-l--center">
+        
+                                                <a class="new-l__link" data-dismiss="modal">No Thanks</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+                <!--====== End - Newsletter Subscribe Modal ======-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            // this is for the quick view
+            $('.jquery_product_display').on('click',function(){
+                const product_id = $(this).attr('id')
+
+                ///////////////// Images
+                const Img_1 = $(`.jquery_images_1_get_${product_id}`).attr('src')
+                //console.log($(`.img_${product_id}`).attr('src'))
+                $('.jquery_images_1_display').attr('src',Img_1)
+
+                const Img_2 = $(`.jquery_images_2_get_${product_id}`).attr('src')
+                $('.jquery_images_2_display').attr('src',Img_2)
+
+                const Img_3 = $(`.jquery_images_3_get_${product_id}`).attr('src')
+                $('.jquery_images_3_display').attr('src',Img_3)
+
+                const Img_4 = $(`.jquery_images_4_get_${product_id}`).attr('src')
+                $('.jquery_images_4_display').attr('src',Img_4)
+
+                const Img_5 = $(`.jquery_images_5_get_${product_id}`).attr('src')
+                $('.jquery_images_5_display').attr('src',Img_5)
+
+
+
+                ////////// title, price, percentage, cutoffprice, stocks, disc, total_review
+                const title = $(`#Product_Title_get_${product_id}`).text()
+                $('#Product_Title_display').text(title)
+                //console.log(title)
+
+                const price = $(`#Product_price_get_${product_id}`).text()
+                $('#Product_price_display').text(price)
+                //console.log(price)
+
+                const percentage = $(`#Product_percentage_get_${product_id}`).text()
+                $('#Product_percentage_display').text(percentage)
+                //console.log(percentage)
+
+                const cutoff = $(`#Product_cutoff_get_${product_id}`).text()
+                $('#Product_cutoff_display').text(cutoff)
+                //console.log(cutoff)
+
+                const stocks = $(`#Product_stocks_get_${product_id}`).text()
+                $('#Product_stocks_display').text(stocks)
+                //console.log(stocks)
+
+                const disc = $(`#Product_disc_get_${product_id}`).text()
+                $('#Product_disc_display').text(disc)
+                //console.log(disc)
+
+                const t_review = $(`#Product_total_review_get_${product_id}`).text()
+                $('#Product_total_review_display').text(t_review)
+                //console.log(t_review)
+
+                const rated_us = $(`#Product_rated_us_get_${product_id}`).html();
+                $('#Product_rated_us_display').html(rated_us)
+                //console.log(rated_us)
+                
+                const Product_policys = $(`#Product_policys_get_${product_id}`).html();
+                //console.log(Product_policys)
+                $('#Product_policys_display').html(Product_policys)
+
+
+
+                /////////////////this is for the wish list display
+                const Product_wish_heart = $(`#Product_wish_heart_get_${product_id}`).attr('href');
+                //console.log(Product_wish_heart)
+                $(`#Product_wish_heart_display`).attr('href',Product_wish_heart)
+
+                ////////////////// this is for the cart list display
+                const Product_wish_cart = $(`#Product_wish_cart_get_${product_id}`).attr('href');
+                //console.log(Product_wish_heart)
+                $(`#Product_wish_cart_display`).attr('href',Product_wish_cart)
+
+
+
+                //////////  links 
+                const link_1 = $(`#jquery_product_link_1_get_${product_id}`).text()
+                $('#jquery_product_link_1_display').text(link_1)
+                //console.log(link_1)
+
+                const link_2 = $(`#jquery_product_link_2_get_${product_id}`).text()
+                $('#jquery_product_link_2_display').text(link_2)
+                //console.log(link_2)
+
+                const link_3 = $(`#jquery_product_link_3_get_${product_id}`).text()
+                $('#jquery_product_link_3_display').text(link_3)
+                //console.log(link_3)
+
+                
+            });
+
+            // this is for the cart view
+            $('.jquery_cart_product_display').on('click',function(){
+                const product_id = $(this).attr('id')
+
+                ///////////////// Images
+                const Img_1 = $(`.jquery_images_1_get_${product_id}`).attr('src')
+                //console.log($(`.img_${product_id}`).attr('src'))
+                $('.jquery_images_cart_1_display').attr('src',Img_1)
+
+
+                //////////////// price, title
+
+                const title = $(`#Product_Title_get_${product_id}`).text()
+                $('#Product_cart_Title_display').text(title)
+                //console.log(title)
+
+                const price = $(`#Product_price_get_${product_id}`).text()
+                $('#Product_cart_price_display').text(price)
+
+
+
+            });
+
+
+            // this is for the wishlist ajax send product to wishlist 
+            $('.wish_heart').on('click',function(e){
+                e.preventDefault()
+                const _url = $(this).attr('href')
+                //console.log(_url)
+                const _pk = $(this).attr('data-pk')
+                //console.log(_pk)
+                const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
+                //console.log(_pk)
+                $.ajax({
+                    url: _url, 
+                    type: "POST",
+                    data: {
+                        'csrfmiddlewaretoken': _csrf,
+                        'product_pk': _pk,
+                    },
+                    success: function (result) {
+                    alert(result.res)
+                    
+                    },
+                    error: function (err) {
+                    // check the err for error details
+                    }
+                }); // ajax call closing
+
+            });
+
+            $('#Product_wish_heart_display').on('click',function(e){
+                e.preventDefault()
+                const _url =$(this).attr('href')
+                const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
+                $.ajax({
+                    url: _url, 
+                    type: "POST",
+                    data: {
+                        'csrfmiddlewaretoken': _csrf,
+                        //'product_pk': _pk,
+                    },
+                    success: function (result) {
+                    alert(result.res)
+                    
+                    },
+                    error: function (err) {
+                    // check the err for error details
+                    }
+                }); // ajax call closing
+            });
+
+
+            // this is for the cart ajax send product to cart
+            $('.wish_cart').on('click',function(e){
+                e.preventDefault()
+                const _url = $(this).attr('href')
+                //console.log(_url)
+                const _pk = $(this).attr('data-pk')
+                //console.log(_pk)
+                const _qty = $('.ajax_quantity').html()
+                //console.log(typeof(parseInt(_qty)))
+                const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
+                //console.log(_pk)
+                $.ajax({
+                    url: _url, 
+                    type: "POST",
+                    data: {
+                        'csrfmiddlewaretoken': _csrf,
+                        'product_pk': _pk,
+                        'product_qty' : parseInt(_qty),
+                    },
+                    success: function (result) {
+                    alert(result.res)
+                    
+                    },
+                    error: function (err) {
+                    // check the err for error details
+                    }
+                }); // ajax call closing
+            });
+
+            $('#Product_wish_cart_display').on('click',function(e){
+                console.log('clicked on qty')
+                e.preventDefault()
+                const _url = $(this).attr('href')
+                //alert($('[name="product_enter_qty"]').val())
+                const _qty = $('[name="product_enter_qty"]').val()
+                console.log('quantiy',_qty)
+                const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
+                $.ajax({
+                    url: _url, 
+                    type: "POST",
+                    data: {
+                        'csrfmiddlewaretoken': _csrf,
+                        'product_qty': _qty,
+                    },
+                    success: function (result) {
+                    alert(result.res + '\n' +'Quantity :- '+ result.qty)
+                    
+                    },
+                    error: function (err) {
+                    // check the err for error details
+                    }
+                }); // ajax call closing
+            });
+            
+            //////////////////////////////////////////////////////////
+        });
+
+
+
+
+    </script>
+
+    {% endblock content %}
+        <!--====== End - App Content ======-->

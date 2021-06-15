@@ -1074,13 +1074,13 @@
 
                                             <ul style= "display:none">
                                                 <li class="has-separator">
-                                                    <a href="shop-side-version-2.html" id="jquery_product_link_1_get_{{Product.id}}"  >{{Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
+                                                    <a href="{% url 'home:shop_grid_left' Product.maincategory.pk %}" id="jquery_product_link_1_get_{{Product.id}}"  >{{Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
 
                                                 <li class="has-separator">
-                                                    <a href="shop-side-version-2.html" id="jquery_product_link_2_get_{{Product.id}}" >{{Product.mainproduct.productcategory.subcategory|title}}</a></li>
+                                                    <a href="{% url 'home:shop_grid_left_sub_category' Product.subcategory.pk %}" id="jquery_product_link_2_get_{{Product.id}}" >{{Product.mainproduct.productcategory.subcategory|title}}</a></li>
 
                                                 <li class="is-marked">
-                                                    <a href="shop-side-version-2.html" id="jquery_product_link_3_get_{{Product.id}}" >{{Product.mainproduct.productcategory|title}}</a></li>
+                                                    <a href="{% url 'home:product_detail' Product.pk %}" id="jquery_product_link_3_get_{{Product.id}}" >{{Product.mainproduct.productcategory|title}}</a></li>
                                             </ul>
                                         </div>
                                         {% comment %} hiddern field ends {% endcomment %}
@@ -1103,6 +1103,10 @@
                                                     <div class="product-m__add-cart">
                                                         <a data-pk="{{Product.pk}}" href="{% url 'cart:addCart' Product.pk  %}"  id='{{Product.id}}' class="btn--e-brand jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
                                                         <span class="ajax_quantity" style="display:none;">1</span>
+                                                        {% elif request.user.UserType == None %}
+                                                        <div class="product-m__add-cart">
+                                                            <a data-pk="{{Product.pk}}" href="{% url 'cart:addCart' Product.pk  %}"  id='{{Product.id}}' class="btn--e-brand jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
+                                                            <span class="ajax_quantity" style="display:none;">1</span>
                                                     {% endif %}
                                                 </div>
                                                 <div class="product-m__content">
@@ -1203,13 +1207,13 @@
                                                                             <a href="{% url 'home:home' %}">Home</a></li>
                                                                         <li class="has-separator">
 
-                                                                            <a href="shop-side-version-2.html" id ="jquery_product_link_1_display"></a></li>
+                                                                            <a href="" id ="jquery_product_link_1_display"></a></li>
                                                                         <li class="has-separator">
 
-                                                                            <a href="shop-side-version-2.html" id ="jquery_product_link_2_display" ></a></li>
+                                                                            <a href="" id ="jquery_product_link_2_display" ></a></li>
                                                                         <li class="is-marked">
 
-                                                                            <a href="shop-side-version-2.html" id ="jquery_product_link_3_display"></a></li>
+                                                                            <a href="" id ="jquery_product_link_3_display"></a></li>
                                                                     </ul>
                                                                 </div>
                                                                 <!--====== End - Product Breadcrumb ======-->
@@ -1305,7 +1309,17 @@
 
                                                                             <span class="pd-detail__click-wrap"><i class="far fa-envelope u-s-m-r-6"></i>
 
-                                                                                <a href="signin.html">Email me When the price drops</a>
+                                                                                <a href="#">Email me When the price drops</a>
+
+                                                                                <span class="pd-detail__click-count">(20)</span></span></div>
+                                                                    </div>
+                                                                    {% elif request.user.UserType == None %}
+                                                                    <div class="u-s-m-b-15">
+                                                                        <div class="pd-detail__inline">
+
+                                                                            <span class="pd-detail__click-wrap"><i class="far fa-envelope u-s-m-r-6"></i>
+
+                                                                                <a href="#">Email me When the price drops</a>
 
                                                                                 <span class="pd-detail__click-count">(20)</span></span></div>
                                                                     </div>
@@ -1330,6 +1344,30 @@
                                                                         </ul>
                                                                     </div>
                                                                     {% if request.user.UserType == 'customer' %}
+                                                                        <div class="u-s-m-b-15">
+                                                                            <form class="pd-detail__form">
+                                                                                <div class="pd-detail-inline-2">
+                                                                                    <div class="u-s-m-b-15">
+
+                                                                                        <!--====== Input Counter ======-->
+                                                                                        <div class="input-counter">
+
+                                                                                            <span class="input-counter__minus fas fa-minus"></span>
+
+                                                                                            <input class="input-counter__text input-counter--text-primary-style" type="text" name="product_enter_qty" value="1" data-min="1" data-max="1000">
+
+                                                                                            <span class="input-counter__plus fas fa-plus"></span></div>
+                                                                                        <!--====== End - Input Counter ======-->
+                                                                                    </div>
+
+                                                                                    
+                                                                                    <div class="u-s-m-b-15">
+
+                                                                                        <a class="btn btn--e-brand-b-2" id="Product_wish_cart_display" >Add to Cart</a></div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                        {% elif request.user.UserType == None %}
                                                                         <div class="u-s-m-b-15">
                                                                             <form class="pd-detail__form">
                                                                                 <div class="pd-detail-inline-2">
@@ -1553,15 +1591,22 @@
 
             //////////  links 
             const link_1 = $(`#jquery_product_link_1_get_${product_id}`).text()
+            const href_link_1 = $(`#jquery_product_link_1_get_${product_id}`).attr('href')
             $('#jquery_product_link_1_display').text(link_1)
+            $('#jquery_product_link_1_display').attr('href',href_link_1)
             //console.log(link_1)
 
             const link_2 = $(`#jquery_product_link_2_get_${product_id}`).text()
+            const href_link_2 = $(`#jquery_product_link_2_get_${product_id}`).attr('href')
             $('#jquery_product_link_2_display').text(link_2)
+            $('#jquery_product_link_2_display').attr('href',href_link_2)
             //console.log(link_2)
 
             const link_3 = $(`#jquery_product_link_3_get_${product_id}`).text()
+            const href_link_3 = $(`#jquery_product_link_3_get_${product_id}`).attr('href')
             $('#jquery_product_link_3_display').text(link_3)
+            $('#jquery_product_link_3_display').attr('href',href_link_3)
+
             //console.log(link_3)
 
         });
@@ -1618,7 +1663,7 @@
         // this is for the cart ajax send product to cart
             $('.wish_cart').on('click',function(e){
                 e.preventDefault()
-                alert('clicked')
+                //alert('clicked')
                 const _url = $(this).attr('href')
                 //console.log(_url)
                 const _pk = $(this).attr('data-pk')
@@ -1637,6 +1682,14 @@
                     },
                     success: function (result) {
                     alert(result.res)
+                    if (result.res == 'PleaseLogin'){
+                        //alert('PleaseLogin')
+//                        window.location.href = 'http://127.0.0.1:8000/account/signin/'
+                        window.location.replace('http://127.0.0.1:8000/account/signin/')
+                    }
+                    $("#on_load_ajax_refresh").load(location.href + " #on_load_ajax_refresh > *");
+                    $(".cartCnt").load(location.href + " .cartCnt > *");
+                    
                     
                     },
                     error: function (err) {
@@ -1646,12 +1699,12 @@
             });
 
             $('#Product_wish_cart_display').on('click',function(e){
-                console.log('clicked on qty')
+                //console.log('clicked on qty')
                 e.preventDefault()
                 const _url = $(this).attr('href')
                 //alert($('[name="product_enter_qty"]').val())
                 const _qty = $('[name="product_enter_qty"]').val()
-                console.log('quantiy',_qty)
+                //console.log('quantiy',_qty)
                 const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
                 $.ajax({
                     url: _url, 
@@ -1677,7 +1730,7 @@
         $('#ajax_page_number').on('change',function(){
             //alert('clicked')
             const get_pg_val = $("select[name='get_page_choice']").val()
-            {% comment %} alert(parseInt(get_pg_val)); {% endcomment %}
+            //alert(parseInt(get_pg_val));
             $.ajax({
                 url: "{% url 'home:all_shop_grid_left' %}", 
                 type: "GET",

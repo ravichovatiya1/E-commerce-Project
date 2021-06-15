@@ -68,7 +68,7 @@
 
                                                     <a href="{% url 'profile:trackand_Cancel' %}">My Returns & Cancellations</a></li>
             
-                                                {% else %}
+                                                    {% elif user_detail.UserType == 'seller' %}
                                                 <li>
 
                                                     <a href="{% url 'profile:manage_myaccount' %}">Manage My Account</a></li>
@@ -84,6 +84,8 @@
                                                 <li>
                                                     <a href="{% url 'profile:all_product' %}">Your Products Detail</a></li>
 
+                                                {% else %}
+                                                    <h3>Please <a href="{% url 'account:signin' %}" >SIGN IN </a></h3>
                                                 {% endif %}
                                             </ul>
                                         </div>
@@ -120,7 +122,7 @@
                                                         <span class="dash__w-name">Wishlist</span></div>
                                                 </li>
 
-                                            {% else %}
+                                                {% elif user_detail.UserType == 'seller' %}
 
                                                 <li>
                                                     <div class="dash__w-wrap">
@@ -148,6 +150,35 @@
                                                         <span class="dash__w-text">0</span>
 
                                                         <span class="dash__w-name">Complete Orders</span></div>
+                                                </li>
+
+                                                {% else %}
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Orders Placed</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-2"><i class="fas fa-times"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Cancel Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-3"><i class="far fa-heart"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Wishlist</span></div>
                                                 </li>
 
                                                 {% endif %}
@@ -302,6 +333,7 @@
         </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{% static 'js/jquery-3.6.0.js' %}"></script>
 
     <script>
             $(document).ready(function(){

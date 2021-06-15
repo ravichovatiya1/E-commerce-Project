@@ -82,10 +82,10 @@ def signin(request):
         if login_user :
             login(request,login_user)
             if request.user.UserType == 'customer':
-                messages.success(request,'Login Sucessfull customer')
+                messages.success(request,f'Login Sucessfull customer {request.user.first_name} {request.user.last_name}')
                 return redirect('home:home')
             elif request.user.UserType == 'seller':
-                messages.success(request,'Login Sucessfull seller ')
+                messages.success(request,f'Login Sucessfull seller {request.user.first_name} {request.user.last_name} ')
                 return redirect('home:home')
             else:
                 messages.success(request,'Login Sucessfull else part')

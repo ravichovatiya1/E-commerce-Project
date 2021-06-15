@@ -6,14 +6,15 @@ from dashboard.models import Address,DefaultAddress,AddressType,Country,State,Ci
 from home.models import ProductMainCategory,ProductSubCategory,ProductCategory,MainProduct,Product,Product_SubInformation,Information,ProductTags,ProductPolicy,AvailablePolicies,ProductReview,Product_SubInformation,Information
 from home.forms import ProductUploadForm
 from django.contrib import messages
-from django.core.files.storage import FileSystemStorage 
+from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.decorators import login_required
 
 # from django.contrib.auth import get_user_model   #to enter user datta in user models 
 # User = get_user_model() 
 
 
 # Create your views here.
-
+# @login_required
 def dashboard(request):
     try :
         user_default_address = DefaultAddress.objects.get(user= request.user)
@@ -26,6 +27,7 @@ def dashboard(request):
             'user_default_address': user_default_address
     }
     return render(request,'dashboard/dashboard.html',context)
+
 
 def myprofile(request):
     context =  {
@@ -43,15 +45,8 @@ def edit_profile(request):
                                                                  Gender = request.POST.get('add_gender'), 
                                                                  email = request.POST.get('add_email'), 
                                                                  Mobile = request.POST.get('add_contact'))
-        messages.success(request,f'your profile is updated please refresh the page')
-        redirect('profile:manage_myaccount')
-    else:
-        if request.method == 'POST':
-            # taken_email = request.POST.get('add_email')
-            # check_email = User.objects.get(email=taken_email)
-            # print(check_email)
-            # messages.error(request,f'your eamil is already taken')
-            messages.error(request,f'your profile is not updated please try again')
+        messages.success(request,f'your profile is updated')
+        return redirect('profile:myprofile')
 
     context =  {
             'user_detail' : request.user
@@ -60,17 +55,22 @@ def edit_profile(request):
 
 
 def address_book(request):
+    try:
+        user_detail = request.user
+        user_addresses = Address.objects.filter(user = request.user)
+    except:
+        user_detail = {}
+        user_addresses = {}
+
     context =  {
-            'user_detail' : request.user,
-            'user_addresses' : Address.objects.filter(user = request.user),
+            'user_detail' : user_detail,
+            'user_addresses' : user_addresses,
     }
     return render (request,'dashboard/dash-address-book.html',context)
 
 
 def edit_address(request,pk):
     if request.method == 'POST':
-        # print(pk)
-        # print(Address.objects.filter(pk = pk))
         Address.objects.filter(pk=pk).update(
                                                 user = request.user,
                                                 FirstName = request.POST.get('FirstName'),
@@ -111,12 +111,24 @@ def edit_default_address(request):
         except:
             DefaultAddress.objects.create(user=request.user,dafault_address=user_set)
             print("except")
+
+    try :
+        user_detail = request.user
+        user_addresses = Address.objects.filter(user=request.user)
+        user_default_address =DefaultAddress.objects.get(user=request.user)
+
+    except:
+        user_detail = {}
+        user_addresses ={} 
+        user_default_address = {}
+        messages.error(request,f'Please Login First and try it Again ')
+
         
 
     context =  {
-                'user_detail' : request.user,
-                'user_addresses' : Address.objects.filter(user=request.user),
-                'user_default_address' : DefaultAddress.objects.get(user=request.user),
+                'user_detail' : user_detail,
+                'user_addresses' : user_addresses,
+                'user_default_address' : user_default_address,
         }
     return render(request,'dashboard/dash-address-make-default.html',context)
 
@@ -125,7 +137,6 @@ def edit_default_address(request):
 
 def add_new_address(request):
     if request.method == 'POST':
-        # print(pk)
         obj = Address.objects.create(
                                     user = request.user,
                                     FirstName = request.POST.get('FirstName'),
@@ -158,9 +169,7 @@ def add_new_address(request):
             'areas' : Area.objects.all(),
             'pincodes' : Pincode.objects.all(),
             'address_types' : AddressType.objects.all(),
-            # 'add_address' : Address.objects.get(user= request.user)
     }
-    # print(Country)
     return render(request,'dashboard/dash-address-add.html',context)
 
 def track_order(request):
@@ -209,7 +218,6 @@ def product_upload(request):
             'ProductCategory' : ProductCategory.objects.all(),
             'MainProduct' : MainProduct.objects.all(),
             'AvailablePolicies' : AvailablePolicies.objects.all(), 
-            # 'form': form,
         }
     
     if request.method == 'POST':
@@ -273,7 +281,6 @@ def product_upload(request):
                 sub_que.save()
                 print(sub_que)
                 for Ans in range(len(dict[Dic])):
-                    # Information.product_subInformation = sub_que.Product_Sub_Information
                     # Information.options = dict[Dic][Ans]
                     # Information.save()
                     info_option = Information.objects.create(product_subInformation = sub_que,options = dict[Dic][Ans]).save()
@@ -295,10 +302,12 @@ def product_upload(request):
             ).save()
 
             policy_obj.save()
-            return HttpResponse('form saved')
+            messages.success(request,f'your product is successfuly added')
+            # return HttpResponse('form saved')
         else:
             print(form.errors)
-            return HttpResponse('form not saved')
+            messages.error(request,f'tour product is not added')
+            # return HttpResponse('form not saved')
 
 
     return render (request,'dashboard/dash-product-upload.html',context)
@@ -314,9 +323,6 @@ def product_edit(request):
 
 
 def product_edit_one(request,pk):
-    # if request.method == "GET":
-        # print(ProductPolicy.objects.filter(product = pk))
-
 
     context =  {
             'user_detail' : request.user,
@@ -334,18 +340,13 @@ def product_edit_one(request,pk):
         get_obj = get_object_or_404(Product,pk=pk)
         form = ProductUploadForm(request.POST or None,request.FILES, instance=get_obj)
         if form.is_valid():
-            form_obj =form.save()
-            print(form_obj.pk)
-
-            # this is to update the product tags
-            ProductTags.objects.update(
-                                        product = form_obj,
-                                        Product_Tags = request.POST.get('Product_Tags')
-            )
-
-            # ProductTags.objects.filter(product = pk).update(
-            #                             Product_Tags = request.POST.get('Product_Tags')
-            # )
+            form_obj = form.save()
+            # print(form_obj.Product_Title)
+            # product_passing = Product.objects.get(pk = form_obj.pk)
+            
+            ProductTags.objects.filter(product = form_obj).update(Product_Tags = request.POST.get('Product_Tags'))
+            # messages.success(request,'product tags are updated')
+           
 
             # this is to update the policy of user
             policy_id = request.POST.get('allpolicy')
@@ -359,15 +360,19 @@ def product_edit_one(request,pk):
                 select_name_of_policy.append(name[policy])  
                 # print(select_name_of_policy)
             
-            list_add_q =[]
-            for add_policy in select_name_of_policy:
-                add_q = str(add_policy)
-                print('all_selected',add_q)
-                list_add_q.append(add_q)
+            # list_add_q =[]
+            # for add_policy in select_name_of_policy:
+            #     add_q = str(add_policy)
+            #     list_add_q.append(add_q)
+            #     print('all_selected',add_q)
 
-            for before_policies in ProductPolicy.objects.filter(product = pk):
-                before_policies = str(before_policies)
-                print('befor policies',before_policies)
+
+            # before_add_q =[]
+            # for before_policies in ProductPolicy.objects.filter(product = pk):
+            #     before_policies = str(before_policies)
+            #     before_add_q.append(before_policies)
+            #     print('befor policies',before_add_q)
+              
 
                 # print(add_q)
             #     policy_obj = ProductPolicy.objects.create(product = Product.objects.get(pk= form_obj.pk),
@@ -375,11 +380,9 @@ def product_edit_one(request,pk):
             # policy_obj.save()
                 # print()
 
-            
-            
+            messages.success(request,'product updated')
 
-            return HttpResponse('form saved')
-        # print(request.POST.get('Product_Title'))
+            return redirect('profile:product_edit')
     return render(request,'dashboard/dash-product-edit-one.html',context) 
 
 def product_edit_delete(request,pk):
@@ -398,7 +401,6 @@ def product_view(request):
             if product_name.Product_Title == product_review.product.Product_Title:
                 temp_sum = temp_sum + float(product_review.Review_Star_Select)
                 product_wise_stars_count[product_name.Product_Title] = temp_sum
-                # print(product_wise_stars_count)
 
     for all_product_unique_count in product_wise_stars_count:
         single_product = 0
@@ -411,12 +413,6 @@ def product_view(request):
 
     for average_calc in product_wise_stars_count:
         review_average[average_calc] = str(round(product_wise_stars_count[average_calc]/unique_product_rating_count[average_calc]))
-
-    # print(review_average)
-    # print(product_wise_stars_count)
-    # print(unique_product_rating_count)
-
-
 
     context =  {
             'user_detail' : request.user,
@@ -476,16 +472,15 @@ def product_view_one(request,pk):
             'review_average':review_average,
             'unique_product_rating_count':unique_product_rating_count,
     }
+
+    if request.method == 'POST':
+        # print(request.POST.get('Product_Tags'))
+        ProductTags.objects.filter(product = Product.objects.get(pk = pk)).update(Product_Tags = request.POST.get('Product_Tags'))
+        messages.success(request,'product tags are updated')
+        return redirect('profile:product_view_one',pk=pk)
+
+
     return render(request,'dashboard/dash-product-view-one.html',context)
-
-
-
-
-
-
-
-
-
 
 
 # this is of the ajax for the product selection
@@ -507,7 +502,6 @@ def main_product(request):
     p_main_product_cat_id = request.GET.get('p_category')
     main_pro_filters = MainProduct.objects.filter(productcategory = int(p_main_product_cat_id))
     return JsonResponse(serializers.serialize('json',main_pro_filters),safe=False)
-    # return HttpResponse('this is the sample')
 
 
 
@@ -515,41 +509,25 @@ def main_product(request):
 
 def get_state(request):
     country_id = request.GET.get('new_add_country')
-    # print(country_id)
     i_id_country = Country.objects.get(pk = country_id)
-    # print(i_id_country)
     sub_states = State.objects.filter(country = i_id_country)
-    # print(sub_states)
     return JsonResponse(serializers.serialize('json',sub_states),safe=False)
-    # return HttpResponse('this is to select the states')
 
 def get_city(request):
     state_id = request.GET.get('new_add_state')
-    # print(state_id)
     i_id_state = State.objects.get(pk = state_id)
-    # print(i_id_country)
     sub_city = City.objects.filter(state = i_id_state)
-    # print(sub_states)
     return JsonResponse(serializers.serialize('json',sub_city),safe=False)
-    # return HttpResponse('this is to select the states')
 
 def get_area (request):
     city_id = request.GET.get('new_add_city')
-    # print(city_id)
     i_id_city = City.objects.get(pk = city_id)
-    # print(i_id_city)
     sub_area = Area.objects.filter(city = i_id_city)
-    # print(sub_area)
     return JsonResponse(serializers.serialize('json',sub_area),safe=False)
-    # return HttpResponse('this is to select the states')
 
 def get_pincode(request):
     area_id = request.GET.get('new_add_area')
-    # print(area_id)
     i_id_area = Area.objects.get(pk = area_id)
-    # print(i_id_area)
     sub_pincode = Pincode.objects.filter(area = i_id_area)
-    # print(sub_pincode)
     return JsonResponse(serializers.serialize('json',sub_pincode),safe=False)
-    # return HttpResponse('this is to select the states')
     

@@ -69,7 +69,7 @@
 
                                                     <a href="{% url 'profile:trackand_Cancel' %}">My Returns & Cancellations</a></li>
             
-                                                {% else %}
+                                                {% elif user_detail.UserType == 'seller' %}
                                                 <li>
 
                                                     <a href="{% url 'profile:manage_myaccount' %}">Manage My Account</a></li>
@@ -83,7 +83,9 @@
                                                     <a href="{% url 'profile:track_order' %}">Manage Order</a></li>
                                                 <li>
                                                     <a class="dash-active" href="{% url 'profile:all_product' %}">Your Products Detail</a></li>
-
+                                                    
+                                                {% else %}
+                                                    <h3>Please <a href="{% url 'account:signin' %}" >SIGN IN </a></h3>
                                                 {% endif %}
                                             </ul>
                                         </div>
@@ -120,7 +122,7 @@
                                                         <span class="dash__w-name">Wishlist</span></div>
                                                 </li>
 
-                                            {% else %}
+                                                {% elif user_detail.UserType == 'seller' %}
 
                                                 <li>
                                                     <div class="dash__w-wrap">
@@ -150,6 +152,35 @@
                                                         <span class="dash__w-name">Complete Orders</span></div>
                                                 </li>
 
+                                                {% else %}
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Orders Placed</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-2"><i class="fas fa-times"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Cancel Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-3"><i class="far fa-heart"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Wishlist</span></div>
+                                                </li>
+
                                                 {% endif %}
                                             </ul>
                                         </div>
@@ -167,9 +198,12 @@
                                                     <div class="dash__box dash__box--bg-grey dash__box--shadow-2 u-h-100">
                                                         <div class="dash__pad-3">
                                                             <h2 class="dash__h2 u-s-m-b-8">ADD NEW PRODUCT</h2>
-                                                            <div class="dash__link dash__link--secondary u-s-m-b-8">
-
-                                                                <a href="{% url 'profile:product_upload' %}">Add</a></div>
+                                                                {% if request.user.is_authenticated %}
+                                                                    <div class="dash__link dash__link--secondary u-s-m-b-8">
+                                                                        <a href="{% url 'profile:product_upload' %}">Add</a>
+                                                                    </div>
+                                                                {% else %}
+                                                                {% endif %}
 
                                                             <span class="dash__text">Product Uploder :- <br>{{user_detail.first_name}} {{user_detail.last_name}}</span><br>
 
@@ -183,9 +217,13 @@
                                                     <div class="dash__box dash__box--bg-grey dash__box--shadow-2 u-h-100">
                                                         <div class="dash__pad-3">
                                                             <h2 class="dash__h2 u-s-m-b-8">EDIT/DELETE PRODUCT</h2>
+                                                            {% if request.user.is_authenticated %}
                                                             <div class="dash__link dash__link--secondary u-s-m-b-8">
 
-                                                                <a href="{% url 'profile:product_edit' %}">Edit/Delete</a></div>
+                                                                <a href="{% url 'profile:product_edit' %}">Edit/Delete</a>
+                                                            </div>
+                                                            {% else %}
+                                                            {% endif %}
 
                                                             <span class="dash__text">Notes :- <br>Please edit the ploduct as per fields describe in it.</span><br>
 
@@ -199,9 +237,13 @@
                                                     <div class="dash__box dash__box--bg-grey dash__box--shadow-2 u-h-100">
                                                         <div class="dash__pad-3">
                                                             <h2 class="dash__h2 u-s-m-b-8">VIEW PRODUCT</h2>
+
+                                                            {% if request.user.is_authenticated %}
                                                             <div class="dash__link dash__link--secondary u-s-m-b-8">
 
                                                                 <a href="{% url 'profile:product_view' %}">View</a></div>
+                                                            {% else %}
+                                                            {% endif %}
 
                                                             <span class="dash__text">Notes :- <br>Please add the ploduct as per fields describe in it. </span><br>
 

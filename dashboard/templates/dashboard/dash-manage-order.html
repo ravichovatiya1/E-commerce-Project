@@ -45,33 +45,54 @@
 
                                             <span class="dash__text u-s-m-b-16">Hello, {{user_detail.first_name}} {{user_detail.last_name}}</span>
                                             <ul class="dash__f-list">
+                                                {% if user_detail.UserType == 'customer' %} 
                                                 <li>
 
-                                                    <a class="dash-active" href="dashboard.html">Manage My Account</a></li>
+                                                    <a  href="{% url 'profile:manage_myaccount' %}">Manage My Account</a></li>
                                                 <li>
 
-                                                    <a href="dash-my-profile.html">My Profile</a></li>
+                                                    <a href="{% url 'profile:myprofile' %}">My Profile</a></li>
                                                 <li>
 
-                                                    <a href="dash-address-book.html">Address Book</a></li>
+                                                    <a href="{% url 'profile:address_book' %}">Address Book</a></li>
                                                 <li>
 
-                                                    <a href="dash-track-order.html">Track Order</a></li>
+                                                    <a href="{% url 'profile:track_order' %}">Track Order</a></li>
                                                 <li>
 
-                                                    <a href="dash-my-order.html">My Orders</a></li>
+                                                    <a class="dash-active" href="{% url 'profile:my_orders' %}">My Orders</a></li>
                                                 <li>
 
-                                                    <a href="dash-payment-option.html">My Payment Options</a></li>
+                                                    <a href="{% url 'profile:my_payment_option' %}">My Payment Options</a></li>
                                                 <li>
 
-                                                    <a href="dash-cancellation.html">My Returns & Cancellations</a></li>
+                                                    <a href="{% url 'profile:trackand_Cancel' %}">My Returns & Cancellations</a></li>
+            
+                                                {% elif user_detail.UserType == 'seller' %}
+                                                <li>
+
+                                                    <a class="dash-active" href="{% url 'profile:manage_myaccount' %}">Manage My Account</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:myprofile' %}">My Profile</a></li>
+                                                <li>
+
+                                                    <a href="{% url 'profile:address_book' %}">Address Book</a></li>
+                                                <li>
+                                                    <a href="{% url 'profile:track_order' %}">Manage Order</a></li>
+                                                <li>
+                                                    <a href="{% url 'profile:all_product' %}">Your Products Detail</a></li>
+
+                                                {% else %}
+                                                    <h3>Please <a href="{% url 'account:signin' %}" >SIGN IN </a></h3>
+                                                {% endif %}
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="dash__box dash__box--bg-white dash__box--shadow dash__box--w">
                                         <div class="dash__pad-1">
                                             <ul class="dash__w-list">
+                                                {% if user_detail.UserType == 'customer' %}
                                                 <li>
                                                     <div class="dash__w-wrap">
 
@@ -99,11 +120,73 @@
 
                                                         <span class="dash__w-name">Wishlist</span></div>
                                                 </li>
+
+                                            {% elif user_detail.UserType == 'seller' %}
+
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">4</span>
+
+                                                        <span class="dash__w-name">Pending Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-2"><i class="fas fa-times"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Cancel Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-3"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Complete Orders</span></div>
+                                                </li>
+
+                                                {% else %}
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Orders Placed</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-2"><i class="fas fa-times"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Cancel Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-3"><i class="far fa-heart"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Wishlist</span></div>
+                                                </li>
+
+                                                {% endif %}
                                             </ul>
                                         </div>
                                     </div>
                                     <!--====== End - Dashboard Features ======-->
                                 </div>
+                                {% if request.user.is_authenticated and request.user.UserType == 'customer' %}
                                 <div class="col-lg-9 col-md-12">
                                     <h1 class="dash__h1 u-s-m-b-30">Order Details</h1>
                                     <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white u-s-m-b-30">
@@ -235,6 +318,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% else %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>

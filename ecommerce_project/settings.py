@@ -105,6 +105,8 @@ SITE_ID = 3
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+####################################################################
+LOGIN_URL = 'account:signin'
 
 #########################################################################
 
@@ -141,6 +143,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'home.context_processors.c_ProductMainCategory',
+                'cart.context_processors.c_cart_ProductCart',
             ],
         },
     },

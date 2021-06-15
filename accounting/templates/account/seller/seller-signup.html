@@ -5,8 +5,11 @@
 
 
  {% block css %}
+   <!-- online link -->
    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-   <link rel="stylesheet" href="https://resources/demos/style.css">
+   <!-- offline link -->
+   <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+   <!-- link end -->
 
 {% endblock css %}
 
@@ -167,8 +170,12 @@
         </div>
 
          {% block javascript %}
+            <!-- this is online link -->
             <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
             <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <!-- this is offline link -->
+            <script src="{% static 'js/jquery-1.12.4.js' %}"></script>
+            <script src="{% static 'js/jquery-ui.js' %}"></script>
             <script >
                 $( function() {
                     $( "#datepicker" ).datepicker({

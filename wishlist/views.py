@@ -15,14 +15,19 @@ from django.core.files.storage import FileSystemStorage
 # @login_required
 def wishlist(request):
     # print(ProductWishList.objects.filter(user = request.user))
+    try:
+        user_wishlist = ProductWishList.objects.filter(user = request.user)
+    except:
+        user_wishlist ={}
+    
     context = {
-            'ProductWishList' : ProductWishList.objects.filter(user = request.user)
-    }
-    return render(request,'wishlist/wishlist.html',context)
+            'ProductWishList' : user_wishlist,
+        }
 
+    return render(request,'wishlist/wishlist.html',context)
+    
 
 def addWish(request,pk):
-
     if request.method == 'POST':
         # print(request.POST.get('product_pk'))
         
@@ -55,5 +60,8 @@ def removeWish(request,pk):
     # return render(request,'wishlist/wishlist.html')
 
 def removeAllWish(request):
-    ProductWishList.objects.filter(user = User.objects.get(pk = request.user.pk)).delete()
+    try:
+        ProductWishList.objects.filter(user = User.objects.get(pk = request.user.pk)).delete()
+    except:
+        messages.error(request,f'login first and try it again..' )
     return redirect('wishlist:wishlist')

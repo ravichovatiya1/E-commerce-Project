@@ -68,7 +68,7 @@
 
                                                     <a href="{% url 'profile:trackand_Cancel' %}">My Returns & Cancellations</a></li>
             
-                                                {% else %}
+                                                {% elif user_detail.UserType == 'seller' %}
                                                 <li>
 
                                                     <a href="{% url 'profile:manage_myaccount' %}">Manage My Account</a></li>
@@ -84,6 +84,8 @@
 
                                                     <a href="{% url 'profile:all_product' %}">Your Products Detail</a></li>
 
+                                                {% else %}
+                                                    <h3>Please <a href="{% url 'account:signin' %}" >SIGN IN </a></h3>
                                                 {% endif %}
                                             </ul>
                                         </div>
@@ -120,7 +122,7 @@
                                                         <span class="dash__w-name">Wishlist</span></div>
                                                 </li>
 
-                                            {% else %}
+                                                {% elif user_detail.UserType == 'seller' %}
 
                                                 <li>
                                                     <div class="dash__w-wrap">
@@ -150,6 +152,35 @@
                                                         <span class="dash__w-name">Complete Orders</span></div>
                                                 </li>
 
+                                                {% else %}
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Orders Placed</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-2"><i class="fas fa-times"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Cancel Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-3"><i class="far fa-heart"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Wishlist</span></div>
+                                                </li>
+
                                                 {% endif %}
                                             </ul>
                                         </div>
@@ -160,11 +191,11 @@
                                     <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white u-s-m-b-30">
                                         <div class="dash__pad-2">
                                             <div class="dash__address-header">
-                                                <h1 class="dash__h1">{% if user_detail.UserType == 'customer' %}Address Book{% else %}Seller Address Book{% endif %}</h1>
+                                                <h1 class="dash__h1">{% if user_detail.UserType == 'customer' %}Address Book{% elif user_detail.UserType == 'seller' %}Seller Address Book{% else %}Address Book{% endif %}</h1>
                                                 <div>
                                                     <span class="dash__link dash__link--black">
 
-                                                        <a href="{% url 'profile:edit_default_address' %}">{% if user_detail.UserType == 'customer' %}Make default shipping address{% else %}Make default pickup address{% endif %}</a></span></div>
+                                                        <a href="{% url 'profile:edit_default_address' %}">{% if user_detail.UserType == 'customer' %}Make default shipping address{% elif user_detail.UserType == 'seller' %}Make default pickup address{% else %}{% endif %}</a></span></div>
                                                         
                                             </div>
                                         </div>
@@ -220,11 +251,16 @@
                                             </table>
                                         </div>
                                     </div>
+
+                                    {% if request.user.is_authenticated %}
                                     <div>
 
                                         <a class="dash__custom-link btn--e-brand-b-2" href="{% url 'profile:add_new_address' %}"><i class="fas fa-plus u-s-m-r-8"></i>
 
                                             <span>Add New Address</span></a></div>
+                                    {% else %}
+                                    {% endif %}
+                                    
                                 </div>
                             </div>
                         </div>

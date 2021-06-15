@@ -2,7 +2,12 @@
 {% load static %}
 
 {% block css %}
-   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <!-- online link -->
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <!-- offline link -->
+      <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+      <!-- link end -->
+
     <link rel="stylesheet" href="{% static 'css/product_img_upload.css' %}">
 
 {% endblock css %}
@@ -433,8 +438,10 @@
             </div>
             <!--====== End - Section 2 ======-->
         </div>
-        {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> {% endcomment %}
+        <!-- onine link -->
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <!-- offline link -->
+        <script src="{% static 'js/jquery-3.6.0.js' %}"></script>
         <script>
             // this is of the ajax 
             $(document).ready(function(){

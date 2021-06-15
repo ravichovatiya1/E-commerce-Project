@@ -69,7 +69,7 @@
 
                                                     <a href="{% url 'profile:trackand_Cancel' %}">My Returns & Cancellations</a></li>
             
-                                                {% else %}
+                                                {% elif user_detail.UserType == 'seller' %}
                                                 <li>
 
                                                     <a class="dash-active" href="{% url 'profile:manage_myaccount' %}">Manage My Account</a></li>
@@ -84,6 +84,8 @@
                                                 <li>
                                                     <a href="{% url 'profile:all_product' %}">Your Products Detail</a></li>
 
+                                                {% else %}
+                                                    <h3>Please <a href="{% url 'account:signin' %}" >SIGN IN </a></h3>
                                                 {% endif %}
                                             </ul>
                                         </div>
@@ -120,7 +122,7 @@
                                                         <span class="dash__w-name">Wishlist</span></div>
                                                 </li>
 
-                                            {% else %}
+                                            {% elif user_detail.UserType == 'seller' %}
 
                                                 <li>
                                                     <div class="dash__w-wrap">
@@ -150,6 +152,35 @@
                                                         <span class="dash__w-name">Complete Orders</span></div>
                                                 </li>
 
+                                                {% else %}
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Orders Placed</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-2"><i class="fas fa-times"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Cancel Orders</span></div>
+                                                </li>
+                                                <li>
+                                                    <div class="dash__w-wrap">
+
+                                                        <span class="dash__w-icon dash__w-icon-style-3"><i class="far fa-heart"></i></span>
+
+                                                        <span class="dash__w-text">0</span>
+
+                                                        <span class="dash__w-name">Wishlist</span></div>
+                                                </li>
+
                                                 {% endif %}
                                             </ul>
                                         </div>
@@ -169,14 +200,14 @@
                                                             <h2 class="dash__h2 u-s-m-b-8">PERSONAL PROFILE</h2>
                                                             <div class="dash__link dash__link--secondary u-s-m-b-8">
 
-                                                                <a href="{% url 'profile:edit_profile' %}">Edit</a></div>
+                                                                {% if request.user.is_authenticated %}<a href="{% url 'profile:edit_profile' %}">Edit</a>{% endif %}</div>
 
                                                             <span class="dash__text">{{user_detail.first_name}} {{user_detail.last_name}}</span>
 
                                                             <span class="dash__text">{{user_detail.email}}</span>
                                                             <div class="dash__link dash__link--secondary u-s-m-t-8">
 
-                                                                <a data-modal="modal" data-modal-id="#dash-newsletter">Subscribe Newsletter</a></div>
+                                                                {% if request.user.is_authenticated %}<a data-modal="modal" data-modal-id="#dash-newsletter">Subscribe Newsletter</a>{% endif %}</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -185,10 +216,10 @@
                                                         <div class="dash__pad-3">
                                                             <h2 class="dash__h2 u-s-m-b-8">ADDRESS BOOK</h2>
 
-                                                            <span class="dash__text-2 u-s-m-b-8">{% if user_detail.UserType == 'customer' %} Default Shipping Address{% else %}Default Parcal Pickup Address{% endif %}</span>
+                                                            <span class="dash__text-2 u-s-m-b-8">{% if user_detail.UserType == 'customer' %} Default Shipping Address{% elif user_detail.UserType == 'seller' %}Default Parcal Pickup Address{% else %}{% endif %}</span>
                                                             <div class="dash__link dash__link--secondary u-s-m-b-8">
 
-                                                                <a href="{% url 'profile:address_book' %}">Edit</a></div>
+                                                                {% if request.user.is_authenticated %} <a href="{% url 'profile:address_book' %}">Edit</a>{% endif %}</div>
                                                             <span class="dash__text">{{user_default_address.dafault_address.StreetAddress}} {{user_default_address.dafault_address.area}} {{user_default_address.dafault_address.city}} {{user_default_address.dafault_address.state}}-{{user_default_address.dafault_address.pincode}} {{user_default_address.dafault_address.country}}</span>
                                                             <span class="dash__text">(+91) {{user_default_address.dafault_address.Contact}}</span>
                                                         </div>
@@ -199,7 +230,7 @@
                                                         <div class="dash__pad-3">
                                                             <h2 class="dash__h2 u-s-m-b-8">BILLING ADDRESS</h2>
 
-                                                            <span class="dash__text-2 u-s-m-b-8">{% if user_detail.UserType == 'customer' %} Default Billing Address {% else %}Default Parcal Billing Address{% endif %}</span>
+                                                            <span class="dash__text-2 u-s-m-b-8">{% if user_detail.UserType == 'customer' %} Default Billing Address {% elif user_detail.UserType == 'seller' %}Default Parcal Billing Address{% else %}{% endif %}</span>
                                                             <span class="dash__text">{{user_default_address.dafault_address.StreetAddress}} {{user_default_address.dafault_address.area}} {{user_default_address.dafault_address.city}} {{user_default_address.dafault_address.state}}-{{user_default_address.dafault_address.pincode}} {{user_default_address.dafault_address.country}}</span>                                                            
                                                             <span class="dash__text">(+91) {{user_default_address.dafault_address.Contact}}</span>
                                                         
@@ -209,6 +240,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {% if request.user.is_authenticate %}
                                     <div class="dash__box dash__box--shadow dash__box--bg-white dash__box--radius">
                                         <h2 class="dash__h2 u-s-p-xy-20">RECENT ORDERS</h2>
                                         <div class="dash__table-wrap gl-scroll">
@@ -298,6 +330,7 @@
                                             </table>
                                         </div>
                                     </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

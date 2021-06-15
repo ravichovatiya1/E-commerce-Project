@@ -172,10 +172,6 @@
                                         <div class="filter__category-wrapper">
                                         <button class="btn filter__btn filter__btn--style-1" type="button" data-filter=".{% spaceless %}{{ProductMainCategory.Main_Category|cut:" "|cut:"'S"|cut:"&"}}{% endspaceless %}">{{ProductMainCategory.Main_Category|cut:" "}}</button></div>
                                     {% endfor %}
-
-                                        {% comment %} <div class="filter__category-wrapper">
-                                        <button class="btn filter__btn filter__btn--style-1" type="button" data-filter=".smartphone">SMARTPHONES</button></div>
-                                        {% endcomment %}
                                 </div>
                                 <div class="filter__grid-wrapper u-s-m-t-30">
                                     <div class="row">
@@ -196,14 +192,11 @@
 
 
                                                 {% comment %} this is for the wishlist hiddern fields passed below  {% endcomment %}
-                                                
                                                     <a style="display:none;"  id="Product_wish_heart_get_{{Product.id}}" class="wish_heart" data-pk="{{Product.pk}}" href="{% url 'wishlist:addWish' Product.pk  %}"></a>
+
                                                 {% comment %} this is for the cart hiddern fields passed below {% endcomment %}
                                                     <a  style="display:none;"  id="Product_wish_cart_get_{{Product.id}}"  class="btn btn--e-brand-b-2  wish_cart" data-pk="{{Product.pk}}" href="{% url 'cart:addCart' Product.pk  %}"></a>
                                                     
-                                            
-
-
                                                 <div style="display:none;" id="Product_rated_us_get_{{Product.id}}" >
                                                     {% for key, value in review_average.items %}
                                                         {% if key == Product.Product_Title %}
@@ -277,13 +270,13 @@
 
                                                 <ul style= "display:none">
                                                     <li class="has-separator">
-                                                        <a href="shop-side-version-2.html" id="jquery_product_link_1_get_{{Product.id}}"  >{{Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
+                                                        <a href="{% url 'home:shop_grid_left' Product.maincategory.pk %}" id="jquery_product_link_1_get_{{Product.id}}"  >{{Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
 
                                                     <li class="has-separator">
-                                                        <a href="shop-side-version-2.html" id="jquery_product_link_2_get_{{Product.id}}" >{{Product.mainproduct.productcategory.subcategory|title}}</a></li>
+                                                        <a href="{% url 'home:shop_grid_left_sub_category' Product.subcategory.pk %}" id="jquery_product_link_2_get_{{Product.id}}" >{{Product.mainproduct.productcategory.subcategory|title}}</a></li>
 
                                                     <li class="is-marked">
-                                                        <a href="shop-side-version-2.html" id="jquery_product_link_3_get_{{Product.id}}" >{{Product.mainproduct.productcategory|title}}</a></li>
+                                                        <a href="{% url 'home:product_detail' Product.pk %}" id="jquery_product_link_3_get_{{Product.id}}" >{{Product.mainproduct.productcategory|title}}</a></li>
                                                 </ul>
                                             </div>
                                             {% comment %} hiddern field ends {% endcomment %}
@@ -304,6 +297,9 @@
                                                                 {% if request.user.UserType == 'customer' %}
                                                                 <li>
                                                                     <a data-pk="{{Product.pk}}" href="{% url 'cart:addCart' Product.pk  %}"  id='{{Product.id}}' class="jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                                {% elif request.user.UserType == None %}
+                                                                <li>
+                                                                    <a data-pk="{{Product.pk}}" href="{% url 'cart:addCart' Product.pk  %}"  id='{{Product.id}}' class="jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
                                                                 {% endif %}
 
                                                                 <li>
@@ -312,7 +308,10 @@
 
                                                                 {% if request.user.UserType == 'customer' %}
                                                                 <li>
-                                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                                {% elif request.user.UserType == None %}
+                                                                <li>
+                                                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
                                                                 {% endif %}
                                                             </ul>
                                                         </div>
@@ -333,7 +332,6 @@
                                                                     <div class="product-o__rating gl-rating-style">
                                                                         <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                                                                         <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
-                                                                        {% comment %} {% for key, value in unique_product_rating_count %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} {% endcomment %}
                                                                     </div>
 
                                                                     {% elif value == '2' %}
@@ -412,13 +410,13 @@
                                                                                     <a href="{% url 'home:home' %}">Home</a></li>
                                                                                 <li class="has-separator">
 
-                                                                                    <a href="shop-side-version-2.html" id ="jquery_product_link_1_display"></a></li>
+                                                                                    <a href="" id ="jquery_product_link_1_display"></a></li>
                                                                                 <li class="has-separator">
 
-                                                                                    <a href="shop-side-version-2.html" id ="jquery_product_link_2_display" ></a></li>
+                                                                                    <a href="" id ="jquery_product_link_2_display" ></a></li>
                                                                                 <li class="is-marked">
 
-                                                                                    <a href="shop-side-version-2.html" id ="jquery_product_link_3_display"></a></li>
+                                                                                    <a href="" id ="jquery_product_link_3_display"></a></li>
                                                                             </ul>
                                                                         </div>
                                                                         <!--====== End - Product Breadcrumb ======-->
@@ -510,7 +508,17 @@
 
                                                                                     <span class="pd-detail__click-wrap"><i class="far fa-envelope u-s-m-r-6"></i>
 
-                                                                                        <a href="signin.html">Email me When the price drops</a>
+                                                                                        <a href="#">Email me When the price drops</a>
+
+                                                                                        <span class="pd-detail__click-count">(20)</span></span></div>
+                                                                            </div>
+                                                                            {% elif request.user.UserType == None %}
+                                                                            <div class="u-s-m-b-15">
+                                                                                <div class="pd-detail__inline">
+
+                                                                                    <span class="pd-detail__click-wrap"><i class="far fa-envelope u-s-m-r-6"></i>
+
+                                                                                        <a href="#">Email me When the price drops</a>
 
                                                                                         <span class="pd-detail__click-count">(20)</span></span></div>
                                                                             </div>
@@ -537,6 +545,28 @@
                                                                             </div>
                                                                             
                                                                             {% if request.user.UserType == 'customer' %}
+                                                                            <div class="u-s-m-b-15">
+                                                                                <form class="pd-detail__form">
+                                                                                    <div class="pd-detail-inline-2">
+                                                                                        <div class="u-s-m-b-15">
+
+                                                                                            <!--====== Input Counter ======-->
+                                                                                            <div class="input-counter">
+
+                                                                                                <span class="input-counter__minus fas fa-minus"></span>
+
+                                                                                                <input class="input-counter__text input-counter--text-primary-style" type="text" name="product_enter_qty" value="1" data-min="1" data-max="1000">
+
+                                                                                                <span class="input-counter__plus fas fa-plus"></span></div>
+                                                                                            <!--====== End - Input Counter ======-->
+                                                                                        </div>
+                                                                                        <div class="u-s-m-b-15">
+                                                                                            <a class="btn btn--e-brand-b-2" id="Product_wish_cart_display" >Add to Cart</a></div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            {% elif request.user.UserType == None %}
+
                                                                             <div class="u-s-m-b-15">
                                                                                 <form class="pd-detail__form">
                                                                                     <div class="pd-detail-inline-2">
@@ -623,59 +653,10 @@
                                                     </div>
                                                     <!--====== End - Add to Cart Modal ======-->
                                         {% endfor %}
-                                        
-
-                                          {% comment %} <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item headphone">
-                                            <div class="product-o product-o--hover-on product-o--radius">
-                                                <div class="product-o__wrap">
-
-                                                    <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-                                                        <img class="aspect__img" src="{% static 'images/product/electronic/product3.jpg' %}" alt=""></a>
-                                                    <div class="product-o__action-wrap">
-                                                        <ul class="product-o__action-list">
-                                                            <li>
-
-                                                                <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
-                                                            <li>
-
-                                                                <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
-                                                            <li>
-
-                                                                <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                                                            <li>
-
-                                                                <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <span class="product-o__category">
-
-                                                    <a href="shop-side-version-2.html">Electronics</a></span>
-
-                                                <span class="product-o__name">
-
-                                                    <a href="product-detail.html">Yellow Wireless Headphone</a></span>
-                                                <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-                                                    <span class="product-o__review">(23)</span></div>
-
-                                                <span class="product-o__price">$125.00
-
-                                                    <span class="product-o__discount">$160.00</span></span>
-                                            </div>
-                                        </div>
-                                         {% endcomment %}
                                     </div>
                                 </div>
 
                             </div>
-                            {% comment %} <div class="col-lg-12">
-                                <div class="load-more">
-
-                                    <button class="btn btn--e-brand" type="button">Load More</button></div>
-                            </div> {% endcomment %}
                         </div>
                     </div>
                 </div>
@@ -723,22 +704,6 @@
                                         <div class="product-o__special-count-wrap">
                                             <div class="countdown countdown--style-special" data-countdown="2021/07/01"></div>
                                         </div>
-                                        {% comment %} <div class="product-o__action-wrap">
-                                            <ul class="product-o__action-list">
-                                                <li>
-
-                                                    <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
-                                                <li>
-
-                                                    <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
-                                                <li>
-
-                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                                                <li>
-
-                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
-                                            </ul>
-                                        </div> {% endcomment %}
                                     </div>
 
                                     <span class="product-o__category">
@@ -767,22 +732,6 @@
                                         <div class="product-o__special-count-wrap">
                                             <div class="countdown countdown--style-special" data-countdown="2021/07/01"></div>
                                         </div>
-                                        {% comment %} <div class="product-o__action-wrap">
-                                            <ul class="product-o__action-list">
-                                                <li>
-
-                                                    <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
-                                                <li>
-
-                                                    <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
-                                                <li>
-
-                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                                                <li>
-
-                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
-                                            </ul>
-                                        </div> {% endcomment %}
                                     </div>
 
                                     <span class="product-o__category">
@@ -928,13 +877,13 @@
 
                                         <ul style= "display:none">
                                             <li class="has-separator">
-                                                <a href="shop-side-version-2.html" id="jquery_product_link_1_get_{{na_Product.id}}"  >{{na_Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
+                                                <a href="{% url 'home:shop_grid_left' na_Product.maincategory.pk %}" id="jquery_product_link_1_get_{{na_Product.id}}"  >{{na_Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
 
                                             <li class="has-separator">
-                                                <a href="shop-side-version-2.html" id="jquery_product_link_2_get_{{na_Product.id}}" >{{na_Product.mainproduct.productcategory.subcategory|title}}</a></li>
+                                                <a href="{% url 'home:shop_grid_left_sub_category' na_Product.subcategory.pk %}" id="jquery_product_link_2_get_{{na_Product.id}}" >{{na_Product.mainproduct.productcategory.subcategory|title}}</a></li>
 
                                             <li class="is-marked">
-                                                <a href="shop-side-version-2.html" id="jquery_product_link_3_get_{{na_Product.id}}" >{{na_Product.mainproduct.productcategory|title}}</a></li>
+                                                <a href="{% url 'home:product_detail' na_Product.pk %}" id="jquery_product_link_3_get_{{na_Product.id}}" >{{na_Product.mainproduct.productcategory|title}}</a></li>
                                         </ul>
                                     </div> {% endcomment %}
                                     {% comment %} hiddern field ends {% endcomment %}
@@ -955,16 +904,20 @@
 
                                                         {% if request.user.UserType == 'customer' %}
                                                         <li>
-                                                            <a data-pk="{{na_Product.pk}}" href="{% url 'cart:addCart' na_Product.pk  %}"  id='{{na_Product.id}}' class="jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
-                                                    
+                                                            <a data-pk="{{na_Product.pk}}" href="{% url 'cart:addCart' na_Product.pk %}"  id='{{na_Product.id}}' class="jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                        {% elif request.user.UserType == None %}
+                                                        <li>
+                                                            <a data-pk="{{na_Product.pk}}" href="{% url 'cart:addCart' na_Product.pk %}"  id='{{na_Product.id}}' class="jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
                                                         {% endif %}
 
                                                         <li>
                                                             <a class="wish_heart" data-pk="{{na_Product.pk}}" href="{% url 'wishlist:addWish' na_Product.pk  %}" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
 
-                                                            {% comment %} <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li> {% endcomment %}
-
                                                         {% if request.user.UserType == 'customer' %}
+                                                        <li>
+                                                            <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+
+                                                        {% elif request.user.UserType == None %}
                                                         <li>
                                                             <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
                                                         {% endif %}
@@ -988,7 +941,6 @@
                                                         <div class="product-o__rating gl-rating-style">
                                                             <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                                                             <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == na_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
-                                                            {% comment %} {% for key, value in unique_product_rating_count %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} {% endcomment %}
                                                         </div>
 
                                                         {% elif value == '2' %}
@@ -1050,48 +1002,6 @@
 
 
                                 {% endfor na_Product %}
-                                {% comment %} <div class="u-s-m-b-30">
-                                    <div class="product-o product-o--hover-on">
-                                        <div class="product-o__wrap">
-
-                                            <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-                                                <img class="aspect__img" src="{% static 'images/product/electronic/product14.jpg' %}" alt=""></a>
-                                            <div class="product-o__action-wrap">
-                                                <ul class="product-o__action-list">
-                                                    <li>
-
-                                                        <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
-                                                    <li>
-
-                                                        <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
-                                                    <li>
-
-                                                        <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                                                    <li>
-
-                                                        <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <span class="product-o__category">
-
-                                            <a href="shop-side-version-2.html">Electronics</a></span>
-
-                                        <span class="product-o__name">
-
-                                            <a href="product-detail.html">Nikon DSLR 2K Camera</a></span>
-                                        <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-
-                                            <span class="product-o__review">(0)</span></div>
-
-                                        <span class="product-o__price">$125.00
-
-                                            <span class="product-o__discount">$160.00</span></span>
-                                    </div>
-                                </div> {% endcomment %}
-                            
                             </div>
                         </div>
                     </div>
@@ -1254,13 +1164,13 @@
 
                                     <ul style= "display:none">
                                         <li class="has-separator">
-                                            <a href="shop-side-version-2.html" id="jquery_product_link_1_get_{{fp_Product.id}}"  >{{fp_Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
+                                            <a href="{% url 'home:shop_grid_left' fp_Product.maincategory.pk %}" id="jquery_product_link_1_get_{{fp_Product.id}}"  >{{fp_Product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
 
                                         <li class="has-separator">
-                                            <a href="shop-side-version-2.html" id="jquery_product_link_2_get_{{fp_Product.id}}" >{{fp_Product.mainproduct.productcategory.subcategory|title}}</a></li>
+                                            <a href="{% url 'home:shop_grid_left_sub_category' fp_Product.subcategory.pk %}" id="jquery_product_link_2_get_{{fp_Product.id}}" >{{fp_Product.mainproduct.productcategory.subcategory|title}}</a></li>
 
                                         <li class="is-marked">
-                                            <a href="shop-side-version-2.html" id="jquery_product_link_3_get_{{fp_Product.id}}" >{{fp_Product.mainproduct.productcategory|title}}</a></li>
+                                            <a href="{% url 'home:product_detail' fp_Product.pk %}" id="jquery_product_link_3_get_{{fp_Product.id}}" >{{fp_Product.mainproduct.productcategory|title}}</a></li>
                                     </ul>
                                 </div>
                                 {% comment %} hiddern field ends {% endcomment %}
@@ -1280,13 +1190,21 @@
                                                     {% if request.user.UserType == 'customer' %}
                                                     <li>
                                                         <a data-pk="{{fp_Product.pk}}" href="{% url 'cart:addCart' fp_Product.pk  %}"  id='{{fp_Product.id}}' class="jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+
+                                                    {% elif request.user.UserType == None %}
+                                                    <li>
+                                                        <a data-pk="{{fp_Product.pk}}" href="{% url 'cart:addCart' fp_Product.pk  %}"  id='{{fp_Product.id}}' class="jquery_cart_product_display wish_cart" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
                                                     {% endif %}
+
                                                     <li>
                                                         <a class="wish_heart" data-pk="{{fp_Product.pk}}" href="{% url 'wishlist:addWish' fp_Product.pk  %}" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
 
                                                     {% if request.user.UserType == 'customer' %}
                                                     <li>
-                                                        <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
+                                                    {% elif request.user.UserType == None %}
+                                                    <li>
+                                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
 
                                                     {% endif %}
                                                 </ul>
@@ -1307,7 +1225,6 @@
                                                         <div class="product-o__rating gl-rating-style">
                                                             <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                                                             <span class="product-o__review" >({% for key, value in unique_product_rating_count.items %}{% if key == fp_Product.Product_Title %}{{value}}{% endif %}{% endfor %})</span>
-                                                            {% comment %} {% for key, value in unique_product_rating_count %}{% if key == Product.Product_Title %}{{value}}{% endif %}{% endfor %} {% endcomment %}
                                                         </div>
 
                                                         {% elif value == '2' %}
@@ -1367,48 +1284,6 @@
                                     </div>
                                 </div>
                             {% endfor %}
-                            {% comment %} <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
-                                <div class="product-o product-o--hover-on u-h-100">
-                                    <div class="product-o__wrap">
-
-                                        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
-
-                                            <img class="aspect__img" src="{% static 'images/product/electronic/product20.jpg' %}" alt=""></a>
-                                        <div class="product-o__action-wrap">
-                                            <ul class="product-o__action-list">
-                                                <li>
-
-                                                    <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
-                                                <li>
-
-                                                    <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
-                                                <li>
-
-                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                                                <li>
-
-                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top" title="Email me When the price drops"><i class="fas fa-envelope"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <span class="product-o__category">
-
-                                        <a href="shop-side-version-2.html">Electronics</a></span>
-
-                                    <span class="product-o__name">
-
-                                        <a href="product-detail.html">Tablet 18inch Screen</a></span>
-                                    <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-
-                                        <span class="product-o__review">(23)</span></div>
-
-                                    <span class="product-o__price">$125.00
-
-                                        <span class="product-o__discount">$160.00</span></span>
-                                </div>
-                            </div>
-                            {% endcomment %}
                         </div>
                     </div>
                 </div>
@@ -1520,26 +1395,6 @@
                                                         <span class="product-l__price">${{sp_Product.Product_Price|floatformat:2}}</span></div>
                                                 </div>
                                             </li>
-                                            {% comment %}<li class="column-product__item">
-                                                <div class="product-l">
-                                                    <div class="product-l__img-wrap">
-
-                                                        <a class="aspect aspect--bg-grey aspect--square u-d-block product-l__link" href="product-detail.html">
-
-                                                            <img class="aspect__img" src="{% static 'images/product/electronic/product25.jpg' %}" alt=""></a></div>
-                                                    <div class="product-l__info-wrap">
-
-                                                        <span class="product-l__category">
-
-                                                            <a href="shop-side-version-2.html">Electronics</a></span>
-
-                                                        <span class="product-l__name">
-
-                                                            <a href="product-detail.html">Razor Gear 15 Ram 8GB</a></span>
-
-                                                        <span class="product-l__price">$125.00</span></div>
-                                                </div>
-                                            </li> {% endcomment %}
                                         {% endfor sp_Product %}
                                     </ul>
                                 </div>
@@ -1573,28 +1428,7 @@
                                                             <span class="product-l__discount">${{wp_Product.Product_Cutoff_Price|floatformat:2}}</span></span></div>
                                                 </div>
                                             </li>
-                                            {% comment %}<li class="column-product__item">
-                                                <div class="product-l">
-                                                    <div class="product-l__img-wrap">
 
-                                                        <a class="aspect aspect--bg-grey aspect--square u-d-block product-l__link" href="product-detail.html">
-
-                                                            <img class="aspect__img" src="{% static 'images/product/electronic/product28.jpg' %}" alt=""></a></div>
-                                                    <div class="product-l__info-wrap">
-
-                                                        <span class="product-l__category">
-
-                                                            <a href="shop-side-version-2.html">Electronics</a></span>
-
-                                                        <span class="product-l__name">
-
-                                                            <a href="product-detail.html">Razor Gear 15 Ultra Ram 16GB</a></span>
-
-                                                        <span class="product-l__price">$125.00
-
-                                                            <span class="product-l__discount">$160</span></span></div>
-                                                </div>
-                                            </li> {% endcomment %}
                                         {% endfor wp_Product %}
                                     </ul>
                                 </div>
@@ -1662,7 +1496,6 @@
                                                                         {% endif %}
                                                                     {% endif %}
                                                                 {% endfor review_average %}
-                                                                    {% comment %} <div class="product-l__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div> {% endcomment %}
 
                                                                 <span class="product-l__category">
 
@@ -1677,29 +1510,6 @@
                                                 </div>
                                             </li>
                                         {% endfor flp_Product %}
-                                         
-                                        {% comment %}<li class="column-product__item">
-                                            <div class="product-l">
-                                                <div class="product-l__img-wrap">
-
-                                                    <a class="aspect aspect--bg-grey aspect--square u-d-block product-l__link" href="product-detail.html">
-
-                                                        <img class="aspect__img" src="{% static 'images/product/electronic/product31.jpg' %}" alt=""></a></div>
-                                                <div class="product-l__info-wrap">
-                                                    <div class="product-l__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
-
-                                                    <span class="product-l__category">
-
-                                                        <a href="shop-side-version-2.html">Electronics</a></span>
-
-                                                    <span class="product-l__name">
-
-                                                        <a href="product-detail.html">Razor Gear 10 Ultra Ram 16GB</a></span>
-
-                                                    <span class="product-l__price">$125.00</span>
-                                                </div>
-                                            </div>
-                                        </li> {% endcomment %}
                                     </ul>
                                 </div>
                             </div>
@@ -1754,403 +1564,12 @@
                 <!--====== End - Section Content ======-->
             </div>
             <!--====== End - Section 9 ======-->
-
-{% comment %}<!--====== Section 10 ======-->
-            <div class="u-s-p-b-60">
-
-                <!--====== Section Intro ======-->
-                <div class="section__intro u-s-m-b-46">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section__text-wrap">
-                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">LATEST FROM BLOG</h1>
-
-                                    <span class="section__span u-c-silver">START YOU DAY WITH FRESH AND LATEST NEWS</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Intro ======-->
-
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 u-s-m-b-30">
-                                <div class="bp-mini bp-mini--img u-h-100">
-                                    <div class="bp-mini__thumbnail">
-
-                                        <!--====== Image Code ======-->
-
-                                        <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
-
-                                            <img class="aspect__img" src="{% static 'images/blog/post-2.jpg' %}" alt=""></a>
-                                        <!--====== End - Image Code ======-->
-                                    </div>
-                                    <div class="bp-mini__content">
-                                        <div class="bp-mini__stat">
-
-                                            <span class="bp-mini__stat-wrap">
-
-                                                <span class="bp-mini__publish-date">
-
-                                                    <a>
-
-                                                        <span>25 February 2018</span></a></span></span>
-
-                                            <span class="bp-mini__stat-wrap">
-
-                                                <span class="bp-mini__preposition">By</span>
-
-                                                <span class="bp-mini__author">
-
-                                                    <a href="#">Dayle</a></span></span>
-
-                                            <span class="bp-mini__stat">
-
-                                                <span class="bp-mini__comment">
-
-                                                    <a href="blog-detail.html"><i class="far fa-comments u-s-m-r-4"></i>
-
-                                                        <span>8</span></a></span></span></div>
-                                        <div class="bp-mini__category">
-
-                                            <a>Learning</a>
-
-                                            <a>News</a>
-
-                                            <a>Health</a></div>
-
-                                        <span class="bp-mini__h1">
-
-                                            <a href="blog-detail.html">Life is an extraordinary Adventure</a></span>
-                                        <p class="bp-mini__p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <div class="blog-t-w">
-
-                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Travel</a>
-
-                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Culture</a>
-
-                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Place</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 u-s-m-b-30">
-                                <div class="bp-mini bp-mini--img u-h-100">
-                                    <div class="bp-mini__thumbnail">
-
-                                        <!--====== Image Code ======-->
-
-                                        <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
-
-                                            <img class="aspect__img" src="{% static 'images/blog/post-12.jpg' %}" alt=""></a>
-                                        <!--====== End - Image Code ======-->
-                                    </div>
-                                    <div class="bp-mini__content">
-                                        <div class="bp-mini__stat">
-
-                                            <span class="bp-mini__stat-wrap">
-
-                                                <span class="bp-mini__publish-date">
-
-                                                    <a>
-
-                                                        <span>25 February 2018</span></a></span></span>
-
-                                            <span class="bp-mini__stat-wrap">
-
-                                                <span class="bp-mini__preposition">By</span>
-
-                                                <span class="bp-mini__author">
-
-                                                    <a href="#">Dayle</a></span></span>
-
-                                            <span class="bp-mini__stat">
-
-                                                <span class="bp-mini__comment">
-
-                                                    <a href="blog-detail.html"><i class="far fa-comments u-s-m-r-4"></i>
-
-                                                        <span>8</span></a></span></span></div>
-                                        <div class="bp-mini__category">
-
-                                            <a>Learning</a>
-
-                                            <a>News</a>
-
-                                            <a>Health</a></div>
-
-                                        <span class="bp-mini__h1">
-
-                                            <a href="blog-detail.html">Wait till its open</a></span>
-                                        <p class="bp-mini__p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <div class="blog-t-w">
-
-                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Travel</a>
-
-                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Culture</a>
-
-                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Place</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 u-s-m-b-30">
-                                <div class="bp-mini bp-mini--img u-h-100">
-                                    <div class="bp-mini__thumbnail">
-
-                                        <!--====== Image Code ======-->
-
-                                        <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
-
-                                            <img class="aspect__img" src="{% static 'images/blog/post-5.jpg' %}" alt=""></a>
-                                        <!--====== End - Image Code ======-->
-                                    </div>
-                                    <div class="bp-mini__content">
-                                        <div class="bp-mini__stat">
-
-                                            <span class="bp-mini__stat-wrap">
-
-                                                <span class="bp-mini__publish-date">
-
-                                                    <a>
-
-                                                        <span>25 February 2018</span></a></span></span>
-
-                                            <span class="bp-mini__stat-wrap">
-
-                                                <span class="bp-mini__preposition">By</span>
-
-                                                <span class="bp-mini__author">
-
-                                                    <a href="#">Dayle</a></span></span>
-
-                                            <span class="bp-mini__stat">
-
-                                                <span class="bp-mini__comment">
-
-                                                    <a href="blog-detail.html"><i class="far fa-comments u-s-m-r-4"></i>
-
-                                                        <span>8</span></a></span></span></div>
-                                        <div class="bp-mini__category">
-
-                                            <a>Learning</a>
-
-                                            <a>News</a>
-
-                                            <a>Health</a></div>
-
-                                        <span class="bp-mini__h1">
-
-                                            <a href="blog-detail.html">Tell me difference between smoke and vape</a></span>
-                                        <p class="bp-mini__p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <div class="blog-t-w">
-
-                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Travel</a>
-
-                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Culture</a>
-
-                                            <a class="gl-tag btn--e-transparent-hover-brand-b-2">Place</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 10 ======--> {% endcomment %}
-
-
-            {% comment %} <!--====== Section 11 ======-->
-            <div class="u-s-p-b-90 u-s-m-b-30">
-
-                <!--====== Section Intro ======-->
-                <div class="section__intro u-s-m-b-46">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section__text-wrap">
-                                    <h1 class="section__heading u-c-secondary u-s-m-b-12">CLIENTS FEEDBACK</h1>
-
-                                    <span class="section__span u-c-silver">WHAT OUR CLIENTS SAY</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Intro ======-->
-
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-
-                        <!--====== Testimonial Slider ======-->
-                        <div class="slider-fouc">
-                            <div class="owl-carousel" id="testimonial-slider">
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
-
-                                        <img class="testimonial__img" src="{% static 'images/about/test-1.jpg' %}" alt=""></div>
-                                    <div class="testimonial__content-wrap">
-
-                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
-                                        </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
-
-                                        <img class="testimonial__img" src="{% static 'images/about/test-2.jpg' %}" alt=""></div>
-                                    <div class="testimonial__content-wrap">
-
-                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
-                                        </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
-
-                                        <img class="testimonial__img" src="{% static 'images/about/test-3.jpg' %}" alt=""></div>
-                                    <div class="testimonial__content-wrap">
-
-                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
-                                        </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial">
-                                    <div class="testimonial__img-wrap">
-
-                                        <img class="testimonial__img" src="{% static 'images/about/test-4.jpg' %}" alt=""></div>
-                                    <div class="testimonial__content-wrap">
-
-                                        <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
-                                        <blockquote class="testimonial__block-quote">
-                                            <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
-                                        </blockquote>
-
-                                        <span class="testimonial__author">John D. / DVNTR Inc.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--====== End - Testimonial Slider ======-->
-                    </div>
-                </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 11 ======--> {% endcomment %}
-
-
-            {% comment %} <!--====== Section 12 ======-->
-            <div class="u-s-p-b-60">
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-
-                        <!--====== Brand Slider ======-->
-                        <div class="slider-fouc">
-                            <div class="owl-carousel" id="brand-slider" data-item="5">
-                                <div class="brand-slide">
-
-                                    <a href="shop-side-version-2.html">
-
-                                        <img src="{% static 'images/brand/b1.png' %}" alt=""></a></div>
-                                <div class="brand-slide">
-
-                                    <a href="shop-side-version-2.html">
-
-                                        <img src="{% static 'images/brand/b2.png' %}" alt=""></a></div>
-                                <div class="brand-slide">
-
-                                    <a href="shop-side-version-2.html">
-
-                                        <img src="{% static 'images/brand/b3.png' %}" alt=""></a></div>
-                                <div class="brand-slide">
-
-                                    <a href="shop-side-version-2.html">
-
-                                        <img src="{% static 'images/brand/b4.png' %}" alt=""></a></div>
-                                <div class="brand-slide">
-
-                                    <a href="shop-side-version-2.html">
-
-                                        <img src="{% static 'images/brand/b5.png' %}" alt=""></a></div>
-                                <div class="brand-slide">
-
-                                    <a href="shop-side-version-2.html">
-
-                                        <img src="{% static 'images/brand/b6.png' %}" alt=""></a></div>
-                            </div>
-                        </div>
-                        <!--====== End - Brand Slider ======-->
-                    </div>
-                </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 12 ======--> {% endcomment %}
         </div>
-                <!--====== Newsletter Subscribe Modal ======-->
-                {% comment %} <div class="modal fade new-l" id="newsletter-modal">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content modal--shadow">
-        
-                            <button class="btn new-l__dismiss fas fa-times" type="button" data-dismiss="modal"></button>
-                            <div class="modal-body">
-                                <div class="row u-s-m-x-0">
-                                    <div class="col-lg-6 new-l__col-1 u-s-p-x-0">
-        
-                                        <a class="new-l__img-wrap u-d-block" href="shop-side-version-2.html">
-        
-                                            <img class="u-img-fluid u-d-block" src="{% static 'images/newsletter/newsletter.jpg' %}" alt=""></a></div>
-                                    <div class="col-lg-6 new-l__col-2">
-                                        <div class="new-l__section u-s-m-t-30">
-                                            <div class="u-s-m-b-8 new-l--center">
-                                                <h3 class="new-l__h3">Newsletter</h3>
-                                            </div>
-                                            <div class="u-s-m-b-30 new-l--center">
-                                                <p class="new-l__p1">Sign up for emails to get the scoop on new arrivals, special sales and more.</p>
-                                            </div>
-                                            <form class="new-l__form">
-                                                <div class="u-s-m-b-15">
-        
-                                                    <input class="news-l__input" type="text" placeholder="E-mail Address"></div>
-                                                <div class="u-s-m-b-15">
-        
-                                                    <button class="btn btn--e-brand-b-2" type="submit">Sign up!</button></div>
-                                            </form>
-                                            <div class="u-s-m-b-15 new-l--center">
-                                                <p class="new-l__p2">By Signing up, you agree to receive Reshop offers,<br />promotions and other commercial messages. You may unsubscribe at any time.</p>
-                                            </div>
-                                            <div class="u-s-m-b-15 new-l--center">
-        
-                                                <a class="new-l__link" data-dismiss="modal">No Thanks</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> {% endcomment %}
-                <!--====== End - Newsletter Subscribe Modal ======-->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <!-- onine link -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <!-- offline link -->
+        <script src="{% static 'js/jquery-3.6.0.js' %}"></script>
     <script>
 
         $(document).ready(function(){
@@ -2230,16 +1649,22 @@
 
                 //////////  links 
                 const link_1 = $(`#jquery_product_link_1_get_${product_id}`).text()
+                const href_link_1 = $(`#jquery_product_link_1_get_${product_id}`).attr('href')
                 $('#jquery_product_link_1_display').text(link_1)
-                //console.log(link_1)
+                $('#jquery_product_link_1_display').attr('href',href_link_1)
+                //console.log(href_link_1)
 
                 const link_2 = $(`#jquery_product_link_2_get_${product_id}`).text()
+                const href_link_2 = $(`#jquery_product_link_2_get_${product_id}`).attr('href')
                 $('#jquery_product_link_2_display').text(link_2)
-                //console.log(link_2)
+                $('#jquery_product_link_2_display').attr('href',href_link_2)
+                //console.log(href_link_2)
 
                 const link_3 = $(`#jquery_product_link_3_get_${product_id}`).text()
+                const href_link_3 = $(`#jquery_product_link_3_get_${product_id}`).attr('href')
                 $('#jquery_product_link_3_display').text(link_3)
-                //console.log(link_3)
+                $('#jquery_product_link_3_display').attr('href',href_link_3)
+                //console.log(href_link_3)
 
                 
             });
@@ -2373,9 +1798,6 @@
             
             //////////////////////////////////////////////////////////
         });
-
-
-
 
     </script>
 

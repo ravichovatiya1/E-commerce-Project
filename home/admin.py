@@ -8,7 +8,7 @@ admin.site.register(models.ProductSubCategory)
 admin.site.register(models.ProductCategory)
 admin.site.register(models.MainProduct)
 admin.site.register(models.Product)
-admin.site.register(models.ProductReview)
+# admin.site.register(models.ProductReview)
 admin.site.register(models.Product_SubInformation)
 admin.site.register(models.Information)
 admin.site.register(models.ProductTags)
@@ -24,3 +24,6 @@ admin.site.register(models.AvailablePolicies)
 # class InformationAdminModel(admin.ModelAdmin):
 #     list_display = ('pk',)
 
+@admin.register(models.ProductReview)
+class ProductReviewAdminModel(admin.ModelAdmin):
+    list_display = ('pk','product','user')

@@ -1,264 +1,234 @@
 {% extends 'base.html' %}
 {% load static %}
-
-        <!--====== App Content ======-->
-        {% block content %}
-        {% csrf_token %}
-        <div class="app-content">
-
-            <!--====== Section 1 ======-->
-            <div class="u-s-p-y-60">
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-                        <div class="breadcrumb">
-                            <div class="breadcrumb__wrap">
-                                <ul class="breadcrumb__list">
-                                    <li class="has-separator">
-
-                                        <a href="index.html">Home</a></li>
-                                    <li class="is-marked">
-
-                                        <a href="cart.html">Cart</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--====== End - Section 1 ======-->
-
-
-            <!--====== Section 2 ======-->
-            <div class="u-s-p-b-60">
-
-                <!--====== Section Intro ======-->
-                <div class="section__intro u-s-m-b-60">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section__text-wrap">
-                                    <h1 class="section__heading u-c-secondary">SHOPPING CART</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Intro ======-->
-
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 u-s-m-b-30">
-                                <div class="table-responsive">
-                                    <table class="table-p">
-                                        <tbody>
-
-                                            <!--====== Row ======-->
-                                            {% for ProductCart in ProductCart %}
-                                                {% if request.user == ProductCart.user %}
-                                                    <tr>
-                                                        <td>
-                                                            <div class="table-p__box">
-                                                                <div class="table-p__img-wrap">
-                                                                    <a id="href_get_{{ProductCart.product.pk}}" href="{% url 'cart:updateCart' ProductCart.product.pk  %}" ></a>
-                                                                    
-                                                                    <img class="u-img-fluid" src="{{ProductCart.product.Product_Img_1.url}}" alt=""></div>
-                                                                <div class="table-p__info">
-
-                                                                    <span class="table-p__name">
-
-                                                                        <a href="{% url 'home:product_detail' ProductCart.product.pk %}">{{ProductCart.product.Product_Title|slice:'0:30'}} ...</a></span>
-
-                                                                    <span class="table-p__category">
-
-                                                                        <a href="{% url 'home:shop_grid_left' ProductCart.product.maincategory.pk %}">{{ProductCart.product.maincategory|title}}</a></span>
-                                                                    <ul class="table-p__variant-list">
-                                                                        <li>
-
-                                                                            <span>Size: 22</span></li>
-                                                                        <li>
-
-                                                                            <span>Color: Red</span></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-
-                                                            <span class="table-p__price get_price_{{ProductCart.product.pk}}" >$ {{ProductCart.product.Product_Price}}</span></td>
-                                                        <td>
-                                                            <div class="table-p__input-counter-wrap">
-
-                                                                <!--====== Input Counter ======-->
-                                                                <div class="input-counter">
-
-                                                                    <span id="{{ProductCart.product.pk}}" class="input-counter__minus fas fa-minus ajax_clicked"></span>
-
-                                                                    <input class="input-counter__text input-counter--text-primary-style" name="jquery_qty_{{ProductCart.product.pk}}" type="text" value="{{ProductCart.Product_quantity}}" data-min="1" data-max="1000">
-
-                                                                    <span id="{{ProductCart.product.pk}}" class="input-counter__plus fas fa-plus ajax_clicked"></span></div>
-                                                                <!--====== End - Input Counter ======-->
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="table-p__del-wrap">
-                                                                <a class="far fa-trash-alt table-p__delete-link" href="{% url 'cart:removeCart' ProductCart.pk %}"></a></div>
-                                                        </td>
-                                                    </tr>
-                                                {% endif %}
-                                            {% endfor ProductCart %}
-                                            <!--====== End - Row ======-->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="route-box">
-                                    <div class="route-box__g1">
-
-                                        <a class="route-box__link" href="{% url 'home:all_shop_grid_left' %}"><i class="fas fa-long-arrow-alt-left"></i>
-
-                                            <span>CONTINUE SHOPPING</span></a></div>
-                                    <div class="route-box__g2">
-
-                                        <a class="route-box__link" href="{% url 'cart:removeAllCart' %}"><i class="fas fa-trash"></i>
-
-                                            <span>CLEAR CART</span></a>
-
-                                        <a class="route-box__link" href="{% url 'cart:cart' %}"><i class="fas fa-sync"></i>
-
-                                            <span>UPDATE CART</span></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 2 ======-->
-
-
-            <!--====== Section 3 ======-->
-            <div class="u-s-p-b-60">
-
-                <!--====== Section Content ======-->
-                <div class="section__content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 u-s-m-b-30">
-                                <form class="f-cart">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6 u-s-m-b-30">
-                                            <div class="f-cart__pad-box">
-                                                <h1 class="gl-h1">ESTIMATE SHIPPING AND TAXES</h1>
-
-                                                <span class="gl-text u-s-m-b-30"><br><br>17 % of the for all shipping estimate.</span>
-                                      
-                                                <span class="gl-text"><br><br>Note: There are some countries where free shipping is available otherwise our flat rate charges or country delivery charges will be apply.</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 u-s-m-b-30">
-                                            <div class="f-cart__pad-box">
-                                                <h1 class="gl-h1">NOTE</h1>
-
-                                                <span class="gl-text u-s-m-b-30">Add Special Note About Your Product</span>
-                                                <div>
-
-                                                    <label for="f-cart-note"></label><textarea style="height:120px;" class="text-area text-area--primary-style" id="f-cart-note"></textarea></div>
-                                            </div>
-                                        </div>
-                                        <div id='cartTotal' class="col-lg-4 col-md-6 u-s-m-b-30 ">
-                                            <div class="f-cart__pad-box">
-                                                <div class="u-s-m-b-30">
-                                                    <table class="f-cart__table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>SUBTOTAL</td>
-                                                                <td>${{total_amount|floatformat:2}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>SHIPPING</td>
-                                                                <td>${{charge|floatformat:2}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>TAX</td>
-                                                                <td>${{gst|floatformat:2}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>GRAND TOTAL</td>
-                                                                <td>${{grandtotal|floatformat:2}}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div>
-
-                                                    <button class="btn btn--e-brand-b-2" type="submit"> PROCEED TO CHECKOUT</button></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--====== End - Section Content ======-->
-            </div>
-            <!--====== End - Section 3 ======-->
+<!--====== App Content ======-->
+{% block content %}
+{% csrf_token %}
+<div class="app-content">
+  <!--====== Section 1 ======-->
+  <div class="u-s-p-y-60">
+    <!--====== Section Content ======-->
+    <div class="section__content">
+      <div class="container">
+        <div class="breadcrumb">
+          <div class="breadcrumb__wrap">
+            <ul class="breadcrumb__list">
+              <li class="has-separator">
+                <a href="index.html">Home</a>
+              </li>
+              <li class="is-marked">
+                <a href="cart.html">Cart</a>
+              </li>
+            </ul>
+          </div>
         </div>
-
-
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <script>
-            $(document).ready(function(){
-                // Get value on button click and show alert
-                $(".ajax_clicked").on('click',function(e){
-                    e.preventDefault()
-                    const product_id = $(this).attr('id')
-                    const product_qty = $(`input[name="jquery_qty_${product_id}"]`).val()
-                    const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
-                    const _href = $(`#href_get_${product_id}`).attr('href')
-                    //var total = 0;
-                    //const total = $(`.get_price_${product_id}`).text().slice(2)
-                    //alert(total)
-
-                    //alert(product_id+' '+product_qty +'\n'+_href);
-
-                    $.ajax({
-                    url: _href , 
-                    type: "POST",
-                    data: {
-                        'csrfmiddlewaretoken': _csrf,
-                        'product_pk' : product_id,
-                        'product_qty' : parseInt(product_qty),
-                        },
-                    success: function (result) {
-                        //alert('Quantity Updated :- ' + result.qty)
-                        $("#cartTotal").load(location.href + " #cartTotal > *");
-                    
-                    },
-                    error: function (err) {
-                    }
-                    });
-
-                });
-
-            });
-
-            //$(document).ready(function(){
-            //    var price_get = $(`#for_loop_counter_${product_id}`).val()
-            //    var total = $(`.get_price_${product_id}`).text().slice(2)
-            //    console.log(total)
-            //    console.log(price_get)
-            //});
-        
-        </script>
-
-
-        {% endblock content %}
-        <!--====== End - App Content ======-->
-
+      </div>
+    </div>
+  </div>
+  <!--====== End - Section 1 ======-->
+  <!--====== Section 2 ======-->
+  <div class="u-s-p-b-60">
+    <!--====== Section Intro ======-->
+    <div class="section__intro u-s-m-b-60">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section__text-wrap">
+              <h1 class="section__heading u-c-secondary">SHOPPING CART</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--====== End - Section Intro ======-->
+    <!--====== Section Content ======-->
+    <div class="section__content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 u-s-m-b-30">
+            <div class="table-responsive">
+              <table class="table-p">
+                <tbody>
+                  <!--====== Row ======-->
+                  {% for ProductCart in ProductCart %}
+                  {% if request.user == ProductCart.user %}
+                  <tr>
+                    <td>
+                      <div class="table-p__box">
+                        <div class="table-p__img-wrap">
+                          <a id="href_get_{{ProductCart.product.pk}}" href="{% url 'cart:updateCart' ProductCart.product.pk  %}" ></a>
+                          <img class="u-img-fluid" src="{{ProductCart.product.Product_Img_1.url}}" alt="">
+                        </div>
+                        <div class="table-p__info">
+                          <span class="table-p__name">
+                          <a href="{% url 'home:product_detail' ProductCart.product.pk %}">{{ProductCart.product.Product_Title|slice:'0:30'}} ...</a></span>
+                          <span class="table-p__category">
+                          <a href="{% url 'home:shop_grid_left' ProductCart.product.maincategory.pk %}">{{ProductCart.product.maincategory|title}}</a></span>
+                          <ul class="table-p__variant-list">
+                            <li>
+                              <span>Size: 22</span>
+                            </li>
+                            <li>
+                              <span>Color: Red</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="table-p__price get_price_{{ProductCart.product.pk}}" >$ {{ProductCart.product.Product_Price}}</span>
+                    </td>
+                    <td>
+                      <div class="table-p__input-counter-wrap">
+                        <!--====== Input Counter ======-->
+                        <div class="input-counter">
+                          <span id="{{ProductCart.product.pk}}" class="input-counter__minus fas fa-minus ajax_clicked"></span>
+                          <input class="input-counter__text input-counter--text-primary-style" name="jquery_qty_{{ProductCart.product.pk}}" type="text" value="{{ProductCart.Product_quantity}}" data-min="1" data-max="1000">
+                          <span id="{{ProductCart.product.pk}}" class="input-counter__plus fas fa-plus ajax_clicked"></span>
+                        </div>
+                        <!--====== End - Input Counter ======-->
+                      </div>
+                    </td>
+                    <td>
+                      <div class="table-p__del-wrap">
+                        <a class="far fa-trash-alt table-p__delete-link" href="{% url 'cart:removeCart' ProductCart.pk %}"></a>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endif %}
+                  {% endfor ProductCart %}
+                  <!--====== End - Row ======-->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="route-box">
+              <div class="route-box__g1">
+                <a class="route-box__link" href="{% url 'home:all_shop_grid_left' %}"><i class="fas fa-long-arrow-alt-left"></i>
+                <span>CONTINUE SHOPPING</span></a>
+              </div>
+              <div class="route-box__g2">
+                <a class="route-box__link" href="{% url 'cart:removeAllCart' %}"><i class="fas fa-trash"></i>
+                <span>CLEAR CART</span></a>
+                <a class="route-box__link" href="{% url 'cart:cart' %}"><i class="fas fa-sync"></i>
+                <span>UPDATE CART</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--====== End - Section Content ======-->
+  </div>
+  <!--====== End - Section 2 ======-->
+  <!--====== Section 3 ======-->
+  <div class="u-s-p-b-60">
+    <!--====== Section Content ======-->
+    <div class="section__content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 u-s-m-b-30">
+            <form class="f-cart">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                  <div class="f-cart__pad-box">
+                    <h1 class="gl-h1">ESTIMATE SHIPPING AND TAXES</h1>
+                    <span class="gl-text u-s-m-b-30"><br><br>17 % of the for all shipping estimate.</span>
+                    <span class="gl-text"><br><br>Note: There are some countries where free shipping is available otherwise our flat rate charges or country delivery charges will be apply.</span>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                  <div class="f-cart__pad-box">
+                    <h1 class="gl-h1">NOTE</h1>
+                    <span class="gl-text u-s-m-b-30">Add Special Note About Your Product</span>
+                    <div>
+                      <label for="f-cart-note"></label><textarea style="height:120px;" class="text-area text-area--primary-style" id="f-cart-note"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div id='cartTotal' class="col-lg-4 col-md-6 u-s-m-b-30 ">
+                  <div class="f-cart__pad-box">
+                    <div class="u-s-m-b-30">
+                      <table class="f-cart__table">
+                        <tbody>
+                          <tr>
+                            <td>SUBTOTAL</td>
+                            <td>${{total_amount|floatformat:2}}</td>
+                          </tr>
+                          <tr>
+                            <td>SHIPPING</td>
+                            <td>${{charge|floatformat:2}}</td>
+                          </tr>
+                          <tr>
+                            <td>TAX</td>
+                            <td>${{gst|floatformat:2}}</td>
+                          </tr>
+                          <tr>
+                            <td>GRAND TOTAL</td>
+                            <td>${{grandtotal|floatformat:2}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <button class="btn btn--e-brand-b-2" type="submit"> PROCEED TO CHECKOUT</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--====== End - Section Content ======-->
+  </div>
+  <!--====== End - Section 3 ======-->
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+  $(document).ready(function(){
+      // Get value on button click and show alert
+      $(".ajax_clicked").on('click',function(e){
+          e.preventDefault()
+          const product_id = $(this).attr('id')
+          const product_qty = $(`input[name="jquery_qty_${product_id}"]`).val()
+          const _csrf = $('input[name="csrfmiddlewaretoken"]').val()
+          const _href = $(`#href_get_${product_id}`).attr('href')
+          //var total = 0;
+          //const total = $(`.get_price_${product_id}`).text().slice(2)
+          //alert(total)
+  
+          //alert(product_id+' '+product_qty +'\n'+_href);
+  
+          $.ajax({
+          url: _href , 
+          type: "POST",
+          data: {
+              'csrfmiddlewaretoken': _csrf,
+              'product_pk' : product_id,
+              'product_qty' : parseInt(product_qty),
+              },
+          success: function (result) {
+              //alert('Quantity Updated :- ' + result.qty)
+              $("#cartTotal").load(location.href + " #cartTotal > *");
+          
+          },
+          error: function (err) {
+          }
+          });
+  
+      });
+  
+  });
+  
+  //$(document).ready(function(){
+  //    var price_get = $(`#for_loop_counter_${product_id}`).val()
+  //    var total = $(`.get_price_${product_id}`).text().slice(2)
+  //    console.log(total)
+  //    console.log(price_get)
+  //});
+  
+</script>
+{% endblock content %}
+<!--====== End - App Content ======-->

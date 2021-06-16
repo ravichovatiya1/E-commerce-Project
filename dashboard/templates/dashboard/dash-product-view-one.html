@@ -1,490 +1,467 @@
 {% extends 'base.html' %}
 {% load static %}
-
-        <!--====== App Content ======-->
-        {% block content %}
-        {% comment %} <h1>{{single_Product}}</h1> {% endcomment %}
-        {% for one_product in Product %}
-        {% if one_product.user.id == request.user.id %}
-        {% comment %}{{one_product}} {% endcomment %}
-        <div class="app-content">
-
-            <!--====== Section 1 ======-->
-
-            <div class="u-s-p-t-90">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5">
-
-                            <!--====== Product Breadcrumb ======-->
-                            
-                            <div class="pd-breadcrumb u-s-m-b-30">
-                                <ul class="pd-breadcrumb__list">
-                                    <li class="has-separator">
-
-                                        <a href="{% url 'home:home' %}">Home</a></li>
-                                    <li class="has-separator">
-
-                                        <a href="shop-side-version-2.html">{{one_product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a></li>
-                                    <li class="has-separator">
-
-                                        <a href="shop-side-version-2.html">{{one_product.mainproduct.productcategory.subcategory|title}}</a></li>
-                                    <li class="is-marked">
-
-                                        <a href="shop-side-version-2.html">{{one_product.mainproduct.productcategory|title}}</a></li>
-                                </ul>
-                            </div>
-
-                            <!--====== End - Product Breadcrumb ======-->
-
-
-                            <!--====== Product Detail Zoom ======-->
-                            <div class="pd u-s-m-b-30">
-                                <div class="slider-fouc pd-wrap">
-                                    <div id="pd-o-initiate">
-                                        <div class="pd-o-img-wrap" data-src="{{one_product.Product_Img_1.url}}">
-
-                                            <img class="u-img-fluid" src="{{one_product.Product_Img_1.url}}" data-zoom-image="{{one_product.Product_Img_1.url}}" alt=""></div>
-                                        <div class="pd-o-img-wrap" data-src="{{one_product.Product_Img_2.url}}">
-
-                                            <img class="u-img-fluid" src="{{one_product.Product_Img_2.url}}" data-zoom-image="{{one_product.Product_Img_2.url}}" alt=""></div>
-                                        <div class="pd-o-img-wrap" data-src="{{one_product.Product_Img_3.url}}">
-
-                                            <img class="u-img-fluid" src="{{one_product.Product_Img_3.url}}" data-zoom-image="{{one_product.Product_Img_3.url}}" alt=""></div>
-                                        <div class="pd-o-img-wrap" data-src="{{one_product.Product_Img_4.url}}">
-
-                                            <img class="u-img-fluid" src="{{one_product.Product_Img_4.url}}" data-zoom-image="{{one_product.Product_Img_4.url}}" alt=""></div>
-                                        <div class="pd-o-img-wrap" data-src="{{one_product.Product_Img_5.url}}">
-
-                                            <img class="u-img-fluid" src="{{one_product.Product_Img_5.url}}" data-zoom-image="{{one_product.Product_Img_5.url}}" alt=""></div>
-                                    </div>
-
-                                    <span class="pd-text">Click for larger zoom</span>
-                                </div>
-                                <div class="u-s-m-t-15">
-                                    <div class="slider-fouc">
-                                        <div id="pd-o-thumbnail">
-                                            <div>
-
-                                                <img class="u-img-fluid" src="{{one_product.Product_Img_1.url}}" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="{{one_product.Product_Img_2.url}}" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="{{one_product.Product_Img_3.url}}" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="{{one_product.Product_Img_4.url}}" alt=""></div>
-                                            <div>
-
-                                                <img class="u-img-fluid" src="{{one_product.Product_Img_5.url}}" alt=""></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--====== End - Product Detail Zoom ======-->
-                        </div>
-                        <div class="col-lg-7">
-
-                            <!--====== Product Right Side Details ======-->
-                            <div class="pd-detail">
-                                <div>
-
-                                    <span class="pd-detail__name">{{one_product.Product_Title}}</span></div>
-                                <div>
-                                    <div class="pd-detail__inline">
-
-                                        <span class="pd-detail__price">${{one_product.Product_Price|floatformat:2}}</span>
-
-                                        <span class="pd-detail__discount">({{one_product.Product_Percentage_Off|floatformat:0 }}% OFF)</span><del class="pd-detail__del">${{one_product.Product_Cutoff_Price|floatformat:2}}</del></div>
-                                </div>
-                                <div class="u-s-m-b-15">
-                                    {% for key, value in review_average.items %}
-                                        {% comment %} {{value}} {% endcomment %}
-                                        {% if key == one_product.Product_Title %}
-                                        {% comment %} {{key}}=={{one_product.Product_Title}} {% endcomment %}
-                                            {% if value == '1.5' %}
-                                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                <span class="pd-detail__review u-s-m-l-4">
-                                            <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span></div>
-                                            {% elif value == '2' %}
-                                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                <span class="pd-detail__review u-s-m-l-4">
-                                            <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span></div>
-                                            {% elif value == '2.5' %}
-                                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                <span class="pd-detail__review u-s-m-l-4">
-                                            <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span></div>
-                                            {% elif value == '3' %}
-                                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                <span class="pd-detail__review u-s-m-l-4">
-                                            <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span></div>
-                                            {% elif value == '3.5' %}
-                                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                                                <span class="pd-detail__review u-s-m-l-4">
-                                            <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span></div>
-                                            {% elif value == '4' %}
-                                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                                <span class="pd-detail__review u-s-m-l-4">
-                                            <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span></div>
-                                            {% elif value == '4.5' %}
-                                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                                <span class="pd-detail__review u-s-m-l-4">
-                                            <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span></div>
-                                            {% elif value == '5'  %}
-                                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                                <span class="pd-detail__review u-s-m-l-4">
-                                            <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span></div>
-                                            {% else %}
-                                                <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                <span class="pd-detail__review u-s-m-l-4">
-                                            <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span></div>
-                                            {% endif %}
-                                    
-                                    {% endif %}
-                                    {% endfor ProductReview %}
-
-
-                                {% comment %} 
-                                    <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                        <span class="pd-detail__review u-s-m-l-4">
-
-
-                                            <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span></div> {% endcomment %}
-                                </div>
-                                <div class="u-s-m-b-15">
-                                    <div class="pd-detail__inline">
-
-                                        <span class="pd-detail__stock">{{one_product.Product_Stock}} in stock</span>
-
-                                        <span class="pd-detail__left">Only 2 left</span></div>
-                                </div>
-                                <div class="u-s-m-b-15">
-
-                                    <span class="pd-detail__preview-desc">{{one_product.Product_Disc}}</span></div>
-                                <div class="u-s-m-b-15">
-                                    <ul class="pd-social-list">
-                                        <li>
-
-                                            <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li>
-
-                                            <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li>
-
-                                            <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li>
-
-                                            <a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a></li>
-                                        <li>
-
-                                            <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="u-s-m-b-15">
-
-                                    <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>
-                                    <ul class="pd-detail__policy-list">
-                                        {% for Product_policy in ProductPolicy %}
-                                            {% if one_product.id == Product_policy.product.id %}
-                                                <li><i class="fas fa-check-circle u-s-m-r-8"></i>
-                                                <span>{{Product_policy.product.id}} {{Product_policy}}</span></li>
-                                            {% endif %}
-                                        {% endfor ProductPolicy %}
-                                        {% comment %} <li><i class="fas fa-check-circle u-s-m-r-8"></i>
-
-                                            <span>Buyer Protection.</span></li> {% endcomment %}
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--====== End - Product Right Side Details ======-->
-                        </div>
-                    </div>
+<!--====== App Content ======-->
+{% block content %}
+{% comment %} 
+<h1>{{single_Product}}</h1>
+{% endcomment %}
+{% for one_product in Product %}
+{% if one_product.user.id == request.user.id %}
+{% comment %}{{one_product}} {% endcomment %}
+<div class="app-content">
+  <!--====== Section 1 ======-->
+  <div class="u-s-p-t-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <!--====== Product Breadcrumb ======-->
+          <div class="pd-breadcrumb u-s-m-b-30">
+            <ul class="pd-breadcrumb__list">
+              <li class="has-separator">
+                <a href="{% url 'home:home' %}">Home</a>
+              </li>
+              <li class="has-separator">
+                <a href="shop-side-version-2.html">{{one_product.mainproduct.productcategory.subcategory.maincategory.Main_Category|title}}</a>
+              </li>
+              <li class="has-separator">
+                <a href="shop-side-version-2.html">{{one_product.mainproduct.productcategory.subcategory|title}}</a>
+              </li>
+              <li class="is-marked">
+                <a href="shop-side-version-2.html">{{one_product.mainproduct.productcategory|title}}</a>
+              </li>
+            </ul>
+          </div>
+          <!--====== End - Product Breadcrumb ======-->
+          <!--====== Product Detail Zoom ======-->
+          <div class="pd u-s-m-b-30">
+            <div class="slider-fouc pd-wrap">
+              <div id="pd-o-initiate">
+                <div class="pd-o-img-wrap" data-src="{{one_product.Product_Img_1.url}}">
+                  <img class="u-img-fluid" src="{{one_product.Product_Img_1.url}}" data-zoom-image="{{one_product.Product_Img_1.url}}" alt="">
                 </div>
-            </div>
-
-            
-
-            <!--====== Product Detail Tab ======-->
-            <div class="u-s-p-y-90">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="pd-tab">
-                                <div class="u-s-m-b-30">
-                                    <ul class="nav pd-tab__list">
-                                        <li class="nav-item">
-
-                                            <a class="nav-link active" data-toggle="tab" href="#pd-desc">DESCRIPTION</a></li>
-                                        <li class="nav-item">
-
-                                            <a class="nav-link" data-toggle="tab" href="#pd-tag">TAGS</a></li>
-                                        <li class="nav-item">
-
-                                            <a class="nav-link" id="view-review" data-toggle="tab" href="#pd-rev">REVIEWS
-
-                                                <span>({% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %})</span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="tab-content">
-
-                                    <!--====== Tab 1 ======-->
-                                    <div class="tab-pane fade show active" id="pd-desc">
-                                        <div class="pd-tab__desc">
-                                            <div class="u-s-m-b-15">
-                                                <p>{{one_product.Product_Disc}}.</p>
-                                            </div>
-                                            <div class="u-s-m-b-30"><iframe src="https://www.youtube.com/embed/qKqSBm07KZk" allowfullscreen></iframe></div>
-                                            <div class="u-s-m-b-30">
-                                                <ul>
-                                                {% for Product_policy in ProductPolicy %}
-                                                    {% if one_product.id == Product_policy.product.id %}
-                                                        <li><i class="fas fa-check u-s-m-r-8"></i>
-                                                        <span>{{Product_policy.product.id}} {{Product_policy}}</span></li>
-                                                    {% endif %}
-                                                {% endfor ProductPolicy %}
-                                                    {% comment %} <li><i class="fas fa-check u-s-m-r-8"></i>
-
-                                                        <span>Buyer Protection.</span></li> {% endcomment %}
-                                                </ul>
-                                            </div>
-                                            <div class="u-s-m-b-15">
-                                                <h4>PRODUCT INFORMATION</h4>
-                                            </div>
-                                            <div class="u-s-m-b-15">
-                                                <div class="pd-table gl-scroll">
-                                                    <table>
-                                                        <tbody>
-                                                        {% for Product_SubInformation in Product_SubInformation %}
-                                                            {% if one_product.id == Product_SubInformation.product.id %}
-                                                            {% comment %} {{ProductMainInformation.product}}=={{one_product}} {% endcomment %}
-                                                            
-                                                                <tr><td>{{Product_SubInformation}}</td>
-                                                                    <td>
-                                                                {% comment %} {{Product_SubInformation.product_main_information }}=={{ProductMainInformation}}, {% endcomment %}
-                                                                {% for Information in Information %}
-                                                                    {% if Product_SubInformation.id == Information.product_subInformation.id %}
-                                                                    {% comment %} {{Product_SubInformation}}=={{Information}}, {% endcomment %}
-                                                                            {{Information|title}},
-                                                                    {% endif %}
-                                                                {% endfor Information %}
-                                                                        </td>
-                                                                </tr>
-                                                            {% endif %}
-                                                        {% endfor ProductMainInformation %}
-                                                        <tr>
-                                                            <td>Warrenty</td>
-                                                            <td>{{one_product.Product_Warrenty|floatformat:1}} Year</td>
-                                                        <tr>
-
-                                                        <tr>
-                                                            <td>Garenty</td>
-                                                            <td>{{one_product.Product_Garenty|floatformat:1}} Year</td>
-                                                        <tr>
-
-                                                        <tr>
-                                                            <td>Shipping</td>
-                                                            <td>{{one_product.ProductShipping}}</td>
-                                                        <tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--====== End - Tab 1 ======-->
-
-
-                                    <!--====== Tab 2 ======-->
-                                    <div class="tab-pane" id="pd-tag">
-                                        <div class="pd-tab__tag">
-                                            <h2 class="u-s-m-b-15">ADD YOUR TAGS FROM HERE</h2>
-                                            <div class="u-s-m-b-15">
-                                            
-                                                <form method = "post" action="{% url 'profile:product_view_one' one_product.pk  %}" >
-                                                    {% csrf_token %}
-
-                                                    <input class="input-text input-text--primary-style" name="Product_Tags" type="text" {% for ProductTags in ProductTags %}{% if one_product.id == ProductTags.product.id %} value="{{ProductTags.Product_Tags}}" {% endif %}{% endfor ProductTags %}>
-                                                    {% comment %} <p>{{ProductTags.Product_Tags}}<p> {% endcomment %}
-
-                                                    <button class="btn btn--e-brand-b-2" type="submit">ADD TAGS</button>
-                                                </form>
-                                            
-                                            </div> 
-
-                                            <span class="gl-text">Use spaces to separate tags. Use single quotes (') for phrases.</span>
-                                        </div>
-                                    </div>
-                                    <!--====== End - Tab 2 ======-->
-
-
-                                    <!--====== Tab 3 ======-->
-                                    <div class="tab-pane" id="pd-rev">
-                                        <div class="pd-tab__rev">
-                                            <div class="u-s-m-b-30">
-                                                <div class="pd-tab__rev-score">
-                                                    <div class="u-s-m-b-8">
-                                                        <h2>{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews - {% for key, value in review_average.items %}{% if key == one_product.Product_Title %}{{value}} Stars {% endif %}{% endfor %}(Overall)</h2>
-                                                    </div>
-
-                                                    {% for key, value in review_average.items %}
-                                                        {% if key == one_product.Product_Title %}
-                                                            {% if value == '1.5' %}
-                                                            <div class="gl-rating-style-2 u-s-m-b-8">
-                                                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                            </div>
-
-                                                            {% elif value == '2' %}
-                                                            <div class="gl-rating-style-2 u-s-m-b-8">
-                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                            </div>
-
-                                                            {% elif value == '2.5' %}
-                                                            <div class="gl-rating-style-2 u-s-m-b-8">
-                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                            </div>
-
-                                                            {% elif value == '3' %}
-                                                            <div class="gl-rating-style-2 u-s-m-b-8">
-                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                            </div>
-
-                                                            {% elif value == '3.5' %}
-                                                            <div class="gl-rating-style-2 u-s-m-b-8">
-                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                                                            </div>
-
-                                                            {% elif value == '4' %}
-                                                            <div class="gl-rating-style-2 u-s-m-b-8">
-                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                                            </div>
-
-                                                            {% elif value == '4.5' %}
-                                                            <div class="gl-rating-style-2 u-s-m-b-8">
-                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                                            </div>
-
-                                                            {% elif value == '5'  %}
-                                                            <div class="gl-rating-style-2 u-s-m-b-8">
-                                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                                            </div>
-
-                                                            {% else %}
-                                                            <div class="gl-rating-style-2 u-s-m-b-8">
-                                                                <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                            </div>
-                                                            {% endif %}
-
-
-                                                        {% endif %}
-                                                    {% endfor review_average %}
-
-                                                    {% comment %} <div class="gl-rating-style-2 u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div> {% endcomment %}
-
-
-
-                                                    <div class="u-s-m-b-8">
-                                                        <h4>We want to hear from you!</h4>
-                                                    </div>
-
-                                                    <span class="gl-text">Tell us what you think about this item</span>
-                                                </div>
-                                            </div>
-                                            <div class="u-s-m-b-30">
-                                                <form class="pd-tab__rev-f1">
-                                                    <div class="rev-f1__group">
-                                                        <div class="u-s-m-b-15">
-                                                            <h2>{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Review(s) for {{one_product.Product_Title}}</h2>
-                                                        </div>
-                                                        <div class="u-s-m-b-15">
-
-                                                            <label for="sort-review"></label><select class="select-box select-box--primary-style" id="sort-review">
-                                                                <option selected>Sort by: Best Rating</option>
-                                                                <option>Sort by: Worst Rating</option>
-                                                            </select></div>
-                                                    </div>
-                                                    <div class="rev-f1__review">
-                                                    {% for ProductReview in ProductReview %}
-                                                        {% if ProductReview.product.id == one_product.id %}
-                                                                {% comment %} {{ProductReview.product.id}}{{one_product.id}} {% endcomment %}
-                                                        {% comment %} {{ProductReview}}<br> {% endcomment %}
-                                                        {% comment %} {{ProductReview.Review_DateTime}}<br> {% endcomment %}
-                                                        {% comment %} {{ProductReview.user}}<br> {% endcomment %}
-                                                        {% comment %} {{ProductReview.Review_Star_Select}}<br> {% endcomment %}
-                                                        {% comment %} {{ProductReview.Review_Name}}<br> {% endcomment %}
-                                                        {% comment %} {{ProductReview.Review_Email}}<br> {% endcomment %}
-                                                        <div class="review-o u-s-m-b-15">
-                                                            <div class="review-o__info u-s-m-b-8">
-                                                                <span class="review-o__name">{{ProductReview.Review_Name}}</span>
-
-                                                                <span class="review-o__date">{{ProductReview.Review_DateTime|date:"d M Y H:i:s"}} </span></div>
-
-                                                            {% if ProductReview.Review_Star_Select == '1.5' %}
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                                <span>({{ProductReview.Review_Star_Select}})</span></div>
-                                                            {% elif ProductReview.Review_Star_Select == '2' %}
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                                <span>({{ProductReview.Review_Star_Select}})</span></div>
-                                                            {% elif ProductReview.Review_Star_Select == '2.5' %}
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                                <span>({{ProductReview.Review_Star_Select}})</span></div>
-                                                            {% elif ProductReview.Review_Star_Select == '3' %}
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                                <span>({{ProductReview.Review_Star_Select}})</span></div>
-                                                            {% elif ProductReview.Review_Star_Select == '3.5' %}
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                                                                <span>({{ProductReview.Review_Star_Select}})</span></div>
-                                                            {% elif ProductReview.Review_Star_Select == '4' %}
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                                                <span>({{ProductReview.Review_Star_Select}})</span></div>
-                                                            {% elif ProductReview.Review_Star_Select == '4.5' %}
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                                                <span>({{ProductReview.Review_Star_Select}})</span></div>
-                                                            {% elif ProductReview.Review_Star_Select == '5'  %}
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                                                <span>({{ProductReview.Review_Star_Select}})</span></div>
-                                                            {% else %}
-                                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                                <span>({{ProductReview.Review_Star_Select}})</span></div>
-                                                            {% endif %}
-
-                                                            <p class="review-o__text">{{ProductReview.Review_Discription}}</p>
-                                                        </div>
-                                                    
-                                                    {% endif %}
-                                                    {% endfor ProductReview %}
-                                                    
-
-                                                        {% comment %} <div class="review-o u-s-m-b-15">
-                                                            <div class="review-o__info u-s-m-b-8">
-
-                                                                <span class="review-o__name">John Doe</span>
-
-                                                                <span class="review-o__date">27 Feb 2018 10:57:43</span></div>
-                                                            <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-
-                                                                <span>(4)</span></div>
-                                                            <p class="review-o__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                                        </div> {% endcomment %}
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--====== End - Tab 3 ======-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="pd-o-img-wrap" data-src="{{one_product.Product_Img_2.url}}">
+                  <img class="u-img-fluid" src="{{one_product.Product_Img_2.url}}" data-zoom-image="{{one_product.Product_Img_2.url}}" alt="">
                 </div>
+                <div class="pd-o-img-wrap" data-src="{{one_product.Product_Img_3.url}}">
+                  <img class="u-img-fluid" src="{{one_product.Product_Img_3.url}}" data-zoom-image="{{one_product.Product_Img_3.url}}" alt="">
+                </div>
+                <div class="pd-o-img-wrap" data-src="{{one_product.Product_Img_4.url}}">
+                  <img class="u-img-fluid" src="{{one_product.Product_Img_4.url}}" data-zoom-image="{{one_product.Product_Img_4.url}}" alt="">
+                </div>
+                <div class="pd-o-img-wrap" data-src="{{one_product.Product_Img_5.url}}">
+                  <img class="u-img-fluid" src="{{one_product.Product_Img_5.url}}" data-zoom-image="{{one_product.Product_Img_5.url}}" alt="">
+                </div>
+              </div>
+              <span class="pd-text">Click for larger zoom</span>
             </div>
-            <!--====== End - Product Detail Tab ======-->
-
-            <!--====== End - Section 1 ======-->
+            <div class="u-s-m-t-15">
+              <div class="slider-fouc">
+                <div id="pd-o-thumbnail">
+                  <div>
+                    <img class="u-img-fluid" src="{{one_product.Product_Img_1.url}}" alt="">
+                  </div>
+                  <div>
+                    <img class="u-img-fluid" src="{{one_product.Product_Img_2.url}}" alt="">
+                  </div>
+                  <div>
+                    <img class="u-img-fluid" src="{{one_product.Product_Img_3.url}}" alt="">
+                  </div>
+                  <div>
+                    <img class="u-img-fluid" src="{{one_product.Product_Img_4.url}}" alt="">
+                  </div>
+                  <div>
+                    <img class="u-img-fluid" src="{{one_product.Product_Img_5.url}}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--====== End - Product Detail Zoom ======-->
         </div>
-
-        {% endif %}
-        {% endfor Product %}
-        {% endblock content %}
-        <!--====== End - App Content ======-->
+        <div class="col-lg-7">
+          <!--====== Product Right Side Details ======-->
+          <div class="pd-detail">
+            <div>
+              <span class="pd-detail__name">{{one_product.Product_Title}}</span>
+            </div>
+            <div>
+              <div class="pd-detail__inline">
+                <span class="pd-detail__price">${{one_product.Product_Price|floatformat:2}}</span>
+                <span class="pd-detail__discount">({{one_product.Product_Percentage_Off|floatformat:0 }}% OFF)</span><del class="pd-detail__del">${{one_product.Product_Cutoff_Price|floatformat:2}}</del>
+              </div>
+            </div>
+            <div class="u-s-m-b-15">
+              {% for key, value in review_average.items %}
+              {% comment %} {{value}} {% endcomment %}
+              {% if key == one_product.Product_Title %}
+              {% comment %} {{key}}=={{one_product.Product_Title}} {% endcomment %}
+              {% if value == '1.5' %}
+              <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                <span class="pd-detail__review u-s-m-l-4">
+                <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+              </div>
+              {% elif value == '2' %}
+              <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                <span class="pd-detail__review u-s-m-l-4">
+                <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+              </div>
+              {% elif value == '2.5' %}
+              <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                <span class="pd-detail__review u-s-m-l-4">
+                <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+              </div>
+              {% elif value == '3' %}
+              <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                <span class="pd-detail__review u-s-m-l-4">
+                <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+              </div>
+              {% elif value == '3.5' %}
+              <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                <span class="pd-detail__review u-s-m-l-4">
+                <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+              </div>
+              {% elif value == '4' %}
+              <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                <span class="pd-detail__review u-s-m-l-4">
+                <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+              </div>
+              {% elif value == '4.5' %}
+              <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="pd-detail__review u-s-m-l-4">
+                <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+              </div>
+              {% elif value == '5'  %}
+              <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="pd-detail__review u-s-m-l-4">
+                <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+              </div>
+              {% else %}
+              <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                <span class="pd-detail__review u-s-m-l-4">
+                <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+              </div>
+              {% endif %}
+              {% endif %}
+              {% endfor ProductReview %}
+              {% comment %} 
+              <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="pd-detail__review u-s-m-l-4">
+                <a data-click-scroll="#view-review">{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews</a></span>
+              </div>
+              {% endcomment %}
+            </div>
+            <div class="u-s-m-b-15">
+              <div class="pd-detail__inline">
+                <span class="pd-detail__stock">{{one_product.Product_Stock}} in stock</span>
+                <span class="pd-detail__left">Only 2 left</span>
+              </div>
+            </div>
+            <div class="u-s-m-b-15">
+              <span class="pd-detail__preview-desc">{{one_product.Product_Disc}}</span>
+            </div>
+            <div class="u-s-m-b-15">
+              <ul class="pd-social-list">
+                <li>
+                  <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li>
+                  <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li>
+                  <a class="s-wa--color-hover" href="#"><i class="fab fa-whatsapp"></i></a>
+                </li>
+                <li>
+                  <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a>
+                </li>
+              </ul>
+            </div>
+            <div class="u-s-m-b-15">
+              <span class="pd-detail__label u-s-m-b-8">Product Policy:</span>
+              <ul class="pd-detail__policy-list">
+                {% for Product_policy in ProductPolicy %}
+                {% if one_product.id == Product_policy.product.id %}
+                <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+                  <span>{{Product_policy.product.id}} {{Product_policy}}</span>
+                </li>
+                {% endif %}
+                {% endfor ProductPolicy %}
+                {% comment %} 
+                <li><i class="fas fa-check-circle u-s-m-r-8"></i>
+                  <span>Buyer Protection.</span>
+                </li>
+                {% endcomment %}
+              </ul>
+            </div>
+          </div>
+          <!--====== End - Product Right Side Details ======-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--====== Product Detail Tab ======-->
+  <div class="u-s-p-y-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="pd-tab">
+            <div class="u-s-m-b-30">
+              <ul class="nav pd-tab__list">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#pd-desc">DESCRIPTION</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#pd-tag">TAGS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="view-review" data-toggle="tab" href="#pd-rev">REVIEWS
+                  <span>({% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %})</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-content">
+              <!--====== Tab 1 ======-->
+              <div class="tab-pane fade show active" id="pd-desc">
+                <div class="pd-tab__desc">
+                  <div class="u-s-m-b-15">
+                    <p>{{one_product.Product_Disc}}.</p>
+                  </div>
+                  <div class="u-s-m-b-30"><iframe src="https://www.youtube.com/embed/qKqSBm07KZk" allowfullscreen></iframe></div>
+                  <div class="u-s-m-b-30">
+                    <ul>
+                      {% for Product_policy in ProductPolicy %}
+                      {% if one_product.id == Product_policy.product.id %}
+                      <li><i class="fas fa-check u-s-m-r-8"></i>
+                        <span>{{Product_policy.product.id}} {{Product_policy}}</span>
+                      </li>
+                      {% endif %}
+                      {% endfor ProductPolicy %}
+                      {% comment %} 
+                      <li><i class="fas fa-check u-s-m-r-8"></i>
+                        <span>Buyer Protection.</span>
+                      </li>
+                      {% endcomment %}
+                    </ul>
+                  </div>
+                  <div class="u-s-m-b-15">
+                    <h4>PRODUCT INFORMATION</h4>
+                  </div>
+                  <div class="u-s-m-b-15">
+                    <div class="pd-table gl-scroll">
+                      <table>
+                        <tbody>
+                          {% for Product_SubInformation in Product_SubInformation %}
+                          {% if one_product.id == Product_SubInformation.product.id %}
+                          {% comment %} {{ProductMainInformation.product}}=={{one_product}} {% endcomment %}
+                          <tr>
+                            <td>{{Product_SubInformation}}</td>
+                            <td>
+                              {% comment %} {{Product_SubInformation.product_main_information }}=={{ProductMainInformation}}, {% endcomment %}
+                              {% for Information in Information %}
+                              {% if Product_SubInformation.id == Information.product_subInformation.id %}
+                              {% comment %} {{Product_SubInformation}}=={{Information}}, {% endcomment %}
+                              {{Information|title}},
+                              {% endif %}
+                              {% endfor Information %}
+                            </td>
+                          </tr>
+                          {% endif %}
+                          {% endfor ProductMainInformation %}
+                          <tr>
+                            <td>Warrenty</td>
+                            <td>{{one_product.Product_Warrenty|floatformat:1}} Year</td>
+                          <tr>
+                          <tr>
+                            <td>Garenty</td>
+                            <td>{{one_product.Product_Garenty|floatformat:1}} Year</td>
+                          <tr>
+                          <tr>
+                            <td>Shipping</td>
+                            <td>{{one_product.ProductShipping}}</td>
+                          <tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--====== End - Tab 1 ======-->
+              <!--====== Tab 2 ======-->
+              <div class="tab-pane" id="pd-tag">
+                <div class="pd-tab__tag">
+                  <h2 class="u-s-m-b-15">ADD YOUR TAGS FROM HERE</h2>
+                  <div class="u-s-m-b-15">
+                    <form method = "post" action="{% url 'profile:product_view_one' one_product.pk  %}" >
+                      {% csrf_token %}
+                      <input class="input-text input-text--primary-style" name="Product_Tags" type="text" {% for ProductTags in ProductTags %}{% if one_product.id == ProductTags.product.id %} value="{{ProductTags.Product_Tags}}" {% endif %}{% endfor ProductTags %}>
+                      {% comment %} 
+                      <p>{{ProductTags.Product_Tags}}
+                      <p> {% endcomment %}
+                        <button class="btn btn--e-brand-b-2" type="submit">ADD TAGS</button>
+                    </form>
+                  </div>
+                  <span class="gl-text">Use spaces to separate tags. Use single quotes (') for phrases.</span>
+                </div>
+              </div>
+              <!--====== End - Tab 2 ======-->
+              <!--====== Tab 3 ======-->
+              <div class="tab-pane" id="pd-rev">
+                <div class="pd-tab__rev">
+                  <div class="u-s-m-b-30">
+                    <div class="pd-tab__rev-score">
+                      <div class="u-s-m-b-8">
+                        <h2>{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Reviews - {% for key, value in review_average.items %}{% if key == one_product.Product_Title %}{{value}} Stars {% endif %}{% endfor %}(Overall)</h2>
+                      </div>
+                      {% for key, value in review_average.items %}
+                      {% if key == one_product.Product_Title %}
+                      {% if value == '1.5' %}
+                      <div class="gl-rating-style-2 u-s-m-b-8">
+                        <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      {% elif value == '2' %}
+                      <div class="gl-rating-style-2 u-s-m-b-8">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      {% elif value == '2.5' %}
+                      <div class="gl-rating-style-2 u-s-m-b-8">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      {% elif value == '3' %}
+                      <div class="gl-rating-style-2 u-s-m-b-8">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      {% elif value == '3.5' %}
+                      <div class="gl-rating-style-2 u-s-m-b-8">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                      </div>
+                      {% elif value == '4' %}
+                      <div class="gl-rating-style-2 u-s-m-b-8">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      {% elif value == '4.5' %}
+                      <div class="gl-rating-style-2 u-s-m-b-8">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                      </div>
+                      {% elif value == '5'  %}
+                      <div class="gl-rating-style-2 u-s-m-b-8">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      </div>
+                      {% else %}
+                      <div class="gl-rating-style-2 u-s-m-b-8">
+                        <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                      </div>
+                      {% endif %}
+                      {% endif %}
+                      {% endfor review_average %}
+                      {% comment %} 
+                      <div class="gl-rating-style-2 u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                      {% endcomment %}
+                      <div class="u-s-m-b-8">
+                        <h4>We want to hear from you!</h4>
+                      </div>
+                      <span class="gl-text">Tell us what you think about this item</span>
+                    </div>
+                  </div>
+                  <div class="u-s-m-b-30">
+                    <form class="pd-tab__rev-f1">
+                      <div class="rev-f1__group">
+                        <div class="u-s-m-b-15">
+                          <h2>{% for key, value in unique_product_rating_count.items %}{% if key == one_product.Product_Title %}{{value}}{% endif %}{% endfor %} Review(s) for {{one_product.Product_Title}}</h2>
+                        </div>
+                        <div class="u-s-m-b-15">
+                          <label for="sort-review"></label>
+                          <select class="select-box select-box--primary-style" id="sort-review">
+                            <option selected>Sort by: Best Rating</option>
+                            <option>Sort by: Worst Rating</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="rev-f1__review">
+                        {% for ProductReview in ProductReview %}
+                        {% if ProductReview.product.id == one_product.id %}
+                        {% comment %} {{ProductReview.product.id}}{{one_product.id}} {% endcomment %}
+                        {% comment %} {{ProductReview}}<br> {% endcomment %}
+                        {% comment %} {{ProductReview.Review_DateTime}}<br> {% endcomment %}
+                        {% comment %} {{ProductReview.user}}<br> {% endcomment %}
+                        {% comment %} {{ProductReview.Review_Star_Select}}<br> {% endcomment %}
+                        {% comment %} {{ProductReview.Review_Name}}<br> {% endcomment %}
+                        {% comment %} {{ProductReview.Review_Email}}<br> {% endcomment %}
+                        <div class="review-o u-s-m-b-15">
+                          <div class="review-o__info u-s-m-b-8">
+                            <span class="review-o__name">{{ProductReview.Review_Name}}</span>
+                            <span class="review-o__date">{{ProductReview.Review_DateTime|date:"d M Y H:i:s"}} </span>
+                          </div>
+                          {% if ProductReview.Review_Star_Select == '1.5' %}
+                          <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            <span>({{ProductReview.Review_Star_Select}})</span>
+                          </div>
+                          {% elif ProductReview.Review_Star_Select == '2' %}
+                          <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            <span>({{ProductReview.Review_Star_Select}})</span>
+                          </div>
+                          {% elif ProductReview.Review_Star_Select == '2.5' %}
+                          <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            <span>({{ProductReview.Review_Star_Select}})</span>
+                          </div>
+                          {% elif ProductReview.Review_Star_Select == '3' %}
+                          <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            <span>({{ProductReview.Review_Star_Select}})</span>
+                          </div>
+                          {% elif ProductReview.Review_Star_Select == '3.5' %}
+                          <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                            <span>({{ProductReview.Review_Star_Select}})</span>
+                          </div>
+                          {% elif ProductReview.Review_Star_Select == '4' %}
+                          <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            <span>({{ProductReview.Review_Star_Select}})</span>
+                          </div>
+                          {% elif ProductReview.Review_Star_Select == '4.5' %}
+                          <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>({{ProductReview.Review_Star_Select}})</span>
+                          </div>
+                          {% elif ProductReview.Review_Star_Select == '5'  %}
+                          <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>({{ProductReview.Review_Star_Select}})</span>
+                          </div>
+                          {% else %}
+                          <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            <span>({{ProductReview.Review_Star_Select}})</span>
+                          </div>
+                          {% endif %}
+                          <p class="review-o__text">{{ProductReview.Review_Discription}}</p>
+                        </div>
+                        {% endif %}
+                        {% endfor ProductReview %}
+                        {% comment %} 
+                        <div class="review-o u-s-m-b-15">
+                          <div class="review-o__info u-s-m-b-8">
+                            <span class="review-o__name">John Doe</span>
+                            <span class="review-o__date">27 Feb 2018 10:57:43</span>
+                          </div>
+                          <div class="review-o__rating gl-rating-style u-s-m-b-8"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            <span>(4)</span>
+                          </div>
+                          <p class="review-o__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        </div>
+                        {% endcomment %}
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!--====== End - Tab 3 ======-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--====== End - Product Detail Tab ======-->
+  <!--====== End - Section 1 ======-->
+</div>
+{% endif %}
+{% endfor Product %}
+{% endblock content %}
+<!--====== End - App Content ======-->
